@@ -1,0 +1,81 @@
+module data_aligner (
+    input                       clk,
+
+    input [DATA_WIDTH-1:0]      mipi_data,
+    input                       end_of_packet,
+
+    output reg [DATA_WIDTH-1:0] aligned_data = 0
+);
+
+`pragma protect begin_protected
+`pragma protect version=1
+`pragma protect encrypt_agent="ipecrypt"
+`pragma protect encrypt_agent_info="IP Encrypter LLC, http://ipencrypter.com, Version: 23.7.0"
+`pragma protect author="author-a"
+`pragma protect author_info="author-a-details"
+
+`pragma protect key_keyowner="Efinix Inc."
+`pragma protect key_keyname="EFX_K01"
+`pragma protect key_method="rsa"
+`pragma protect encoding=(enctype="base64", line_length=64, bytes=256)
+`pragma protect key_block
+Ov6mtGE0oFMQdlBCcKhBQz5z0kV2pyRepqXuww2BDLoZPhMOGpnBMoaH8MRo3qOT
+qFHtQzFUI/yEh8q9Ps46O3HRZJlwcNsSmNUTkDqNC8QIZYZ2cohzlJNlywLvcXc/
+1tHRywRPzTJqGDPqTv/1IPL54RhmO5GdLJhEGXCPRYaCRm7qvJilQT4cImV7q08h
+QkINHTKm8JTNV0M1/zXW9Z8fAQijOLIndzgt4KcRZDEEmgkOTYtKSx5k5HXymMhA
+Oycm/sUNno5ucEHPkhGN8x43CCqQsD1Ma+ibkfSgQm6AQ1MeGgTPUQQo1hPWVHGU
+qqYfUL1kc0K0BWTx3WDIXg==
+
+`pragma protect key_keyowner="Mentor Graphics Corporation"
+`pragma protect key_keyname="MGC-VERIF-SIM-RSA-1"
+`pragma protect key_method="rsa"
+`pragma protect encoding=(enctype="base64", line_length=64, bytes=128)
+`pragma protect key_block
+o+ohbkFM3EbBwGI9mdXIyufneEdPAv9EO8ZbDzAW1HSPNbTcDBcKT1Rfr3NW6UEf
+jFhYlTqjqJ6QaejoyVcDPfOnCnMBnaDoV95mxMtTQOevh3ocLiSbqhM/31k3wR8S
+pGsUeOHtP/dTx46NeuEjE1Pb0T6htlOQYWvCucLI5LI=
+
+`pragma protect data_method="aes256-cbc"
+`pragma protect encoding=(enctype="base64", line_length=64, bytes=1789)
+`pragma protect data_block
+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
+5bLuOZOGzRlz/M9w6c7upQ==
+`pragma protect end_protected
+
+endmodule
