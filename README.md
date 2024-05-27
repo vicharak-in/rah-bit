@@ -2,7 +2,7 @@
 
 ## Overview
 
-The RAH (Real-time Application Handler) protocol is designed to facilitate the transfer of data between a CPU and an FPGA. It allows the CPU to run various applications that send data to the FPGA. The RAH Services encapsulate the data into distinguishable data-frames identified by an `app_id` and deliver these frames to the FPGA. On the FPGA side, the RAH design decodes the data and writes it to the corresponding `APP_WR_FIFO`. Similarly, during the read cycle, the FPGA writes data into `APP_RD_FIFO`, which is then encapsulated and delivered back to the CPU where it gets decoded.
+The RAH (Real-time Application Handler) protocol is designed to facilitate the transfer of data between a CPU and an FPGA, which is developed by [Vicharak](https://vicharak.in), And It allows the CPU to run various applications that send data to the FPGA. The RAH Services encapsulate the data into distinguishable data-frames identified by an `app_id` and deliver these frames to the FPGA. On the FPGA side, the RAH design decodes the data and writes it to the corresponding `APP_WR_FIFO`. Similarly, during the read cycle, the FPGA writes data into `APP_RD_FIFO`, which is then encapsulated and delivered back to the CPU where it gets decoded.
 
 This guide includes the capability to generate and manage multiple applications on both the CPU and FPGA using header files.
 
