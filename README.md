@@ -92,6 +92,13 @@ This guide includes the capability to generate and manage multiple applications 
 
 ## Generating Multiple Applications
 
+### Pre-requisite
+
+```bash
+sudo apt update
+sudo apt install rah-service
+```
+
 ### Using Header Files
 
 To manage multiple applications on both the CPU and FPGA, you can define and include header files that specify the application identifiers (`app_id`) and related configurations.
