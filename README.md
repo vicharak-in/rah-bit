@@ -94,10 +94,15 @@ This guide includes the capability to generate and manage multiple applications 
 
 ### Pre-requisite
 
-```bash
-sudo apt update
-sudo apt install rah-service
-```
+1. Enable FPGA Communication from the Vicharak Utility
+    - [Enabling the overlay](https://docs.vicharak.in/vaaman-linux/linux-configuration-guide/vicharak-config-tool/#vicharak-config-overlays)
+
+2. Install RAH service on the board by,
+
+    ```bash
+    sudo apt update
+    sudo apt install rah-service
+    ```
 
 ### Using Header Files
 
