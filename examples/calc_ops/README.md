@@ -13,9 +13,16 @@ The CPU passes the data to the FPGA in the form of a 6-byte packet. The FPGA pro
 ## Usage Guide
 
 ### On FPGA
+
+> [!NOTE]
+>
+> To implement example project, just edit in the `rah-bit` repository, don't copy the code from rah-bit to your project. Make sure to add your module in rah-bit and then include it in the top module.
+
 1. **Define Calculator Operations in a Header File (rah_var_defs.vh)**:
+
+Open the `rah_var_defs.vh` file and define the calculator operations and the total number of applications.
     
-The definition should be same as defined in the CPU side.
+The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
@@ -31,6 +38,8 @@ The definition should be same as defined in the CPU side.
 
 2. **Include and Use Calculator operation IDs in top module**:
 
+To implement the project, open existing `top.v` from the `rah-bit` repository and add the following modules to it:
+
 ```verilog
 // top.v
 `include "rah_var_defs.vh"
@@ -38,6 +47,8 @@ The definition should be same as defined in the CPU side.
 module top (
     ..........
 );
+
+.........
 
 /* Accesssing data from APP_WR_FIFO */
 
