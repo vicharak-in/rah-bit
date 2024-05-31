@@ -9,9 +9,14 @@ To negotiate that we will append 0's at MSB and send the data.
 ## Usage Guide
 
 ### On FPGA
+
+> [!NOTE]
+>
+> To implement example project, just edit in the `rah-bit` repository, don't copy the code from rah-bit to your project. Make sure to add your module in rah-bit and then include it in the top module.
+
 1. **Define RAH2UART in a Header File (rah_var_defs.vh)**:
     
-The definition should be same as defined in the CPU side.
+The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
@@ -26,6 +31,8 @@ The definition should be same as defined in the CPU side.
 
 2. **Include and Use RAH2UART IDs in top module**:
 
+To implement the project, open existing `top.v` from the `rah-bit` repository and add the following modules to it:
+
 ```verilog
 // top.v
 `include "rah_var_defs.vh"
@@ -33,6 +40,8 @@ The definition should be same as defined in the CPU side.
 module top (
     ..........
 );
+
+........
 
 /* Accesssing data from APP_WR_FIFO */
 
