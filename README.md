@@ -104,6 +104,10 @@ This guide includes the capability to generate and manage multiple applications 
     sudo apt install rah-service
     ```
 
+> [!NOTE]
+>
+> Rah service is being updated very frequently. So, it is recommended to update the rah service before using it.
+
 ### Using Header Files
 
 To manage multiple applications on both the CPU and FPGA, you can define and include header files that specify the application identifiers (`app_id`) and related configurations.
@@ -158,6 +162,8 @@ To manage multiple applications on both the CPU and FPGA, you can define and inc
     //Running the executable
     ./a.out
     ```
+
+    For more information on the RAH API functions, refer to the RAH protocol's API [documentation](docs/cpu-usage-guide.md).
 
 #### FPGA Side
 
