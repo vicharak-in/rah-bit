@@ -122,9 +122,28 @@ int main(void) {
 }
 ```
 
+---
+
+**int rah_clear_buffer**(const **uint8_t** appid);
+
+<div align="center">
+
+| Field 	| Value |
+| :-------: | :---: | 
+| appid		| The ID of running application on FPGA |
+
+</div>
+
+Clear file buffer for `appid`. This is the file that receives incoming
+data from the FPGA. You can inspect it at location `/tmp/(<appid> + 3)`.
+
+---
+
 ### Installing and Running
 
 ```
 gcc filename.c -lrah
 ./a.out
 ```
+
+For more details, please refer to the given example.
