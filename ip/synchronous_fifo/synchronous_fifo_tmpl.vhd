@@ -37,7 +37,7 @@
 --
 --------------------------------------------------------------------------------
 ------------- Begin Cut here for COMPONENT Declaration ------
-COMPONENT async_fifo is
+COMPONENT synchronous_fifo is
 PORT (
 almost_full_o : out std_logic;
 prog_full_o : out std_logic;
@@ -48,21 +48,19 @@ empty_o : out std_logic;
 almost_empty_o : out std_logic;
 underflow_o : out std_logic;
 rd_valid_o : out std_logic;
-wr_clk_i : in std_logic;
-rd_clk_i : in std_logic;
+clk_i : in std_logic;
 wr_en_i : in std_logic;
 rd_en_i : in std_logic;
 wdata : in std_logic_vector(47 downto 0);
-wr_datacount_o : out std_logic_vector(7 downto 0);
+datacount_o : out std_logic_vector(7 downto 0);
 rst_busy : out std_logic;
 rdata : out std_logic_vector(47 downto 0);
-rd_datacount_o : out std_logic_vector(7 downto 0);
 a_rst_i : in std_logic);
 END COMPONENT;
 ---------------------- End COMPONENT Declaration ------------
 
 ------------- Begin Cut here for INSTANTIATION Template -----
-u_async_fifo : async_fifo
+u_synchronous_fifo : synchronous_fifo
 PORT MAP (
 almost_full_o => almost_full_o,
 prog_full_o => prog_full_o,
@@ -73,14 +71,12 @@ empty_o => empty_o,
 almost_empty_o => almost_empty_o,
 underflow_o => underflow_o,
 rd_valid_o => rd_valid_o,
-wr_clk_i => wr_clk_i,
-rd_clk_i => rd_clk_i,
+clk_i => clk_i,
 wr_en_i => wr_en_i,
 rd_en_i => rd_en_i,
 wdata => wdata,
-wr_datacount_o => wr_datacount_o,
+datacount_o => datacount_o,
 rst_busy => rst_busy,
 rdata => rdata,
-rd_datacount_o => rd_datacount_o,
 a_rst_i => a_rst_i);
 ------------------------ End INSTANTIATION Template ---------

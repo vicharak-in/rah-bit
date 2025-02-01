@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-localparam SYNC_CLK = 0;
+localparam SYNC_CLK = 1;
 localparam SYNC_STAGE = 2;
 localparam DATA_WIDTH = 48;
 localparam MODE = "STANDARD";
