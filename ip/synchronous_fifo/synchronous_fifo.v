@@ -43,10 +43,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _7a14fb02b9df408bb67330ef27c75adc
+`define IP_UUID _bf35aa7b6c5144118873357f5e6da3e6
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
-module async_fifo (
+module synchronous_fifo (
 output almost_full_o,
 output prog_full_o,
 output full_o,
@@ -56,19 +56,17 @@ output empty_o,
 output almost_empty_o,
 output underflow_o,
 output rd_valid_o,
-input wr_clk_i,
-input rd_clk_i,
+input clk_i,
 input wr_en_i,
 input rd_en_i,
 input [47:0] wdata,
-output [7:0] wr_datacount_o,
+output [7:0] datacount_o,
 output rst_busy,
 output [47:0] rdata,
-output [7:0] rd_datacount_o,
 input a_rst_i
 );
 `IP_MODULE_NAME(efx_fifo_top) #(
-.SYNC_CLK (0),
+.SYNC_CLK (1),
 .SYNC_STAGE (2),
 .DATA_WIDTH (48),
 .MODE ("STANDARD"),
@@ -96,15 +94,13 @@ input a_rst_i
 .almost_empty_o ( almost_empty_o ),
 .underflow_o ( underflow_o ),
 .rd_valid_o ( rd_valid_o ),
-.wr_clk_i ( wr_clk_i ),
-.rd_clk_i ( rd_clk_i ),
+.clk_i ( clk_i ),
 .wr_en_i ( wr_en_i ),
 .rd_en_i ( rd_en_i ),
 .wdata ( wdata ),
-.wr_datacount_o ( wr_datacount_o ),
+.datacount_o ( datacount_o ),
 .rst_busy ( rst_busy ),
 .rdata ( rdata ),
-.rd_datacount_o ( rd_datacount_o ),
 .a_rst_i ( a_rst_i )
 );
 
