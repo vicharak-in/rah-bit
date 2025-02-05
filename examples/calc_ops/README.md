@@ -28,9 +28,9 @@ The definition should be same as defined on the CPU side.
 // rah_var_defs.vh
 `define TOTAL_APPS 3
 
-`define ADD 0
-`define SHIFT 1
-`define MUL 2
+`define ADD 1
+`define SHIFT 2
+`define MUL 3
 
 `define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 `define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]

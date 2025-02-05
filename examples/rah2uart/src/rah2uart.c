@@ -4,7 +4,7 @@
 
 #include <rah.h>
 
-#define RAH2UART 0
+#define RAH2UART 1
 
 void *rd_thread(void *arg) {
 	char rd_data[6] = {0};
