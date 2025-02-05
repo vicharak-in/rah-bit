@@ -4,9 +4,9 @@
 
 #include <rah.h>
 
-#define ADD 0
-#define SHIFT 1
-#define MUL 2
+#define ADD 1
+#define SHIFT 2
+#define MUL 3
 
 void xprintf(char *data, int len) {
 	for (int i = 0; i < len; i++)
