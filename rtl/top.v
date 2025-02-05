@@ -85,6 +85,7 @@ data_aligner #(
 
 /* Depacketizing the recevied data */
 rah_decoder #(
+    .TOTAL_APPS(TOTAL_APPS),
     .DATA_WIDTH(RAH_PACKET_WIDTH)
 ) rd (
     /* rah raw input variables */
@@ -152,6 +153,7 @@ wire hsync;
 wire vsync;
 
 rah_encoder #(
+    .TOTAL_APPS(TOTAL_APPS),
     .WIDTH(ACTIVE_VID_WIDTH),
     .HEIGHT(ACTIVE_VID_HEIGHT),
     .DATA_WIDTH(RAH_PACKET_WIDTH)
