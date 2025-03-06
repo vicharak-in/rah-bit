@@ -59,3 +59,16 @@ This section describes the key components and the data transfer process between 
 
 > [!NOTE]  
 > RAH service is frequently updated, so it is recommended to update the RAH service before using it on both:w CPU side as well as FPGA side.
+
+## RAH Protocol User Guide - Resources
+
+For further details on how to use the RAH protocol, you can refer to the following guides:
+
+1. **[CPU Usage Guide](docs/cpu-usage-guide.md)**:  
+   This guide will provide detailed instructions on how to set up and use the RAH protocol on the CPU side, including configuration, data encapsulation, and integration with CPU applications.
+
+2. **[FPGA Implementation Guide](docs/fpga-implementation.md)**:  
+   This guide covers the FPGA side of the RAH protocol, explaining how to implement the RAH design, decode data frames, and manage the FIFO buffers for both write and read cycles.
+
+3. **[RAH Example Integration](docs/rah-example-integration.md)**:  
+   This document provides a step-by-step example of integrating the RAH protocol between the CPU and FPGA, demonstrating the complete flow from data generation on the CPU to processing on the FPGA and back.
