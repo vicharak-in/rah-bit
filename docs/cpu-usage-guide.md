@@ -147,3 +147,68 @@ gcc filename.c -lrah
 ```
 
 For more details, please refer to the given example.
+
+
+
+# Pyrah: Python Wrapper for RAH Protocol
+
+The Pyrah library provides a Python wrapper for the RAH protocol, simplifying communication with an FPGA. With Pyrah, you can easily interact with the FPGA using Python, making tasks such as writing and reading data to/from the FPGA more accessible.
+
+## Installation
+
+To install the Pyrah library, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/vicharak-in/pyrah
+    ```
+
+2. Navigate into the `pyrah` directory:
+
+    ```bash
+    cd pyrah
+    ```
+
+3. Install the package:
+
+    ```bash
+    sudo python3 setup.py install
+    ```
+
+## Usage
+
+Once installed, you can use the Pyrah library to communicate with the FPGA. Below is an example Python code demonstrating how to interact with the FPGA.
+
+### Example Python Code:
+
+```python
+import pyrah
+
+APPID = 3
+
+# Write a message to the FPGA
+pyrah.rah_write(APPID, b"Hello World!")
+
+# Read data from the FPGA
+data = pyrah.rah_read(APPID, 10)  # Here 10 is the length of data we need
+print(data)
+```
+### Functions:
+
+- **`rah_write(APPID, data)`**  
+  Sends a message to the FPGA using the specified `APPID`.
+  
+- **`rah_read(APPID, length)`**  
+  Reads the specified number of bytes from the FPGA. The `length` parameter defines how many bytes of data should be read.
+
+## Additional Resources
+
+- **[Pyrah](https://github.com/vicharak-in/pyrah)**  
+  Access the source code and additional documentation.
+
+- **[Rahcomm](https://github.com/vicharak-in/rahcomm)**   
+  A wrapper for Pyrah that enables seamless data communication with RAH.
+ 
+This documentation outlines how to use the Pyrah library to facilitate CPU-FPGA communication in Python.
+
