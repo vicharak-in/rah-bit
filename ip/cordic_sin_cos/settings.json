@@ -1,0 +1,29 @@
+{
+    "args": [
+        "-o",
+        "cordic_sin_cos",
+        "--base_path",
+        "/home/dev/Vicharak/cordic/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "arithmetic",
+            "name": "efx_cordic",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "MODE": "1"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/dev/Vicharak/cordic/ip/cordic_sin_cos/cordic_sin_cos_define.vh",
+            "/home/dev/Vicharak/cordic/ip/cordic_sin_cos/cordic_sin_cos_tmpl.vhd",
+            "/home/dev/Vicharak/cordic/ip/cordic_sin_cos/cordic_sin_cos_tmpl.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_sin_cos/cordic_sin_cos.v"
+        ],
+        "external_script_generator": []
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2025-03-11T12:26:57.984662"
+}

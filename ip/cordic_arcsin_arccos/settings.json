@@ -1,0 +1,29 @@
+{
+    "args": [
+        "-o",
+        "cordic_arcsin_arccos",
+        "--base_path",
+        "/home/dev/Vicharak/cordic/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "arithmetic",
+            "name": "efx_cordic",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "MODE": "2"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/dev/Vicharak/cordic/ip/cordic_arcsin_arccos/cordic_arcsin_arccos_tmpl.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_arcsin_arccos/cordic_arcsin_arccos.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_arcsin_arccos/cordic_arcsin_arccos_tmpl.vhd",
+            "/home/dev/Vicharak/cordic/ip/cordic_arcsin_arccos/cordic_arcsin_arccos_define.vh"
+        ],
+        "external_script_generator": []
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2025-03-11T12:29:45.413008"
+}
