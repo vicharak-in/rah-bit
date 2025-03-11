@@ -4,6 +4,7 @@ module top (
 /* Clocks of MIPI TX and RX parallel interfaces */
     input                       rx_pixel_clk,
     input                       tx_pixel_clk,
+    input                       cordic_clk,
     input                       tx_vga_clk,
 
 /* Signals used by the MIPI RX Interface Designer instance */
@@ -120,20 +121,17 @@ rah_version_check #(
     .out_data       (`SET_DATA_RAH(0))
 );
 
-/* Periplex instantiation for multiplexing peripherals */
-assign rd_clk[`EXAMPLE] = rx_pixel_clk; 
+assign rd_clk[`CORDDIC] = cordic_clk; 
+assign wr_clk[`CORDDIC] = cordic_clk;
 
-/* change this module as your app */
-example_recv #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) er (
-    .clk(rx_pixel_clk),
-    .data_queue_empty(data_queue_empty[`EXAMPLE]),
-    .data_queue_almost_empty(data_queue_almost_empty[`EXAMPLE]),
-    .request_data(request_data[`EXAMPLE]),
-    .data_frame(`GET_DATA_RAH(`EXAMPLE)),
-    .uart_tx_pin(uart_tx_pin)
-);
+cordic_mode_controller calc(
+    .clk            (cordic_clk), 
+    .Cor_in_data    (`GET_DATA_RAH(`CORDDIC)),
+    .empty          (data_queue_empty[`CORDDIC]),
+    .RD_en          (request_data[`CORDDIC]),
+    .wr_en          (write_apps_data[`CORDDIC]),
+    .wr_data        (`SET_DATA_RAH(`CORDDIC))
+   );
 
 /* Send data to processor */
 wire [TOTAL_APPS-1:0] wr_clk;
@@ -174,18 +172,6 @@ rah_encoder #(
     .mipi_data              (mipi_out_data),
     .hsync_patgen           (hsync),
     .vsync_patgen           (vsync)
-);
-
-assign wr_clk[`EXAMPLE] = tx_pixel_clk;
-
-/* Include your module */
-example_trans #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) et (
-    .clk            (tx_pixel_clk),
-    .uart_rx_pin    (uart_rx_pin),
-    .data           (`SET_DATA_RAH(`EXAMPLE)),
-    .send_data      (write_apps_data[`EXAMPLE])
 );
 
 assign my_mipi_tx_DPHY_RSTN = ~mipi_out_rst;
