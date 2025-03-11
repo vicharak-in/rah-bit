@@ -1,0 +1,29 @@
+{
+    "args": [
+        "-o",
+        "cordic_tanh",
+        "--base_path",
+        "/home/dev/Vicharak/cordic/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "arithmetic",
+            "name": "efx_cordic",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "MODE": "5"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/dev/Vicharak/cordic/ip/cordic_tanh/cordic_tanh_tmpl.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_tanh/cordic_tanh.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_tanh/cordic_tanh_tmpl.vhd",
+            "/home/dev/Vicharak/cordic/ip/cordic_tanh/cordic_tanh_define.vh"
+        ],
+        "external_script_generator": []
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2025-03-11T12:30:24.600340"
+}
