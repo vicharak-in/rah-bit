@@ -1,0 +1,29 @@
+{
+    "args": [
+        "-o",
+        "cordic_exp",
+        "--base_path",
+        "/home/dev/Vicharak/cordic/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "arithmetic",
+            "name": "efx_cordic",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "MODE": "6"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/dev/Vicharak/cordic/ip/cordic_exp/cordic_exp_tmpl.vhd",
+            "/home/dev/Vicharak/cordic/ip/cordic_exp/cordic_exp_define.vh",
+            "/home/dev/Vicharak/cordic/ip/cordic_exp/cordic_exp_tmpl.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_exp/cordic_exp.v"
+        ],
+        "external_script_generator": []
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2025-03-11T12:30:37.291319"
+}

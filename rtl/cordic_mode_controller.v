@@ -1,34 +1,34 @@
-module sincos_rah (
+module cordic_mode_controller (
 input             clk,
 input             reset_n,
 input [47:0]      Cor_in_data,    // 32 to 48
 input             empty,
-output reg [31:0] i_data,
-output reg [31:0] i_data2,
-output reg        RD_en = 0,
-output reg        wr_en = 0,
-output reg [47:0] wr_data,
-output reg        i_call_1 = 0, 
-output reg        i_call_2 =0,
-output reg        i_call_3 =0,
-output reg        i_call_4 =0,
-output reg        i_call_5 =0,
-output reg        i_call_6 =0,
-output reg        i_call_7 =0,
-output reg        i_call_8 =0
+output reg [31:0] i_data  = 0,
+output reg [31:0] i_data2 = 0,
+output reg        RD_en   = 0,
+output reg        wr_en   = 0,
+output reg [47:0] wr_data = 0,
+output            i_call_1, 
+output            i_call_2,
+output            i_call_3,
+output            i_call_4,
+output            i_call_5,
+output            i_call_6,
+output            i_call_7,
+output            i_call_8
 );
 
-reg        i_call = 0;
-reg [7:0]  mode;
-reg [47:0] rdata = 0;
-reg [1:0]  rd_state = 0;
-reg        count =0; 
-reg [1:0]  wr_count = 0; 
-reg [31:0] out_data_sin;
-reg [31:0] out_data_cos;
-reg [63:0] out_data;
-reg [31:0] out_data_tan;
-reg [2:0]  wr_state = 0; 
+reg        i_call       = 0;
+reg [7:0]  mode         = 0;
+reg [47:0] rdata        = 0;
+reg [1:0]  rd_state     = 0;
+reg        count        = 0; 
+reg [1:0]  wr_count     = 0; 
+reg [31:0] out_data_sin = 0;
+reg [31:0] out_data_cos = 0;
+reg [63:0] out_data     = 0;
+reg [31:0] out_data_tan = 0;
+reg [2:0]  wr_state     = 0; 
 
 localparam RD_IDLE   = 2'b00;
 localparam RD_HOLD   = 2'b01; 
@@ -37,7 +37,7 @@ localparam RD_ACCUM  = 2'b11;
 localparam W_IDLE    = 3'h0; 
 localparam W_SEND    = 3'h1;
 
-wire o_done =0;
+wire o_done;
 wire o_done_1;
 wire o_done_2;
 wire o_done_3;
@@ -68,7 +68,7 @@ always @(posedge clk) begin
     case (rd_state)
         RD_IDLE: begin 
             i_data <= 0;
-            i_call <= 0;
+            i_data2 <= 0;
             if (!empty) begin 
                 RD_en <= 1;
                 rd_state<= RD_HOLD;
@@ -82,20 +82,20 @@ always @(posedge clk) begin
         
         RD_SAMPLE: begin
             rdata <= Cor_in_data; 
-            mode <=  Cor_in_data[15:8];
+            mode <=  Cor_in_data[39:32];
             rd_state <= RD_ACCUM;   
         end
         
         RD_ACCUM: begin
-            if(rdata[15:8] == 8)begin
+            if(rdata[39:32] == 8)begin
                 if(!count)begin
-                    i_data <= rdata[47:16];
+                    i_data <= rdata[31:0];
                     count <= 1;
                     rd_state <= RD_IDLE;
                 end
                 else begin
                     count <=0;
-                    i_data2 <= rdata[47:16];
+                    i_data2 <= rdata[31:0];
                     i_call <= 1;
                     if(o_done_8)begin
                         rd_state <= RD_IDLE;
@@ -103,11 +103,12 @@ always @(posedge clk) begin
                 end
             end
             else begin 
-                i_data <= rdata[47:16];
+                i_data <= rdata[31:0];
                 i_call <= 1;
             end 
             if(o_done_1 ||o_done_2 ||o_done_3 ||o_done_4 ||o_done_5 ||o_done_6 ||o_done_7 )begin
                 rd_state <= RD_IDLE;
+                i_call <= 0;
             end
         end
     endcase
@@ -239,18 +240,16 @@ always @(posedge clk) begin
     end 
 end
 
-always@(posedge clk)begin
-    if(mode == 1) i_call_1 <= i_call;
-    if(mode == 2) i_call_2 <= i_call;
-    if(mode == 3) i_call_3 <= i_call;
-    if(mode == 4) i_call_4 <= i_call; 
-    if(mode == 5) i_call_5 <= i_call;
-    if(mode == 6) i_call_6 <= i_call;
-    if(mode == 7) i_call_7 <= i_call;
-    if(mode == 8) i_call_8<= i_call;
-end
-
-Cordic_sincos sin (
+assign i_call_1 = (mode == 1) ? i_call: 0;
+assign i_call_2 = (mode == 2) ? i_call: 0;
+assign i_call_3 = (mode == 3) ? i_call: 0;
+assign i_call_4 = (mode == 4) ? i_call: 0;
+assign i_call_5 = (mode == 5) ? i_call: 0;
+assign i_call_6 = (mode == 6) ? i_call: 0;
+assign i_call_7 = (mode == 7) ? i_call: 0;
+assign i_call_8 = (mode == 8) ? i_call: 0;
+    
+cordic_sin_cos sin (
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_1),
@@ -261,7 +260,7 @@ Cordic_sincos sin (
 );
 
 
-Cordic_sinh sinh(
+cordic_sinh_cosh sinh(
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_2),
@@ -272,7 +271,7 @@ Cordic_sinh sinh(
 );
 
 
-Cordic_tanh tanh(
+cordic_tanh tanh(
 .clk         (clk),
 .reset_n     (reset_n),
 .i_call      (i_call_3),
@@ -284,7 +283,7 @@ Cordic_tanh tanh(
 );
 
 
-Cordic_arcsin arcsin (
+cordic_arcsin_arccos arcsin (
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_4),
@@ -295,7 +294,7 @@ Cordic_arcsin arcsin (
 );
 
 
-Cordic_exp exp (
+cordic_exp exp (
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_5),
@@ -305,7 +304,7 @@ Cordic_exp exp (
 );
 
 
-Cordic_ln ln (
+cordic_ln ln (
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_6),
@@ -316,7 +315,7 @@ Cordic_ln ln (
 );
 
 
-Cordic_sqrt sqrt (
+cordic_sqrt sqrt (
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_7),
@@ -326,7 +325,7 @@ Cordic_sqrt sqrt (
 );
 
 
-Cordic_arctan arctan(
+cordic_arctan arctan(
 .clk        (clk),
 .reset_n    (reset_n),
 .i_call     (i_call_8),

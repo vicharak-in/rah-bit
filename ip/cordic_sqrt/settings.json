@@ -1,0 +1,29 @@
+{
+    "args": [
+        "-o",
+        "cordic_sqrt",
+        "--base_path",
+        "/home/dev/Vicharak/cordic/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "arithmetic",
+            "name": "efx_cordic",
+            "version": "5.0"
+        }
+    ],
+    "conf": {
+        "MODE": "8"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/dev/Vicharak/cordic/ip/cordic_sqrt/cordic_sqrt_tmpl.vhd",
+            "/home/dev/Vicharak/cordic/ip/cordic_sqrt/cordic_sqrt_define.vh",
+            "/home/dev/Vicharak/cordic/ip/cordic_sqrt/cordic_sqrt_tmpl.v",
+            "/home/dev/Vicharak/cordic/ip/cordic_sqrt/cordic_sqrt.v"
+        ],
+        "external_script_generator": []
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2025-03-11T12:31:11.532615"
+}
