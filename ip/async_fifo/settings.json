@@ -1,0 +1,47 @@
+{
+    "args": [
+        "-o",
+        "async_fifo",
+        "--base_path",
+        "/home/dev/rah-bit/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "memory",
+            "name": "efx_fifo_top",
+            "version": "7.1"
+        }
+    ],
+    "conf": {
+        "SYNC_CLK": "0",
+        "SYNC_STAGE": "2",
+        "DEPTH_2": "8",
+        "DATA_WIDTH": "48",
+        "MODE": "\"STANDARD\"",
+        "OUTPUT_REG": "0",
+        "PROG_FULL_ASSERT": "240",
+        "PROGRAMMABLE_FULL": "\"STATIC_SINGLE\"",
+        "PFN_INTERNAL": "239",
+        "PEA_INTERNAL": "2",
+        "PEN_INTERNAL": "3",
+        "PROGRAMMABLE_EMPTY": "\"NONE\"",
+        "OPTIONAL_FLAGS": "1",
+        "PIPELINE_REG": "1",
+        "ASYM_WIDTH_RATIO": "4",
+        "BYPASS_RESET_SYNC": "0",
+        "ENDIANESS": "0",
+        "RAM_STYLE": "\"block_ram\"",
+        "OVERFLOW_PROTECT": "1",
+        "UNDERFLOW_PROTECT": "1"
+    },
+    "output": {
+        "external_source_source": [
+            "async_fifo/async_fifo.v",
+            "async_fifo/async_fifo_define.vh",
+            "async_fifo/async_fifo_tmpl.vhd",
+            "async_fifo/async_fifo_tmpl.v"
+        ]
+    },
+    "sw_version": "2024.2.294",
+    "generated_date": "2025-02-12T09:41:40.884311+00:00"
+}
