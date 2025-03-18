@@ -16,7 +16,7 @@ Bitcoin mining is the process of solving computationally intensive proof-of-work
 
 <div align="center">
 
-![rah design](images/rah_user_guide.svg)
+![rah design](images/bit_coin.svg)
 
 </div>
 
