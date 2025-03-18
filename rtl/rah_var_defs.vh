@@ -1,6 +1,7 @@
+// rah_var_defs.vh
 `define TOTAL_APPS 1
 
-`define EXAMPLE 1
+`define F_TO_F 1
 
 `define VERSION "1.2.0"
 
