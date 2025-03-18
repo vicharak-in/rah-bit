@@ -4,7 +4,15 @@
 
 Bitcoin mining is the process of solving computationally intensive proof-of-work problems to secure transactions on the Bitcoin blockchain. This involves repeatedly hashing block headers using the SHA256 algorithm until a valid hash is found. FPGA (Field-Programmable Gate Array) mining offers an efficient alternative to CPU and GPU mining by providing higher hashing rates with optimized energy consumption.
 
-## Block Diagram
+## Block Diagram of RAH
+
+<div align="center">
+
+![rah design](images/rah_user_guide.svg)
+
+</div>
+
+## Block Diagram of Bitcoin Mining Algorithm
 
 <div align="center">
 
@@ -32,43 +40,31 @@ Optimizing SHA256 hashing for Bitcoin mining involves:
 4. Carry-Save Adders (CSA): Reducing propagation delay in critical path operations.
 5. Unrolling and Pipelining: Minimizing clock cycles required per hash calculation.
 
-### Read Cycle (FPGA to CPU)
-
-1. **FPGA Application**: Writes data to the `APP_RD_FIFO`.
-2. **RAH Design on FPGA**: Encapsulates the data from `APP_RD_FIFO` into a data-frame.
-3. **RAH Services on CPU**: Receives the data-frame and decodes it.
-4. **CPU Application**: Processes the received data.
-
 ## Stratum Mining Proxy Migration
-
 Since many FPGA miners rely on Python-based mining proxies, migrating the Stratum proxy from Python 2.7 to Python 3.10 ensures compatibility with modern security standards and optimizations.
 
-## Generating Multiple Applications
 
-### Pre-requisite
+## Implementation Details
 
-1. **Enable FPGA Communication from the Vicharak Utility**
-    - [Enabling the overlay](https://docs.vicharak.in/vaaman-linux/linux-configuration-guide/vicharak-config-tool/#vicharak-config-overlays)
+FPGA Mining Setup
 
-2. **Install RAH Service on the Board:**
+1. Hardware Requirements: FPGA board with sufficient logic elements (e.g., Xilinx or Altera FPGAs).
+2. Development Tools:
+Verilog or VHDL for hardware description.
+MATLAB for simulation and verification.
+Xilinx Vivado or Intel Quartus for FPGA synthesis and implementation.
+3. Mining Software:
+Cgminer or BFGminer for pool connectivity.
+Custom Python-based Stratum proxy for job handling.
 
-    ```bash
-    sudo apt update
-    sudo apt install rah-service
-    ```
+## Verilog Implementation of SHA256
+A Verilog-based SHA256 module consists of:
 
-> [!NOTE]  
-> RAH service is frequently updated, so it is recommended to update the RAH service before using it on both:w CPU side as well as FPGA side.
+1. Message Scheduler: Expands 512-bit input into 64 rounds.
+2. Compression Function: Performs modular additions and bitwise operations.
+3. Final Hash Computation: Outputs the valid hash for comparison with the target.
 
-## RAH Protocol User Guide - Resources
-
-For further details on how to use the RAH protocol, you can refer to the following guides:
-
-1. **[CPU Usage Guide](docs/cpu-usage-guide.md)**:  
-   This guide will provide detailed instructions on how to set up and use the RAH protocol on the CPU side, including configuration, data encapsulation, and integration with CPU applications.
-
-2. **[FPGA Implementation Guide](docs/fpga-implementation.md)**:  
-   This guide covers the FPGA side of the RAH protocol, explaining how to implement the RAH design, decode data frames, and manage the FIFO buffers for both write and read cycles.
-
-3. **[RAH Example Integration](docs/rah-example-integration.md)**:  
-   This document provides a step-by-step example of integrating the RAH protocol between the CPU and FPGA, demonstrating the complete flow from data generation on the CPU to processing on the FPGA and back.
+## Performance Evaluation
+1. Hash Rate: Number of hashes computed per second.
+2. Power Efficiency: Hashes per joule of energy consumed.
+3. Latency: Time required for a single hash computation.
