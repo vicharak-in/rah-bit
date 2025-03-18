@@ -17,12 +17,20 @@ With the increasing difficulty of Bitcoin mining, specialized hardware solutions
 
 ## FPGA-Based Mining Architecture
 
-### Write Cycle (CPU to FPGA)
+An FPGA-based mining system typically consists of the following components:
+1. **Mining Core: The core logic implementing the SHA256 hashing algorithm.
+2. **Communication Interface: A method to communicate with a mining pool or Stratum proxy.
+3. **Control Unit: Logic for handling nonces, timestamps, and Merkle root updates.
+4. **Power Management: Efficient use of available power to maximize hash rate.
 
-1. **CPU Application**: Generates data to be sent to the FPGA.
-2. **RAH Services on CPU**: Encapsulates the data into a data-frame, including the `app_id`.
-3. **RAH Design on FPGA**: Receives the data-frame and decodes it.
-4. **FPGA Application**: Reads the decoded data from the appropriate `APP_WR_FIFO`.
+### Optimizing SHA256 for Bitcoin Mining
+Optimizing SHA256 hashing for Bitcoin mining involves:
+
+1. **Reducing Computational Overhead: Avoid redundant calculations in SHA256 rounds.
+2. **Pipeline Optimization: Using deep pipelining to increase throughput.
+3. **Parallel Processing: Implementing multiple SHA256 cores for concurrent processing.
+4. **Carry-Save Adders (CSA): Reducing propagation delay in critical path operations.
+5. **Unrolling and Pipelining: Minimizing clock cycles required per hash calculation.
 
 ### Read Cycle (FPGA to CPU)
 
@@ -31,10 +39,9 @@ With the increasing difficulty of Bitcoin mining, specialized hardware solutions
 3. **RAH Services on CPU**: Receives the data-frame and decodes it.
 4. **CPU Application**: Processes the received data.
 
-## Data Alignment
+## Stratum Mining Proxy Migration
 
-> [!NOTE]  
-> The alignment of data to be sent and received throughout the RAH protocol is user-defined. The user must ensure that the data is sampled in the same way as it is aligned at the time of transmission. This applies to both write and read cycles.
+Since many FPGA miners rely on Python-based mining proxies, migrating the Stratum proxy from Python 2.7 to Python 3.10 ensures compatibility with modern security standards and optimizations.
 
 ## Generating Multiple Applications
 
