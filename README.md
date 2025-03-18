@@ -18,19 +18,19 @@ With the increasing difficulty of Bitcoin mining, specialized hardware solutions
 ## FPGA-Based Mining Architecture
 
 An FPGA-based mining system typically consists of the following components:
-1. **Mining Core: The core logic implementing the SHA256 hashing algorithm.
-2. **Communication Interface: A method to communicate with a mining pool or Stratum proxy.
-3. **Control Unit: Logic for handling nonces, timestamps, and Merkle root updates.
-4. **Power Management: Efficient use of available power to maximize hash rate.
+1. Mining Core: The core logic implementing the SHA256 hashing algorithm.
+2. Communication Interface: A method to communicate with a mining pool or Stratum proxy.
+3. Control Unit: Logic for handling nonces, timestamps, and Merkle root updates.
+4. Power Management: Efficient use of available power to maximize hash rate.
 
 ### Optimizing SHA256 for Bitcoin Mining
 Optimizing SHA256 hashing for Bitcoin mining involves:
 
-1. **Reducing Computational Overhead: Avoid redundant calculations in SHA256 rounds.
-2. **Pipeline Optimization: Using deep pipelining to increase throughput.
-3. **Parallel Processing: Implementing multiple SHA256 cores for concurrent processing.
-4. **Carry-Save Adders (CSA): Reducing propagation delay in critical path operations.
-5. **Unrolling and Pipelining: Minimizing clock cycles required per hash calculation.
+1. Reducing Computational Overhead: Avoid redundant calculations in SHA256 rounds.
+2. Pipeline Optimization: Using deep pipelining to increase throughput.
+3. Parallel Processing: Implementing multiple SHA256 cores for concurrent processing.
+4. Carry-Save Adders (CSA): Reducing propagation delay in critical path operations.
+5. Unrolling and Pipelining: Minimizing clock cycles required per hash calculation.
 
 ### Read Cycle (FPGA to CPU)
 
