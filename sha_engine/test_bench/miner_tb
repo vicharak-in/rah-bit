@@ -1,0 +1,63 @@
+module miner_tb;
+    // Inputs
+    reg clk;
+    reg rst;
+    reg [511:0] block_header;
+    reg input_valid;
+
+    // Outputs
+    wire [255:0] hash1_out;
+    wire [255:0] hash_result;
+    wire output_valid;
+
+    // Instantiate the miner module
+    miner uut (
+        .clk(clk),
+        .rst(rst),
+        .block_header(block_header),
+        .input_valid(input_valid),
+        .hash1_out(hash1_out),
+        .hash_result(hash_result),
+        .output_valid(output_valid)
+    );
+
+    // Clock generation
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;  // 100 MHz clock
+    end
+
+    // Test vectors for "abc", "def", "ghi"
+    reg [511:0] inputs [0:2];
+    initial begin
+        inputs[0] = 512'h61626380000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018; // "abc" padded
+        inputs[1] = 512'h63646580000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018; // "cde" padded
+        inputs[2] = 512'h66676880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000018; // "fgh" padded
+    end
+
+    // Test procedure
+    initial begin
+        // Initialize inputs
+        rst = 1;
+        input_valid = 0;
+        block_header = 0;
+
+        // Reset sequence
+        #10 rst = 0;
+
+        // Apply test vectors
+        repeat (3) begin
+            @(posedge clk);
+            block_header = inputs[$time % 3];
+            input_valid = 1;
+            @(posedge clk);
+            input_valid = 0;
+            wait(output_valid);
+            $display("Hash Result: %h", hash_result);
+        end
+
+        // Finish simulation
+        #100 $finish;
+    end
+
+endmodule

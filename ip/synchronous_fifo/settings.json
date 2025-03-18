@@ -3,13 +3,13 @@
         "-o",
         "synchronous_fifo",
         "--base_path",
-        "/home/dj/soft/rah/ip",
+        "/home/dev/rah-bit/ip",
         "--vlnv",
         {
             "vendor": "efinixinc.com",
             "library": "memory",
             "name": "efx_fifo_top",
-            "version": "5.1"
+            "version": "7.1"
         }
     ],
     "conf": {
@@ -27,19 +27,21 @@
         "PROGRAMMABLE_EMPTY": "\"NONE\"",
         "OPTIONAL_FLAGS": "1",
         "PIPELINE_REG": "1",
-        "FAMILY": "\"TRION\"",
         "ASYM_WIDTH_RATIO": "4",
         "BYPASS_RESET_SYNC": "0",
-        "ENDIANESS": "0"
+        "ENDIANESS": "0",
+        "RAM_STYLE": "\"block_ram\"",
+        "OVERFLOW_PROTECT": "1",
+        "UNDERFLOW_PROTECT": "1"
     },
     "output": {
         "external_source_source": [
-            "/home/dj/soft/rah/ip/synchronous_fifo/synchronous_fifo_tmpl.v",
-            "/home/dj/soft/rah/ip/synchronous_fifo/synchronous_fifo_tmpl.vhd",
-            "/home/dj/soft/rah/ip/synchronous_fifo/synchronous_fifo_define.vh",
-            "/home/dj/soft/rah/ip/synchronous_fifo/synchronous_fifo.v"
+            "synchronous_fifo/synchronous_fifo.v",
+            "synchronous_fifo/synchronous_fifo_define.vh",
+            "synchronous_fifo/synchronous_fifo_tmpl.vhd",
+            "synchronous_fifo/synchronous_fifo_tmpl.v"
         ]
     },
-    "sw_version": "2023.2.307",
-    "generated_date": "2025-01-22T08:42:25.009235"
+    "sw_version": "2024.2.294",
+    "generated_date": "2025-02-12T09:41:45.237036+00:00"
 }
