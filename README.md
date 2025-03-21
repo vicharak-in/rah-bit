@@ -33,9 +33,13 @@ Converts a fixed-point integer and fraction into a floating-point value.
 
    ![Image](https://github.com/user-attachments/assets/b52aaf41-128e-44d1-88ee-c19f7261c2d3)
 
-   ![Image](https://github.com/user-attachments/assets/14d3f224-29cf-4a4c-a71d-c3714a565086)
-   
-2. **SIZE 2**
+   ```sh
+    RAH WRITE: 88 41 e0 53 c8 00 
+
+    RAH  READ: 88 00 1C 0a 79 00 
+   ```
+  
+ 2. **SIZE 2**
    - **Input:** 4 bytes (integer & fraction)
    - **Output:** 8 bytes (floating point)
    - **First byte for application selection and size:** First packet: `91`, Second packet: `92`
@@ -48,7 +52,13 @@ Converts a fixed-point integer and fraction into a floating-point value.
 
    ![Image](https://github.com/user-attachments/assets/6c40116e-fed5-43fb-822b-e1f6564fbf3a)
 
-   ![Image](https://github.com/user-attachments/assets/079bbfb1-a16d-4961-b879-1f064e780e76)
+   ```sh
+    RAH WRITE: 91 00 00 00 1c 00 92 00 00 0a 79 00 
+
+    RAH  READ: 91 40 3c 00 00 0a
+
+    RAH  READ: 92 79 00 00 00 00
+   ```
 
 3. **SIZE 3**
    - **Input:** 5 bytes (integer & fraction)
@@ -63,7 +73,13 @@ Converts a fixed-point integer and fraction into a floating-point value.
 
    ![Image](https://github.com/user-attachments/assets/976e29c7-f8a8-478b-ae63-42a03b1df3b5)
 
-   ![Image](https://github.com/user-attachments/assets/0b915752-8bc3-4e3a-926e-029b607edf15)
+   ```sh
+    RAH WRITE: 99 00 00 00 00 1C 9a 00 00 00 0a 79
+
+    RAH  READ: 99 40 03 c0 00 00
+    
+    RAH  READ: 9a 00 a7 90 00 00
+   ``` 
 
 ---
 
@@ -84,7 +100,11 @@ Converts a floating-point value into an integer and fraction.
 
    ![Image](https://github.com/user-attachments/assets/3c45c899-25f4-4b22-9021-b347b3b38900)
 
-   ![Image](https://github.com/user-attachments/assets/d1e82d0f-31cb-4f1c-be79-38d673fa061b)
+   ```sh
+    RAH WRITE: 48 41 e0 53 c8 00 
+
+    RAH  READ: 48 00 1c 0a 79 00
+   ``` 
    
 2. **SIZE 2**
    - **Input:** 8 bytes (floating point)
@@ -99,7 +119,13 @@ Converts a floating-point value into an integer and fraction.
 
    ![Image](https://github.com/user-attachments/assets/bdc8e910-47da-40d3-8c82-9ce5f4a51ab9)
 
-   ![Image](https://github.com/user-attachments/assets/0a9d2100-4001-4cd0-9cb7-ca127a3e488a)
+   ```sh
+    RAH WRITE: 51 00 00 40 3c 00 52 00 0a 79 00 00
+
+    RAH  READ: 51 00 00 00 1c 00 
+
+    RAH  READ: 52 00 00 0a 79 00
+   ```
 
 3. **SIZE 3**
    - **Input:** 10 bytes (floating point)
@@ -114,7 +140,13 @@ Converts a floating-point value into an integer and fraction.
 
    ![Image](https://github.com/user-attachments/assets/0383cc85-d567-450d-93b6-fed7c8b14b1c)
 
-   ![Image](https://github.com/user-attachments/assets/62044824-aa41-40c8-874b-a08a0eb24bdb)
+   ```sh
+    RAH WRITE: 59 40 03 c0 00 00 5a 00 a7 90 00 00 
+    
+    RAH  READ: 59 00 00 00 00 1C 
+
+    RAH  READ: 5a 00 00 00 0a 79
+   ```   
 
 ---
 
