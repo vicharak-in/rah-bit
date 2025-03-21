@@ -1,0 +1,122 @@
+
+Efinix FPGA Placement and Routing.
+Version: 2024.1.163 
+Date: Fri Mar 21 12:31:19 2025
+
+Copyright (C) 2013 - 2024 Efinix, Inc. All rights reserved.
+ 
+Family: Trion 
+Device: T120F324
+Top-level Entity Name: rah
+Elapsed time for packing: 0 hours 0 minutes 0 seconds
+
+---------- Resource Summary (begin) ----------
+Inputs: 54 / 1076 (5.02%)
+Outputs: 120 / 1566 (7.66%)
+Clocks: 5 / 16 (31.25%)
+Logic Elements: 5727 / 112128 (5.11%)
+	LE: LUTs/Adders: 5265 / 112128 (4.70%)
+	LE: Registers: 2988 / 107520 (2.78%)
+Memory Blocks: 18 / 1056 (1.70%)
+Multipliers: 0 / 320 (0.00%)
+---------- Resource Summary (end) ----------
+
+
+---------- Memory Block Information (begin) ----------
+
++-------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+|                                  NAME                                   | MODE | READ_WIDTH | WRITE_WIDTH |  WRITE_MODE  | OUTPUT_REG |
++-------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+|       rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$2        | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|       rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$12       | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|       rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1       | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|       rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$12       | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|       rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1       | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|       rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ram/ram__D$2        | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|     re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+| re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$12 | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+| re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1 | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+| re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$2  | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+|      re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$2      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|     re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$12      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|     re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+| re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$12 | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+| re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$b1 | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+| re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ram/ram__D$2  | SDP  |     16     |     16      | READ_UNKNOWN |    true    |
+|      re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$2      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
+|     re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ram/ram__D$12      | SDP  |     16     |     16      |  READ_FIRST  |   false    |
++-------------------------------------------------------------------------+------+------------+-------------+--------------+------------+
+
+----------- Memory Block Information (end) ----------
+
+
+---------- IO Interface Summary (begin) ----------
+
++------------------------+--------------+
+| Missing Interface Pins | Input/Output |
++------------------------+--------------+
+|      uart_rx_pin       |    Input     |
+|   my_mipi_rx_ULPS[3]   |    Input     |
+|   my_mipi_rx_ULPS[2]   |    Input     |
+|   my_mipi_rx_ULPS[1]   |    Input     |
+|   my_mipi_rx_ULPS[0]   |    Input     |
+|  my_mipi_rx_ULPS_CLK   |    Input     |
+|  my_mipi_rx_ERROR[17]  |    Input     |
+|  my_mipi_rx_ERROR[16]  |    Input     |
+|  my_mipi_rx_ERROR[15]  |    Input     |
+|  my_mipi_rx_ERROR[14]  |    Input     |
+|  my_mipi_rx_ERROR[13]  |    Input     |
+|  my_mipi_rx_ERROR[12]  |    Input     |
+|  my_mipi_rx_ERROR[11]  |    Input     |
+|  my_mipi_rx_ERROR[10]  |    Input     |
+|  my_mipi_rx_ERROR[9]   |    Input     |
+|  my_mipi_rx_ERROR[8]   |    Input     |
+|  my_mipi_rx_ERROR[7]   |    Input     |
+|  my_mipi_rx_ERROR[6]   |    Input     |
+|  my_mipi_rx_ERROR[5]   |    Input     |
+|  my_mipi_rx_ERROR[4]   |    Input     |
+|  my_mipi_rx_ERROR[3]   |    Input     |
+|  my_mipi_rx_ERROR[2]   |    Input     |
+|  my_mipi_rx_ERROR[1]   |    Input     |
+|  my_mipi_rx_ERROR[0]   |    Input     |
+|    my_mipi_rx_VC[1]    |    Input     |
+|    my_mipi_rx_VC[0]    |    Input     |
+|   my_mipi_rx_TYPE[5]   |    Input     |
+|   my_mipi_rx_TYPE[4]   |    Input     |
+|   my_mipi_rx_TYPE[3]   |    Input     |
+|   my_mipi_rx_TYPE[2]   |    Input     |
+|   my_mipi_rx_TYPE[1]   |    Input     |
+|   my_mipi_rx_TYPE[0]   |    Input     |
+|  my_mipi_rx_DATA[63]   |    Input     |
+|  my_mipi_rx_DATA[62]   |    Input     |
+|  my_mipi_rx_DATA[61]   |    Input     |
+|  my_mipi_rx_DATA[60]   |    Input     |
+|  my_mipi_rx_DATA[59]   |    Input     |
+|  my_mipi_rx_DATA[58]   |    Input     |
+|  my_mipi_rx_DATA[57]   |    Input     |
+|  my_mipi_rx_DATA[56]   |    Input     |
+|  my_mipi_rx_DATA[55]   |    Input     |
+|  my_mipi_rx_DATA[54]   |    Input     |
+|  my_mipi_rx_DATA[53]   |    Input     |
+|  my_mipi_rx_DATA[52]   |    Input     |
+|  my_mipi_rx_DATA[51]   |    Input     |
+|  my_mipi_rx_DATA[50]   |    Input     |
+|  my_mipi_rx_DATA[49]   |    Input     |
+|  my_mipi_rx_DATA[48]   |    Input     |
+|   my_mipi_rx_CNT[3]    |    Input     |
+|   my_mipi_rx_CNT[2]    |    Input     |
+|   my_mipi_rx_CNT[1]    |    Input     |
+|   my_mipi_rx_CNT[0]    |    Input     |
+|  my_mipi_rx_HSYNC[3]   |    Input     |
+|  my_mipi_rx_VSYNC[3]   |    Input     |
+|  my_mipi_rx_HSYNC[2]   |    Input     |
+|  my_mipi_rx_VSYNC[2]   |    Input     |
+|  my_mipi_rx_HSYNC[1]   |    Input     |
+|  my_mipi_rx_VSYNC[1]   |    Input     |
+|  my_mipi_rx_HSYNC[0]   |    Input     |
+|  my_mipi_rx_VSYNC[0]   |    Input     |
++------------------------+--------------+
+
+----------- IO Interface Summary (end) ----------
+
+Elapsed time for placement: 0 hours 0 minutes 15 seconds

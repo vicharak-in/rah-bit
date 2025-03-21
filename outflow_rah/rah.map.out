@@ -1,0 +1,462 @@
+INFO     : Efinix FPGA Synthesis.
+INFO     : Version: 2024.1.163
+INFO     : Compiled: Jun 25 2024.
+INFO     : 
+INFO     : Copyright (C) 2013 - 2024 Efinix, Inc. All rights reserved.
+
+INFO     : Reading project database "/home/neel/Downloads/float_to_fix/rah.xml"
+INFO     : Analyzing Verilog file '/home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v' [VERI-1482]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(8): compiling module 'EFX_IBUF' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(16): compiling module 'EFX_OBUF' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(23): compiling module 'EFX_IO_BUF' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(33): compiling module 'EFX_CLKOUT' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(41): compiling module 'EFX_IREG' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(51): compiling module 'EFX_OREG' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(60): compiling module 'EFX_IOREG' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(75): compiling module 'EFX_IDDIO' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(87): compiling module 'EFX_ODDIO' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(99): compiling module 'EFX_GPIO_V1' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(124): compiling module 'EFX_GPIO_V2' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(149): compiling module 'EFX_GPIO_V3' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(187): compiling module 'EFX_PLL_V1' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(206): compiling module 'EFX_PLL_V2' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(232): compiling module 'EFX_PLL_V3' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v(267): compiling module 'EFX_OSC_V1' [VERI-1018]
+INFO     : Reading project database "/home/neel/Downloads/float_to_fix/rah.xml"
+INFO     : ***** Beginning Analysis ... *****
+INFO     : default VHDL library search path is now "/home/neel/Documents/efinity/2024.1/sim_models/vhdl/packages/vhdl_2008" [VHDL-1504]
+INFO     : Analyzing Verilog file '/home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_peri_lib.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/rah_encoder.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/video_gen.v' [VERI-1482]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/video_gen.v(113): redeclaration of ANSI port '**' is not allowed [VERI-1372]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/top.v' [VERI-1482]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/top.v(1): analyzing included file '/home/neel/Downloads/float_to_fix/rtl/rah_var_defs.vh' [VERI-1328]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/top.v(1): back to file '/home/neel/Downloads/float_to_fix/rtl/top.v' [VERI-2320]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/example.v' [VERI-1482]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/example.v(1): analyzing included file '/home/neel/Downloads/float_to_fix/rtl/rah_var_defs.vh' [VERI-1328]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/example.v(1): back to file '/home/neel/Downloads/float_to_fix/rtl/example.v' [VERI-2320]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/rah_var_defs.vh' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/rah_decoder.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/uart.v' [VERI-1482]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/uart.v(115): parameter 'IDLE' becomes localparam in 'uart_rx' with formal parameter declaration list [VERI-1199]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/uart.v(116): parameter 'RX_START_BIT' becomes localparam in 'uart_rx' with formal parameter declaration list [VERI-1199]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/uart.v(117): parameter 'RX_DATA_BITS' becomes localparam in 'uart_rx' with formal parameter declaration list [VERI-1199]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/uart.v(118): parameter 'RX_STOP_BIT' becomes localparam in 'uart_rx' with formal parameter declaration list [VERI-1199]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/uart.v(119): parameter 'CLEANUP' becomes localparam in 'uart_rx' with formal parameter declaration list [VERI-1199]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/rrq.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/data_aligner.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/rtl/rah_version_check.v' [VERI-1482]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rah_version_check.v(1): analyzing included file '/home/neel/Downloads/float_to_fix/rtl/rah_var_defs.vh' [VERI-1328]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rah_version_check.v(1): back to file '/home/neel/Downloads/float_to_fix/rtl/rah_version_check.v' [VERI-2320]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/collector.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/F_TO_F.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/dout.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v' [VERI-1482]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(121): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(168): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(199): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(211): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v' [VERI-1482]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(121): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(168): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(199): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(211): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v' [VERI-1482]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(121): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(168): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(199): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(211): loop variable declaration is not allowed in this mode of Verilog [VERI-1739]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v' [VERI-1482]
+INFO     : Analyzing Verilog file '/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v' [VERI-1482]
+INFO     : Analysis took 0.0626449 seconds.
+INFO     : 	Analysis took 0.06 seconds (approximately) in total CPU time.
+INFO     : Analysis virtual memory usage: begin = 201.78 MB, end = 203.828 MB, delta = 2.048 MB
+INFO     : Analysis resident set memory usage: begin = 72.568 MB, end = 75.644 MB, delta = 3.076 MB
+INFO     : 	Analysis peak resident set memory usage = 1353.31 MB
+INFO     : ***** Ending Analysis ... *****
+INFO     : ***** Beginning Elaboration ... *****
+INFO     : /home/neel/Downloads/float_to_fix/rtl/top.v(3): compiling module 'top' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(71): port 'overflow' remains unconnected for this instance [VERI-1927]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(82): port 'overflow' remains unconnected for this instance [VERI-1927]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(93): port 'overflow' remains unconnected for this instance [VERI-1927]
+INFO     : /home/neel/Downloads/float_to_fix/F_TO_F.v(1): compiling module 'F_TO_F' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/collector.v(1): compiling module 'collector' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v(4): compiling module 'FLOAT_TO_FIXED_1' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v(96): expression size 32 truncated to fit in target size 5 [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(67): actual bit length 80 differs from formal bit length 32 for port 'float_val' [VERI-1330]
+INFO     : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v(4): compiling module 'FLOAT_TO_FIXED_2' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v(47): expression size 11 truncated to fit in target size 8 [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v(96): expression size 32 truncated to fit in target size 6 [VERI-1209]
+INFO     : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v(4): compiling module 'FLOAT_TO_FIXED_3' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v(47): expression size 15 truncated to fit in target size 8 [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v(51): expression size 15 truncated to fit in target size 11 [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v(96): expression size 32 truncated to fit in target size 7 [VERI-1209]
+INFO     : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(1): compiling module 'FIXED_TO_FLOAT_1' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v(75): net 'shift_flag_r2_comb[0]' does not have a driver [VDB-1002]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(101): actual bit length 40 differs from formal bit length 16 for port 'fixed_fraction' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(102): actual bit length 40 differs from formal bit length 16 for port 'fixed_integer' [VERI-1330]
+INFO     : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(1): compiling module 'FIXED_TO_FLOAT_2' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v(75): net 'shift_flag_r2_comb[0]' does not have a driver [VDB-1002]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(112): actual bit length 40 differs from formal bit length 32 for port 'fixed_fraction' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(113): actual bit length 40 differs from formal bit length 32 for port 'fixed_integer' [VERI-1330]
+INFO     : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(1): compiling module 'FIXED_TO_FLOAT_3' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v(75): net 'shift_flag_r2_comb[0]' does not have a driver [VDB-1002]
+INFO     : /home/neel/Downloads/float_to_fix/dout.v(1): compiling module 'dout' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(130): actual bit length 16 differs from formal bit length 40 for port 'int_1' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(131): actual bit length 16 differs from formal bit length 40 for port 'frec_1' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(132): actual bit length 32 differs from formal bit length 80 for port 'float_1' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(133): actual bit length 32 differs from formal bit length 40 for port 'int_2' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(134): actual bit length 32 differs from formal bit length 40 for port 'frec_2' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(135): actual bit length 64 differs from formal bit length 80 for port 'float_2' [VERI-1330]
+WARNING  : /home/neel/Downloads/float_to_fix/F_TO_F.v(140): actual bit length 2 differs from formal bit length 3 for port 'app' [VERI-1330]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/data_aligner.v(1): compiling module 'data_aligner(DATA_WIDTH=48)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(93): actual bit length 64 differs from formal bit length 48 for port 'mipi_data' [VERI-1330]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rah_decoder.v(1): compiling module 'rah_decoder(DATA_WIDTH=48,TOTAL_APPS=2)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(116): port 'a_wr_rst_i' remains unconnected for this instance [VERI-1927]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(49): compiling module 'async_fifo' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(316): compiling module 'efx_fifo_top_6d3dd258b084434fa4aa3936f7d6386c(DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(1372): compiling module 'efx_resetsync_6d3dd258b084434fa4aa3936f7d6386c(ACTIVE_LOW=0)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(1417): compiling module 'efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(636): compiling module 'efx_fifo_ram_6d3dd258b084434fa4aa3936f7d6386c(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(673): extracting RAM for identifier 'ram' [VERI-2571]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(967): compiling module 'efx_fifo_ctl_6d3dd258b084434fa4aa3936f7d6386c(SYNC_CLK=0,WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(227): compiling module 'efx_fifo_bin2gray_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(1417): compiling module 'efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9,ACTIVE_LOW=0)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=8)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=7)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=6)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=4)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=3)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(139): compiling module 'efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=2)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v(95): input port 'a_wr_rst_i' is not connected on this instance [VDB-1013]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/rah_decoder.v(107): expression size ** truncated to fit in target size ** [VERI-1209]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rah_version_check.v(3): compiling module 'rah_version_check' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/rah_encoder.v(254): port '**' remains unconnected for this instance [VERI-1927]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rah_encoder.v(2): compiling module 'rah_encoder(DATA_WIDTH=48,TOTAL_APPS=2)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/video_gen.v(4): compiling module 'video_gen(syncPulse_h=112,backPorch_h=248,activeVideo_h=1280,frontPorch_h=48,syncPulse_v=3,backPorch_v=38,activeVideo_v=1024)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/video_gen.v(113): expression size ** truncated to fit in target size ** [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/rah_encoder.v(254): expression size ** truncated to fit in target size ** [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(112): port 'a_wr_rst_i' remains unconnected for this instance [VERI-1927]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(49): compiling module 'synchronous_fifo' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(312): compiling module 'efx_fifo_top_2ab6177972eb442a86d66f7a0066bbb9(SYNC_CLK=1,DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(1368): compiling module 'efx_resetsync_2ab6177972eb442a86d66f7a0066bbb9(ACTIVE_LOW=0)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(1413): compiling module 'efx_asyncreg_2ab6177972eb442a86d66f7a0066bbb9(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(632): compiling module 'efx_fifo_ram_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)' [VERI-1018]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(669): extracting RAM for identifier 'ram' [VERI-2571]
+INFO     : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(963): compiling module 'efx_fifo_ctl_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v(93): input port 'a_wr_rst_i' is not connected on this instance [VDB-1013]
+INFO     : /home/neel/Downloads/float_to_fix/rtl/rrq.v(1): compiling module 'rrq(TOTAL_APPS=2)' [VERI-1018]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/rrq.v(58): expression size ** truncated to fit in target size ** [VERI-1209]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/rah_encoder.v(254): expression size ** truncated to fit in target size ** [VERI-1209]
+INFO     : Elaboration took 0.256404 seconds.
+INFO     : 	Elaboration took 0.24 seconds (approximately) in total CPU time.
+INFO     : Elaboration virtual memory usage: begin = 203.828 MB, end = 249.908 MB, delta = 46.08 MB
+INFO     : Elaboration resident set memory usage: begin = 75.644 MB, end = 123.14 MB, delta = 47.496 MB
+INFO     : 	Elaboration peak resident set memory usage = 1353.31 MB
+INFO     : ***** Ending Elaboration ... *****
+INFO     : ... Setting Synthesis Option: mode=speed
+INFO     : ***** Beginning Reading Mapping Library ... *****
+INFO     : Analyzing Verilog file '/home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v' [VERI-1482]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(8): compiling module 'EFX_ADD' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(21): compiling module 'EFX_FF' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(38): compiling module 'EFX_COMB4' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(48): compiling module 'EFX_GBUFCE' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(57): compiling module 'EFX_LUT4' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(65): compiling module 'EFX_MULT' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(100): compiling module 'EFX_DSP48' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(156): compiling module 'EFX_DSP24' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(209): compiling module 'EFX_DSP12' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(262): compiling module 'EFX_RAM_4K' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(322): compiling module 'EFX_RAM_5K' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(394): compiling module 'EFX_DPRAM_5K' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(499): compiling module 'RAMB5' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(561): compiling module 'EFX_RAM_10K' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(653): compiling module 'EFX_RAM10' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(754): compiling module 'EFX_DPRAM10' [VERI-1018]
+INFO     : /home/neel/Documents/efinity/2024.1/sim_models/maplib/efinix_maplib.v(884): compiling module 'EFX_SRL8' [VERI-1018]
+INFO     : Reading Mapping Library took 0.0124722 seconds.
+INFO     : 	Reading Mapping Library took 0.01 seconds (approximately) in total CPU time.
+INFO     : Reading Mapping Library virtual memory usage: begin = 257.588 MB, end = 257.588 MB, delta = 0 MB
+INFO     : Reading Mapping Library resident set memory usage: begin = 130.692 MB, end = 130.692 MB, delta = 0 MB
+INFO     : 	Reading Mapping Library peak resident set memory usage = 1353.31 MB
+INFO     : ***** Ending Reading Mapping Library ... *****
+INFO     : ... Pre-synthesis checks begin
+WARNING  : The primary output port 'uart_tx_pin' wire 'uart_tx_pin' is not driven. [EFX-0256]
+WARNING  : Removing redundant signal : rstn. (/home/neel/Downloads/float_to_fix/collector.v:2) [EFX-0200]
+WARNING  : Re-wiring to GND non-driven net 'shift_flag_r2_comb[0]'. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:75) [EFX-0201]
+WARNING  : Removing redundant signal : stage_1_comb.i[31]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[30]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[29]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[28]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[27]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[26]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[25]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[24]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[23]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[22]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[21]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[20]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[19]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[18]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[17]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[16]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[15]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[14]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : Removing redundant signal : stage_1_comb.i[13]. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v:121) [EFX-0200]
+WARNING  : (The above message was generated too many times, subsequent similar messages will be muted.) [EFX-0200]
+WARNING  : Re-wiring to GND non-driven net 'shift_flag_r2_comb[0]'. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v:75) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'shift_flag_r2_comb[0]'. (/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v:75) [EFX-0201]
+INFO     : Module Instance 'ud' input pin 'int_1[16]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[17]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[18]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[19]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[20]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[21]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[22]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[23]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[24]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[25]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[26]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[27]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[28]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[29]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[30]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[31]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[32]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[33]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[34]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[35]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[36]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[37]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[38]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_1[39]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[16]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[17]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[18]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[19]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[20]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[21]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[22]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[23]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[24]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[25]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[26]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[27]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[28]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[29]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[30]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[31]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[32]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[33]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[34]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[35]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[36]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[37]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[38]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'frec_1[39]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[32]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[33]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[34]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[35]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[36]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[37]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[38]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[39]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[40]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[41]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[42]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[43]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[44]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[45]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[46]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[47]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[48]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[49]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[50]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[51]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[52]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[53]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[54]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[55]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[56]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[57]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[58]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[59]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[60]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[61]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[62]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[63]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[64]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[65]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[66]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[67]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[68]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[69]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[70]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[71]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[72]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[73]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[74]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[75]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[76]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[77]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[78]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'float_1[79]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_2[32]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_2[33]' is tied to constant (=0). [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_2[34]' is tied to constant (=0). [EFX-0266]
+INFO     : (The above message was generated too many times, subsequent similar messages will be muted.) [EFX-0266]
+INFO     : Module Instance 'ud' input pin 'int_2[35]' is tied to constant (=0). [EFX-0266]
+INFO     : ... Memory 'ram' is not initialized, assuming empty initial contents. (/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v:673) [EFX-0677]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.a_wr_rst_i'. (/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v:95) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.a_rd_rst_i'. (/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v:95) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.clk_i'. (/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v:95) [EFX-0201]
+INFO     : ... Memory 'ram' is not initialized, assuming empty initial contents. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:669) [EFX-0677]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.a_wr_rst_i'. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:93) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.a_rd_rst_i'. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:93) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.wr_clk_i'. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:93) [EFX-0201]
+WARNING  : Re-wiring to GND non-driven net 'u_efx_fifo_top.rd_clk_i'. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:93) [EFX-0201]
+WARNING  : (The above message was generated too many times, subsequent similar messages will be muted.) [EFX-0201]
+INFO     : ... Pre-synthesis checks end (Real time : 1s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... NameSpace init begin
+INFO     : ... NameSpace init end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Mapping design "top"
+INFO     : ... Hierarchical pre-synthesis "collector" begin
+INFO     : ... Hierarchical pre-synthesis "collector" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_1" begin
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_1" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_2" begin
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_2" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_3" begin
+INFO     : ... Hierarchical pre-synthesis "FLOAT_TO_FIXED_3" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_1" begin
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_1" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_2" begin
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_2" end (Real time : 0s CPU user time : 5s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_3" begin
+INFO     : ... Hierarchical pre-synthesis "FIXED_TO_FLOAT_3" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "dout" begin
+INFO     : ... Hierarchical pre-synthesis "dout" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "F_TO_F" begin
+INFO     : ... Hierarchical pre-synthesis "F_TO_F" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "data_aligner(DATA_WIDTH=48)" begin
+INFO     : ... Hierarchical pre-synthesis "data_aligner(DATA_WIDTH=48)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_resetsync_6d3dd258b084434fa4aa3936f7d6386c(ACTIVE_LOW=0)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_resetsync_6d3dd258b084434fa4aa3936f7d6386c(ACTIVE_LOW=0)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ram_6d3dd258b084434fa4aa3936f7d6386c(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ram_6d3dd258b084434fa4aa3936f7d6386c(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_bin2gray_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_bin2gray_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9,ACTIVE_LOW=0)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9,ACTIVE_LOW=0)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=2)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=2)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=3)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=3)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=4)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=4)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=6)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=6)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=7)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=7)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=8)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=8)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_gray2bin_6d3dd258b084434fa4aa3936f7d6386c(WIDTH=9)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ctl_6d3dd258b084434fa4aa3936f7d6386c(SYNC_CLK=0,WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ctl_6d3dd258b084434fa4aa3936f7d6386c(SYNC_CLK=0,WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_top_6d3dd258b084434fa4aa3936f7d6386c(DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_top_6d3dd258b084434fa4aa3936f7d6386c(DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "async_fifo" begin
+INFO     : ... Hierarchical pre-synthesis "async_fifo" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "rah_decoder(DATA_WIDTH=48,TOTAL_APPS=2)" begin
+INFO     : ... Hierarchical pre-synthesis "rah_decoder(DATA_WIDTH=48,TOTAL_APPS=2)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "rah_version_check" begin
+INFO     : ... Hierarchical pre-synthesis "rah_version_check" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "video_gen(syncPulse_h=112,backPorch_h=248,activeVideo_h=1280,frontPorch_h=48,syncPulse_v=3,backPorch_v=38,activeVideo_v=1024)" begin
+INFO     : ... Hierarchical pre-synthesis "video_gen(syncPulse_h=112,backPorch_h=248,activeVideo_h=1280,frontPorch_h=48,syncPulse_v=3,backPorch_v=38,activeVideo_v=1024)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_2ab6177972eb442a86d66f7a0066bbb9(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_asyncreg_2ab6177972eb442a86d66f7a0066bbb9(WIDTH=1,ACTIVE_LOW=0,RST_VALUE=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_resetsync_2ab6177972eb442a86d66f7a0066bbb9(ACTIVE_LOW=0)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_resetsync_2ab6177972eb442a86d66f7a0066bbb9(ACTIVE_LOW=0)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ram_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ram_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,RD_DEPTH=256,WDATA_WIDTH=48,RDATA_WIDTH=48,WADDR_WIDTH=8,RADDR_WIDTH=8,OUTPUT_REG=0,RAM_MUX_RATIO=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ctl_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_ctl_2ab6177972eb442a86d66f7a0066bbb9(WR_DEPTH=256,WADDR_WIDTH=8,RADDR_WIDTH=8,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROG_EMPTY_NEGATE=2,OVERFLOW_PROTECT=1,UNDERFLOW_PROTECT=1)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_top_2ab6177972eb442a86d66f7a0066bbb9(SYNC_CLK=1,DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)" begin
+INFO     : ... Hierarchical pre-synthesis "efx_fifo_top_2ab6177972eb442a86d66f7a0066bbb9(SYNC_CLK=1,DEPTH=256,DATA_WIDTH=48,PROGRAMMABLE_FULL="STATIC_SINGLE",PROG_FULL_ASSERT=254,PROG_FULL_NEGATE=254,PROGRAMMABLE_EMPTY="NONE",PROG_EMPTY_ASSERT=0,PROG_EMPTY_NEGATE=2)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "synchronous_fifo" begin
+INFO     : ... Hierarchical pre-synthesis "synchronous_fifo" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "rrq(TOTAL_APPS=2)" begin
+INFO     : ... Hierarchical pre-synthesis "rrq(TOTAL_APPS=2)" end (Real time : 0s CPU user time : 6s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "rah_encoder(DATA_WIDTH=48,TOTAL_APPS=2)" begin
+INFO     : ... Hierarchical pre-synthesis "rah_encoder(DATA_WIDTH=48,TOTAL_APPS=2)" end (Real time : 1s CPU user time : 7s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Hierarchical pre-synthesis "top" begin
+INFO     : ... Clock Enable Synthesis Performed on 1434 flops.
+INFO     : ... Hierarchical pre-synthesis "top" end (Real time : 1s CPU user time : 8s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Flat optimizations begin
+INFO     : ... Flat optimizations end (Real time : 0s CPU user time : 8s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Flat synthesis begin
+INFO     : ... Flat synthesis end (Real time : 0s CPU user time : 8s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Flat optimizations begin
+INFO     : ... Flat optimizations end (Real time : 0s CPU user time : 9s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Check and break combinational loops begin
+INFO     : ... Check and break combinational loops end (Real time : 0s CPU user time : 9s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Sequential Optimization begin
+INFO     : ... Clock Network 'rx_pixel_clk' with 2994 loads will be considered for sequential optimization.
+INFO     : ... Clock Network 'tx_pixel_clk' with 361 loads will be considered for sequential optimization.
+INFO     : ... Clock Network 'tx_vga_clk' with 39 loads will be considered for sequential optimization.
+INFO     : ... Sequential Optimization deduced 2159 equivalent points.
+INFO     : ... Sequential Optimization end (Real time : 18s CPU user time : 26s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Setup for logic synthesis begin
+INFO     : ... Setup for logic synthesis end (Real time : 0s CPU user time : 27s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... LUT mapping begin
+INFO     : ... LS, strategy: 3, nd: 4262, ed: 13858, lv: 5, pw: 8930.19
+INFO     : ... LUT mapping end (Real time : 12s CPU user time : 39s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Post-synthesis Verific netlist creation begin
+INFO     : ... Post-synthesis Verific netlist creation end (Real time : 1s CPU user time : 39s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Postmap Retiming Optimization begin
+INFO     : ... Clock Network 'rx_pixel_clk' with 2679 loads will be considered for retiming optimization.
+INFO     : ... Clock Network 'tx_pixel_clk' with 358 loads will be considered for retiming optimization.
+INFO     : ... Clock Network 'tx_vga_clk' with 39 loads will be considered for retiming optimization.
+INFO     : ... Performed 2 retime moves.
+INFO     : ... Postmap Retiming Optimization end (Real time : 15s CPU user time : 54s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ... Post-synthesis Verific netlist unification/params processing begin
+INFO     : ... Post-synthesis Verific netlist unification/params processing end (Real time : 0s CPU user time : 55s CPU sys time : 0s MEM : 1353308KB)
+INFO     : ***** Beginning VDB Netlist Checker ... *****
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(11): Input/inout port my_mipi_rx_HSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(12): Input/inout port my_mipi_rx_VSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(13): Input/inout port my_mipi_rx_DATA[63] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(14): Input/inout port my_mipi_rx_TYPE[5] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(15): Input/inout port my_mipi_rx_VC[1] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(16): Input/inout port my_mipi_rx_CNT[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(17): Input/inout port my_mipi_rx_ERROR[17] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(18): Input/inout port my_mipi_rx_ULPS_CLK is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(19): Input/inout port my_mipi_rx_ULPS[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(45): Input/inout port uart_rx_pin is unconnected and will be removed. [VDB-8003]
+INFO     : Found 60 warnings in the post-synthesis netlist.
+INFO     : VDB Netlist Checker took 0.150151 seconds.
+INFO     : 	VDB Netlist Checker took 0.15 seconds (approximately) in total CPU time.
+INFO     : VDB Netlist Checker virtual memory usage: begin = 363.416 MB, end = 363.416 MB, delta = 0 MB
+INFO     : VDB Netlist Checker resident set memory usage: begin = 240.988 MB, end = 240.988 MB, delta = 0 MB
+INFO     : 	VDB Netlist Checker peak resident set memory usage = 1353.31 MB
+INFO     : ***** Ending VDB Netlist Checker ... *****
+INFO     : Writing netlist 'top' to Verilog file '/home/neel/Downloads/float_to_fix/outflow/rah.map.v' [VDB-1030]
+INFO     : Resource Summary 
+INFO     : =============================== 
+INFO     : EFX_ADD         : 	1001
+INFO     : EFX_LUT4        : 	4262
+INFO     : EFX_FF          : 	2988
+INFO     : EFX_RAM_5K      : 	18
+INFO     : EFX_GBUFCE      : 	3
+INFO     : =============================== 

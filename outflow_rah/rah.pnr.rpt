@@ -1,0 +1,36 @@
+
+---------- Resource Summary (begin) ----------
+Inputs: 54 / 1076 (5.02%)
+Outputs: 120 / 1566 (7.66%)
+Clocks: 5 / 16 (31.25%)
+Logic Elements: 5727 / 112128 (5.11%)
+	LE: LUTs/Adders: 5265 / 112128 (4.70%)
+	LE: Registers: 2988 / 107520 (2.78%)
+Memory Blocks: 18 / 1056 (1.70%)
+Multipliers: 0 / 320 (0.00%)
+---------- Resource Summary (end) ----------
+
+
+---------- Resource Summary (begin) ----------
+Inputs: 54 / 1076 (5.02%)
+Outputs: 120 / 1566 (7.66%)
+Clocks: 5 / 16 (31.25%)
+Logic Elements: 5727 / 112128 (5.11%)
+	LE: LUTs/Adders: 5265 / 112128 (4.70%)
+	LE: Registers: 2988 / 107520 (2.78%)
+Memory Blocks: 18 / 1056 (1.70%)
+Multipliers: 0 / 320 (0.00%)
+---------- Resource Summary (end) ----------
+
+
+---------- Resource Summary (begin) ----------
+Inputs: 54 / 1076 (5.02%)
+Outputs: 120 / 1566 (7.66%)
+Clocks: 5 / 16 (31.25%)
+Logic Elements: 5727 / 112128 (5.11%)
+	LE: LUTs/Adders: 5265 / 112128 (4.70%)
+	LE: Registers: 2988 / 107520 (2.78%)
+Memory Blocks: 18 / 1056 (1.70%)
+Multipliers: 0 / 320 (0.00%)
+---------- Resource Summary (end) ----------
+

@@ -75,7 +75,7 @@ module F_TO_F (
       .clk           (clk),
       .rstn          (rstn),
       .clk_en_2      (clk_en_2),
-      .float_val     (float_in),
+      .float_val     (float_in[79:16]),
       .fixed_fraction(frec_out_2),
       .fixed_integer (int_out_2),
       .done_2        (done_2)

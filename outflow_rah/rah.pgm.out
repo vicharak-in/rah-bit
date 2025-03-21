@@ -1,0 +1,21 @@
+INFO     : Efinix FPGA Bitstream Generator.
+INFO     : Version: 2024.1.163 
+INFO     : Copyright (C) 2013 - 2024 Efinix, Inc. All rights reserved.
+INFO     : Compiled: Jun 25 2024.
+INFO     : Using source file "/home/neel/Downloads/float_to_fix/work_pnr/rah.lbf"
+INFO     : Generating HEX programming file for device "T120F324", family "Trion"
+INFO     : Using periphery source file "/home/neel/Downloads/float_to_fix/outflow/rah.lpf"
+INFO     : Generating bit file: "/home/neel/Downloads/float_to_fix/outflow/rah.bit"
+INFO     : HEX Generation Options Summary:
+INFO     : 	Listing options specified to bitstream generation:
+INFO     : 	spi_low_power_mode                       = on
+INFO     : 	oscillator_clock_divider                 = DIV8
+INFO     : 	io_weak_pullup                           = on
+INFO     : 	enable_remote_update                     = off
+INFO     : 	release_tri_then_reset                   = on
+INFO     : Finished generating "/home/neel/Downloads/float_to_fix/outflow/rah.hex"
+INFO     : Efinix Bitstream Generator took 7.53458 seconds.
+INFO     : 	Efinix Bitstream Generator took 7.39 seconds (approximately) in total CPU time.
+INFO     : Efinix Bitstream Generator virtual memory usage: begin = 72.496 MB, end = 372.204 MB, delta = 299.708 MB
+INFO     : Efinix Bitstream Generator resident set memory usage: begin = 14.308 MB, end = 280.936 MB, delta = 266.628 MB
+INFO     : 	Efinix Bitstream Generator peak resident set memory usage = 1354.56 MB

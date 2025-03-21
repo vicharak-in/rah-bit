@@ -1,0 +1,556 @@
+INFO     : --max_threads set to 12 
+INFO     : --max_threads set to 12 
+           ***** Beginning stage netlist pre-processing ... *****
+INFO     : Successfully Read in Verific binary Netlist dump file "/home/neel/Downloads/float_to_fix/outflow/rah.vdb".
+INFO     : ***** Beginning VDB Netlist Checker ... *****
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(11): Input/inout port my_mipi_rx_HSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(12): Input/inout port my_mipi_rx_VSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(13): Input/inout port my_mipi_rx_DATA[63] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(14): Input/inout port my_mipi_rx_TYPE[5] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(15): Input/inout port my_mipi_rx_VC[1] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(16): Input/inout port my_mipi_rx_CNT[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(17): Input/inout port my_mipi_rx_ERROR[17] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(18): Input/inout port my_mipi_rx_ULPS_CLK is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(19): Input/inout port my_mipi_rx_ULPS[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(45): Input/inout port uart_rx_pin is unconnected and will be removed. [VDB-8003]
+INFO     : Found 60 warnings in the post-synthesis netlist.
+INFO     : VDB Netlist Checker took 0.0792367 seconds.
+INFO     : 	VDB Netlist Checker took 0.08 seconds (approximately) in total CPU time.
+INFO     : VDB Netlist Checker virtual memory usage: begin = 3770.1 MB, end = 3770.1 MB, delta = 0 MB
+INFO     : VDB Netlist Checker resident set memory usage: begin = 165.356 MB, end = 165.484 MB, delta = 0.128 MB
+INFO     : 	VDB Netlist Checker peak resident set memory usage = 165.484 MB
+INFO     : ***** Ending VDB Netlist Checker ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Creating interface clock pin mipi_rx_cal_clk.
+INFO     : Creating interface clock buffer mipi_rx_cal_clk~CLKBUF.
+INFO     : Creating interface clock pin tx_esc_clk.
+INFO     : Creating interface clock buffer tx_esc_clk~CLKBUF.
+INFO     : Found 0 constant generator nets.
+INFO     : Pass 0: Swept away 0 nets with no fanout.
+INFO     : logical_block #4(my_mipi_rx_HSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #5(my_mipi_rx_HSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #6(my_mipi_rx_HSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #7(my_mipi_rx_HSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #8(my_mipi_rx_VSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #9(my_mipi_rx_VSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #10(my_mipi_rx_VSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #11(my_mipi_rx_VSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #12(my_mipi_rx_DATA[63]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #13(my_mipi_rx_DATA[62]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #14(my_mipi_rx_DATA[61]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #15(my_mipi_rx_DATA[60]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #16(my_mipi_rx_DATA[59]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #17(my_mipi_rx_DATA[58]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #18(my_mipi_rx_DATA[57]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #19(my_mipi_rx_DATA[56]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #20(my_mipi_rx_DATA[55]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #21(my_mipi_rx_DATA[54]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #22(my_mipi_rx_DATA[53]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #23(my_mipi_rx_DATA[52]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #24(my_mipi_rx_DATA[51]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #25(my_mipi_rx_DATA[50]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #26(my_mipi_rx_DATA[49]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #27(my_mipi_rx_DATA[48]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #76(my_mipi_rx_TYPE[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #77(my_mipi_rx_TYPE[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #78(my_mipi_rx_TYPE[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #79(my_mipi_rx_TYPE[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #80(my_mipi_rx_TYPE[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #81(my_mipi_rx_TYPE[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #82(my_mipi_rx_VC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #83(my_mipi_rx_VC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #84(my_mipi_rx_CNT[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #85(my_mipi_rx_CNT[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #86(my_mipi_rx_CNT[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #87(my_mipi_rx_CNT[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #88(my_mipi_rx_ERROR[17]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #89(my_mipi_rx_ERROR[16]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #90(my_mipi_rx_ERROR[15]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #91(my_mipi_rx_ERROR[14]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #92(my_mipi_rx_ERROR[13]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #93(my_mipi_rx_ERROR[12]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #94(my_mipi_rx_ERROR[11]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #95(my_mipi_rx_ERROR[10]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #96(my_mipi_rx_ERROR[9]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #97(my_mipi_rx_ERROR[8]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #98(my_mipi_rx_ERROR[7]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #99(my_mipi_rx_ERROR[6]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #100(my_mipi_rx_ERROR[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #101(my_mipi_rx_ERROR[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #102(my_mipi_rx_ERROR[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #103(my_mipi_rx_ERROR[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #104(my_mipi_rx_ERROR[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #105(my_mipi_rx_ERROR[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #106(my_mipi_rx_ULPS_CLK) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #107(my_mipi_rx_ULPS[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #108(my_mipi_rx_ULPS[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #109(my_mipi_rx_ULPS[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #110(my_mipi_rx_ULPS[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #226(uart_rx_pin) has no fanout.
+INFO     : Removing input.
+INFO     : Pass 0: Swept away 60 blocks with no fanout.
+INFO     : Pass 1: Swept away 0 nets with no fanout.
+INFO     : Pass 1: Swept away 0 blocks with no fanout.
+INFO     : Swept away 0 nets and 60 blocks in total.
+INFO     : Removed 0 LUT buffers
+INFO     : Sweept away 60 nodes
+INFO     : Successfully created VPR logical netlist from Verific binary DataBase file "/home/neel/Downloads/float_to_fix/outflow/rah.vdb".
+INFO     : Netlist pre-processing took 0.18354 seconds.
+INFO     : 	Netlist pre-processing took 0.19 seconds (approximately) in total CPU time.
+INFO     : Netlist pre-processing virtual memory usage: begin = 3770.02 MB, end = 3770.1 MB, delta = 0.08 MB
+INFO     : Netlist pre-processing resident set memory usage: begin = 148.204 MB, end = 181.74 MB, delta = 33.536 MB
+INFO     : 	Netlist pre-processing peak resident set memory usage = 181.74 MB
+           ***** Ending stage netlist pre-processing *****
+           
+INFO     : Read proto netlist file /home/neel/Downloads/float_to_fix/work_pnr/rah.net_proto
+INFO     : Read proto netlist for file "/home/neel/Downloads/float_to_fix/work_pnr/rah.net_proto" took 0.004115 seconds
+INFO     : Setup net and block data structure took 0.147725 seconds
+INFO     : Run checks after load placement.
+INFO     : Read ipin pattern from /home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xml
+INFO     : Finished parsing ipin pattern file '/home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xdb'.
+INFO     : Finished parsing switch_block file '/home/neel/Documents/efinity/2024.1/arch/./sb_connectivity_subset.xdb'.
+INFO     : BuildGraph process took 9.75406 seconds.
+INFO     : 	BuildGraph process took 9.27 seconds (approximately) in total CPU time.
+INFO     : BuildGraph process virtual memory usage: begin = 4654.85 MB, end = 6760.56 MB, delta = 2105.71 MB
+INFO     : BuildGraph process resident set memory usage: begin = 273.64 MB, end = 2496.4 MB, delta = 2222.76 MB
+INFO     : 	BuildGraph process peak resident set memory usage = 2496.4 MB
+INFO     : check rr_graph process took 0.329253 seconds.
+INFO     : 	check rr_graph process took 0.33 seconds (approximately) in total CPU time.
+INFO     : check rr_graph process virtual memory usage: begin = 6916.55 MB, end = 6916.55 MB, delta = 0 MB
+INFO     : check rr_graph process resident set memory usage: begin = 2652.49 MB, end = 2652.58 MB, delta = 0.088 MB
+INFO     : 	check rr_graph process peak resident set memory usage = 2678.47 MB
+INFO     : Generated 6655631 RR nodes and 25233043 RR edges
+INFO     : This design has 0 global control net(s). See /home/neel/Downloads/float_to_fix/outflow/rah.pnr.rpt for details.
+INFO     : Reading route file, /home/neel/Downloads/float_to_fix/outflow/rah.route
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.
+INFO     : Deleting any pre-existing troute trace files
+INFO     : --max_threads set to 12 
+INFO     : --max_threads set to 12 
+           ***** Beginning stage netlist pre-processing ... *****
+INFO     : Successfully Read in Verific binary Netlist dump file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.vdb".
+INFO     : ***** Beginning VDB Netlist Checker ... *****
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(11): Input/inout port my_mipi_rx_HSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(12): Input/inout port my_mipi_rx_VSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(13): Input/inout port my_mipi_rx_DATA[63] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(14): Input/inout port my_mipi_rx_TYPE[5] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(15): Input/inout port my_mipi_rx_VC[1] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(16): Input/inout port my_mipi_rx_CNT[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(17): Input/inout port my_mipi_rx_ERROR[17] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(18): Input/inout port my_mipi_rx_ULPS_CLK is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(19): Input/inout port my_mipi_rx_ULPS[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(45): Input/inout port uart_rx_pin is unconnected and will be removed. [VDB-8003]
+INFO     : Found 60 warnings in the post-synthesis netlist.
+INFO     : VDB Netlist Checker took 0.0836883 seconds.
+INFO     : 	VDB Netlist Checker took 0.08 seconds (approximately) in total CPU time.
+INFO     : VDB Netlist Checker virtual memory usage: begin = 5741.58 MB, end = 5741.58 MB, delta = 0 MB
+INFO     : VDB Netlist Checker resident set memory usage: begin = 1505.12 MB, end = 1505.12 MB, delta = 0 MB
+INFO     : 	VDB Netlist Checker peak resident set memory usage = 2678.47 MB
+INFO     : ***** Ending VDB Netlist Checker ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Creating interface clock pin mipi_rx_cal_clk.
+INFO     : Creating interface clock buffer mipi_rx_cal_clk~CLKBUF.
+INFO     : Creating interface clock pin tx_esc_clk.
+INFO     : Creating interface clock buffer tx_esc_clk~CLKBUF.
+INFO     : Found 0 constant generator nets.
+INFO     : Pass 0: Swept away 0 nets with no fanout.
+INFO     : logical_block #4(my_mipi_rx_HSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #5(my_mipi_rx_HSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #6(my_mipi_rx_HSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #7(my_mipi_rx_HSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #8(my_mipi_rx_VSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #9(my_mipi_rx_VSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #10(my_mipi_rx_VSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #11(my_mipi_rx_VSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #12(my_mipi_rx_DATA[63]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #13(my_mipi_rx_DATA[62]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #14(my_mipi_rx_DATA[61]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #15(my_mipi_rx_DATA[60]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #16(my_mipi_rx_DATA[59]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #17(my_mipi_rx_DATA[58]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #18(my_mipi_rx_DATA[57]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #19(my_mipi_rx_DATA[56]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #20(my_mipi_rx_DATA[55]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #21(my_mipi_rx_DATA[54]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #22(my_mipi_rx_DATA[53]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #23(my_mipi_rx_DATA[52]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #24(my_mipi_rx_DATA[51]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #25(my_mipi_rx_DATA[50]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #26(my_mipi_rx_DATA[49]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #27(my_mipi_rx_DATA[48]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #76(my_mipi_rx_TYPE[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #77(my_mipi_rx_TYPE[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #78(my_mipi_rx_TYPE[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #79(my_mipi_rx_TYPE[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #80(my_mipi_rx_TYPE[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #81(my_mipi_rx_TYPE[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #82(my_mipi_rx_VC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #83(my_mipi_rx_VC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #84(my_mipi_rx_CNT[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #85(my_mipi_rx_CNT[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #86(my_mipi_rx_CNT[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #87(my_mipi_rx_CNT[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #88(my_mipi_rx_ERROR[17]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #89(my_mipi_rx_ERROR[16]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #90(my_mipi_rx_ERROR[15]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #91(my_mipi_rx_ERROR[14]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #92(my_mipi_rx_ERROR[13]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #93(my_mipi_rx_ERROR[12]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #94(my_mipi_rx_ERROR[11]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #95(my_mipi_rx_ERROR[10]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #96(my_mipi_rx_ERROR[9]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #97(my_mipi_rx_ERROR[8]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #98(my_mipi_rx_ERROR[7]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #99(my_mipi_rx_ERROR[6]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #100(my_mipi_rx_ERROR[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #101(my_mipi_rx_ERROR[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #102(my_mipi_rx_ERROR[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #103(my_mipi_rx_ERROR[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #104(my_mipi_rx_ERROR[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #105(my_mipi_rx_ERROR[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #106(my_mipi_rx_ULPS_CLK) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #107(my_mipi_rx_ULPS[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #108(my_mipi_rx_ULPS[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #109(my_mipi_rx_ULPS[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #110(my_mipi_rx_ULPS[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #226(uart_rx_pin) has no fanout.
+INFO     : Removing input.
+INFO     : Pass 0: Swept away 60 blocks with no fanout.
+INFO     : Pass 1: Swept away 0 nets with no fanout.
+INFO     : Pass 1: Swept away 0 blocks with no fanout.
+INFO     : Swept away 0 nets and 60 blocks in total.
+INFO     : Removed 0 LUT buffers
+INFO     : Sweept away 60 nodes
+INFO     : Successfully created VPR logical netlist from Verific binary DataBase file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.vdb".
+INFO     : Netlist pre-processing took 0.190132 seconds.
+INFO     : 	Netlist pre-processing took 0.21 seconds (approximately) in total CPU time.
+INFO     : Netlist pre-processing virtual memory usage: begin = 5741.58 MB, end = 5741.58 MB, delta = 0 MB
+INFO     : Netlist pre-processing resident set memory usage: begin = 1505.12 MB, end = 1505.12 MB, delta = 0 MB
+INFO     : 	Netlist pre-processing peak resident set memory usage = 2678.47 MB
+           ***** Ending stage netlist pre-processing *****
+           
+INFO     : Read proto netlist file /home/neel/Downloads/float_to_fix/work_pnr/float_to_fix.net_proto
+INFO     : Read proto netlist for file "/home/neel/Downloads/float_to_fix/work_pnr/float_to_fix.net_proto" took 0.003443 seconds
+INFO     : Setup net and block data structure took 0.140756 seconds
+INFO     : Run checks after load placement.
+INFO     : Read ipin pattern from /home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xml
+INFO     : Finished parsing ipin pattern file '/home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xdb'.
+INFO     : Finished parsing switch_block file '/home/neel/Documents/efinity/2024.1/arch/./sb_connectivity_subset.xdb'.
+INFO     : BuildGraph process took 9.07999 seconds.
+INFO     : 	BuildGraph process took 8.66 seconds (approximately) in total CPU time.
+INFO     : BuildGraph process virtual memory usage: begin = 5749.78 MB, end = 6947.88 MB, delta = 1198.1 MB
+INFO     : BuildGraph process resident set memory usage: begin = 1524.14 MB, end = 2682.15 MB, delta = 1158.02 MB
+INFO     : 	BuildGraph process peak resident set memory usage = 2682.15 MB
+INFO     : check rr_graph process took 0.31788 seconds.
+INFO     : 	check rr_graph process took 0.3 seconds (approximately) in total CPU time.
+INFO     : check rr_graph process virtual memory usage: begin = 6947.88 MB, end = 6947.88 MB, delta = 0 MB
+INFO     : check rr_graph process resident set memory usage: begin = 2682.15 MB, end = 2708.15 MB, delta = 25.996 MB
+INFO     : 	check rr_graph process peak resident set memory usage = 2734.12 MB
+INFO     : Generated 6655631 RR nodes and 25233050 RR edges
+INFO     : This design has 0 global control net(s). See /home/neel/Downloads/float_to_fix/outflow/float_to_fix.pnr.rpt for details.
+INFO     : Reading route file, /home/neel/Downloads/float_to_fix/outflow/float_to_fix.route
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.
+INFO     : Deleting any pre-existing troute trace files
+INFO     : Deleting any pre-existing troute trace files
+INFO     : Deleting any pre-existing troute trace files
+INFO     : --max_threads set to 12 
+           ***** Beginning stage netlist pre-processing ... *****
+INFO     : Successfully Read in Verific binary Netlist dump file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.vdb".
+INFO     : ***** Beginning VDB Netlist Checker ... *****
+INFO     : VDB Netlist Checker took 0.083345 seconds.
+INFO     : 	VDB Netlist Checker took 0.09 seconds (approximately) in total CPU time.
+INFO     : VDB Netlist Checker virtual memory usage: begin = 5816.79 MB, end = 5816.79 MB, delta = 0 MB
+INFO     : VDB Netlist Checker resident set memory usage: begin = 1600.51 MB, end = 1600.51 MB, delta = 0 MB
+INFO     : 	VDB Netlist Checker peak resident set memory usage = 2734.12 MB
+INFO     : ***** Ending VDB Netlist Checker ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Creating interface clock pin mipi_rx_cal_clk.
+INFO     : Creating interface clock buffer mipi_rx_cal_clk~CLKBUF.
+INFO     : Creating interface clock pin tx_esc_clk.
+INFO     : Creating interface clock buffer tx_esc_clk~CLKBUF.
+INFO     : Found 0 constant generator nets.
+INFO     : Pass 0: Swept away 0 nets with no fanout.
+INFO     : logical_block #4(my_mipi_rx_HSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #5(my_mipi_rx_HSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #6(my_mipi_rx_HSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #7(my_mipi_rx_HSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #8(my_mipi_rx_VSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #9(my_mipi_rx_VSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #10(my_mipi_rx_VSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #11(my_mipi_rx_VSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #12(my_mipi_rx_DATA[63]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #13(my_mipi_rx_DATA[62]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #14(my_mipi_rx_DATA[61]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #15(my_mipi_rx_DATA[60]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #16(my_mipi_rx_DATA[59]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #17(my_mipi_rx_DATA[58]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #18(my_mipi_rx_DATA[57]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #19(my_mipi_rx_DATA[56]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #20(my_mipi_rx_DATA[55]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #21(my_mipi_rx_DATA[54]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #22(my_mipi_rx_DATA[53]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #23(my_mipi_rx_DATA[52]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #24(my_mipi_rx_DATA[51]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #25(my_mipi_rx_DATA[50]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #26(my_mipi_rx_DATA[49]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #27(my_mipi_rx_DATA[48]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #76(my_mipi_rx_TYPE[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #77(my_mipi_rx_TYPE[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #78(my_mipi_rx_TYPE[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #79(my_mipi_rx_TYPE[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #80(my_mipi_rx_TYPE[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #81(my_mipi_rx_TYPE[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #82(my_mipi_rx_VC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #83(my_mipi_rx_VC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #84(my_mipi_rx_CNT[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #85(my_mipi_rx_CNT[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #86(my_mipi_rx_CNT[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #87(my_mipi_rx_CNT[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #88(my_mipi_rx_ERROR[17]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #89(my_mipi_rx_ERROR[16]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #90(my_mipi_rx_ERROR[15]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #91(my_mipi_rx_ERROR[14]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #92(my_mipi_rx_ERROR[13]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #93(my_mipi_rx_ERROR[12]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #94(my_mipi_rx_ERROR[11]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #95(my_mipi_rx_ERROR[10]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #96(my_mipi_rx_ERROR[9]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #97(my_mipi_rx_ERROR[8]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #98(my_mipi_rx_ERROR[7]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #99(my_mipi_rx_ERROR[6]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #100(my_mipi_rx_ERROR[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #101(my_mipi_rx_ERROR[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #102(my_mipi_rx_ERROR[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #103(my_mipi_rx_ERROR[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #104(my_mipi_rx_ERROR[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #105(my_mipi_rx_ERROR[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #106(my_mipi_rx_ULPS_CLK) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #107(my_mipi_rx_ULPS[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #108(my_mipi_rx_ULPS[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #109(my_mipi_rx_ULPS[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #110(my_mipi_rx_ULPS[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #226(uart_rx_pin) has no fanout.
+INFO     : Removing input.
+INFO     : Pass 0: Swept away 60 blocks with no fanout.
+INFO     : Pass 1: Swept away 0 nets with no fanout.
+INFO     : Pass 1: Swept away 0 blocks with no fanout.
+INFO     : Swept away 0 nets and 60 blocks in total.
+INFO     : Removed 0 LUT buffers
+INFO     : Sweept away 60 nodes
+INFO     : Successfully created VPR logical netlist from Verific binary DataBase file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.vdb".
+INFO     : Netlist pre-processing took 0.184162 seconds.
+INFO     : 	Netlist pre-processing took 0.2 seconds (approximately) in total CPU time.
+INFO     : Netlist pre-processing virtual memory usage: begin = 5816.79 MB, end = 5816.79 MB, delta = 0 MB
+INFO     : Netlist pre-processing resident set memory usage: begin = 1600.51 MB, end = 1600.51 MB, delta = 0 MB
+INFO     : 	Netlist pre-processing peak resident set memory usage = 2734.12 MB
+           ***** Ending stage netlist pre-processing *****
+           
+INFO     : Read proto netlist file /home/neel/Downloads/float_to_fix/work_pnr/float_to_fix.net_proto
+INFO     : Read proto netlist for file "/home/neel/Downloads/float_to_fix/work_pnr/float_to_fix.net_proto" took 0.003614 seconds
+INFO     : Setup net and block data structure took 0.139461 seconds
+INFO     : Run checks after load placement.
+INFO     : Read ipin pattern from /home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xml
+INFO     : Finished parsing ipin pattern file '/home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xdb'.
+INFO     : Finished parsing switch_block file '/home/neel/Documents/efinity/2024.1/arch/./sb_connectivity_subset.xdb'.
+INFO     : BuildGraph process took 9.47734 seconds.
+INFO     : 	BuildGraph process took 9.34 seconds (approximately) in total CPU time.
+INFO     : BuildGraph process virtual memory usage: begin = 5824.98 MB, end = 6957.54 MB, delta = 1132.56 MB
+INFO     : BuildGraph process resident set memory usage: begin = 1614.42 MB, end = 2699.1 MB, delta = 1084.67 MB
+INFO     : 	BuildGraph process peak resident set memory usage = 2734.12 MB
+INFO     : check rr_graph process took 0.334417 seconds.
+INFO     : 	check rr_graph process took 0.32 seconds (approximately) in total CPU time.
+INFO     : check rr_graph process virtual memory usage: begin = 6957.54 MB, end = 6957.54 MB, delta = 0 MB
+INFO     : check rr_graph process resident set memory usage: begin = 2699.1 MB, end = 2725.2 MB, delta = 26.104 MB
+INFO     : 	check rr_graph process peak resident set memory usage = 2751.19 MB
+INFO     : Generated 6655631 RR nodes and 25233043 RR edges
+INFO     : This design has 0 global control net(s). See /home/neel/Downloads/float_to_fix/outflow/float_to_fix.pnr.rpt for details.
+INFO     : Reading route file, /home/neel/Downloads/float_to_fix/outflow/float_to_fix.route
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/float_to_fix.interface.csv"
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.

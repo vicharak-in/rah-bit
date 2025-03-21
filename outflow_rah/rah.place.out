@@ -1,0 +1,552 @@
+           
+           Efinix FPGA Placement and Routing.
+           Version: 2024.1.163 
+           Compiled: Jun 25 2024.
+           
+           Copyright (C) 2013 - 2024 Efinix, Inc. All rights reserved.
+
+           
+           The Tool Is Based on VPR of University of Toronto,
+           a free open source code under MIT license.
+           
+           
+INFO     : Running Placement and Routing for Family "Trion", Device "T120F324" ...
+           
+           ***** Beginning stage netlist pre-processing ... *****
+INFO     : Successfully Read in Verific binary Netlist dump file "/home/neel/Downloads/float_to_fix/outflow/rah.vdb".
+INFO     : ***** Beginning VDB Netlist Checker ... *****
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(11): Input/inout port my_mipi_rx_HSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(12): Input/inout port my_mipi_rx_VSYNC[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(13): Input/inout port my_mipi_rx_DATA[63] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(14): Input/inout port my_mipi_rx_TYPE[5] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(15): Input/inout port my_mipi_rx_VC[1] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(16): Input/inout port my_mipi_rx_CNT[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(17): Input/inout port my_mipi_rx_ERROR[17] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(18): Input/inout port my_mipi_rx_ULPS_CLK is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(19): Input/inout port my_mipi_rx_ULPS[3] is unconnected and will be removed. [VDB-8003]
+WARNING  : /home/neel/Downloads/float_to_fix/rtl/top.v(45): Input/inout port uart_rx_pin is unconnected and will be removed. [VDB-8003]
+INFO     : Found 60 warnings in the post-synthesis netlist.
+INFO     : VDB Netlist Checker took 0.147915 seconds.
+INFO     : 	VDB Netlist Checker took 0.15 seconds (approximately) in total CPU time.
+INFO     : VDB Netlist Checker virtual memory usage: begin = 253.764 MB, end = 253.764 MB, delta = 0 MB
+INFO     : VDB Netlist Checker resident set memory usage: begin = 108.184 MB, end = 108.312 MB, delta = 0.128 MB
+INFO     : 	VDB Netlist Checker peak resident set memory usage = 1353.53 MB
+INFO     : ***** Ending VDB Netlist Checker ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Creating interface clock pin mipi_rx_cal_clk.
+INFO     : Creating interface clock buffer mipi_rx_cal_clk~CLKBUF.
+INFO     : Creating interface clock pin tx_esc_clk.
+INFO     : Creating interface clock buffer tx_esc_clk~CLKBUF.
+INFO     : Found 0 constant generator nets.
+INFO     : Pass 0: Swept away 0 nets with no fanout.
+INFO     : logical_block #4(my_mipi_rx_HSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #5(my_mipi_rx_HSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #6(my_mipi_rx_HSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #7(my_mipi_rx_HSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #8(my_mipi_rx_VSYNC[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #9(my_mipi_rx_VSYNC[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #10(my_mipi_rx_VSYNC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #11(my_mipi_rx_VSYNC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #12(my_mipi_rx_DATA[63]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #13(my_mipi_rx_DATA[62]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #14(my_mipi_rx_DATA[61]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #15(my_mipi_rx_DATA[60]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #16(my_mipi_rx_DATA[59]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #17(my_mipi_rx_DATA[58]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #18(my_mipi_rx_DATA[57]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #19(my_mipi_rx_DATA[56]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #20(my_mipi_rx_DATA[55]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #21(my_mipi_rx_DATA[54]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #22(my_mipi_rx_DATA[53]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #23(my_mipi_rx_DATA[52]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #24(my_mipi_rx_DATA[51]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #25(my_mipi_rx_DATA[50]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #26(my_mipi_rx_DATA[49]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #27(my_mipi_rx_DATA[48]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #76(my_mipi_rx_TYPE[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #77(my_mipi_rx_TYPE[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #78(my_mipi_rx_TYPE[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #79(my_mipi_rx_TYPE[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #80(my_mipi_rx_TYPE[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #81(my_mipi_rx_TYPE[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #82(my_mipi_rx_VC[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #83(my_mipi_rx_VC[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #84(my_mipi_rx_CNT[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #85(my_mipi_rx_CNT[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #86(my_mipi_rx_CNT[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #87(my_mipi_rx_CNT[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #88(my_mipi_rx_ERROR[17]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #89(my_mipi_rx_ERROR[16]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #90(my_mipi_rx_ERROR[15]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #91(my_mipi_rx_ERROR[14]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #92(my_mipi_rx_ERROR[13]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #93(my_mipi_rx_ERROR[12]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #94(my_mipi_rx_ERROR[11]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #95(my_mipi_rx_ERROR[10]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #96(my_mipi_rx_ERROR[9]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #97(my_mipi_rx_ERROR[8]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #98(my_mipi_rx_ERROR[7]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #99(my_mipi_rx_ERROR[6]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #100(my_mipi_rx_ERROR[5]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #101(my_mipi_rx_ERROR[4]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #102(my_mipi_rx_ERROR[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #103(my_mipi_rx_ERROR[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #104(my_mipi_rx_ERROR[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #105(my_mipi_rx_ERROR[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #106(my_mipi_rx_ULPS_CLK) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #107(my_mipi_rx_ULPS[3]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #108(my_mipi_rx_ULPS[2]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #109(my_mipi_rx_ULPS[1]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #110(my_mipi_rx_ULPS[0]) has no fanout.
+INFO     : Removing input.
+INFO     : logical_block #226(uart_rx_pin) has no fanout.
+INFO     : Removing input.
+INFO     : Pass 0: Swept away 60 blocks with no fanout.
+INFO     : Pass 1: Swept away 0 nets with no fanout.
+INFO     : Pass 1: Swept away 0 blocks with no fanout.
+INFO     : Swept away 0 nets and 60 blocks in total.
+INFO     : Removed 0 LUT buffers
+INFO     : Sweept away 60 nodes
+INFO     : Successfully created VPR logical netlist from Verific binary DataBase file "/home/neel/Downloads/float_to_fix/outflow/rah.vdb".
+INFO     : Netlist pre-processing took 0.279956 seconds.
+INFO     : 	Netlist pre-processing took 0.28 seconds (approximately) in total CPU time.
+INFO     : Netlist pre-processing virtual memory usage: begin = 253.764 MB, end = 253.764 MB, delta = 0 MB
+INFO     : Netlist pre-processing resident set memory usage: begin = 107.484 MB, end = 108.312 MB, delta = 0.828 MB
+INFO     : 	Netlist pre-processing peak resident set memory usage = 1353.53 MB
+           ***** Ending stage netlist pre-processing *****
+           
+           ***** Beginning stage pre-packing ... *****
+           ***** Ending stage pre-packing *****
+           
+           ***** Beginning stage packing ... *****
+INFO     : Generate proto netlist for file "/home/neel/Downloads/float_to_fix/work_pnr/rah.net_proto" took 0.005666 seconds
+INFO     : Creating IO constraints file '/home/neel/Downloads/float_to_fix/work_pnr/rah.io_place'
+INFO     : Packing took 0.0427593 seconds.
+INFO     : 	Packing took 0.04 seconds (approximately) in total CPU time.
+INFO     : Packing virtual memory usage: begin = 253.764 MB, end = 253.764 MB, delta = 0 MB
+INFO     : Packing resident set memory usage: begin = 109.14 MB, end = 109.58 MB, delta = 0.44 MB
+INFO     : 	Packing peak resident set memory usage = 1353.53 MB
+           ***** Ending stage packing *****
+           
+           ***** Beginning stage packed netlist loading ... *****
+INFO     : Read proto netlist file /home/neel/Downloads/float_to_fix/work_pnr/rah.net_proto
+INFO     : Read proto netlist for file "/home/neel/Downloads/float_to_fix/work_pnr/rah.net_proto" took 0.002233 seconds
+INFO     : Setup net and block data structure took 0.197443 seconds
+INFO     : Packed netlist loading took 2.01894 seconds.
+INFO     : 	Packed netlist loading took 2.75 seconds (approximately) in total CPU time.
+INFO     : Packed netlist loading virtual memory usage: begin = 253.764 MB, end = 353.596 MB, delta = 99.832 MB
+INFO     : Packed netlist loading resident set memory usage: begin = 109.58 MB, end = 180.328 MB, delta = 70.748 MB
+INFO     : 	Packed netlist loading peak resident set memory usage = 1353.53 MB
+           ***** Ending stage packed netlist loading *****
+           
+           ***** Beginning stage pre-placement ... *****
+           
+           ***** Ending stage pre-placement *****
+           
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.
+           ***** Beginning stage initial placement ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Writing IO placement constraints to "/home/neel/Downloads/float_to_fix/outflow/rah.interface.io"
+INFO     : Reading placement constraints from '/home/neel/Downloads/float_to_fix/outflow/rah.interface.io'.
+INFO     : Reading placement constraints from '/home/neel/Downloads/float_to_fix/work_pnr/rah.io_place'.
+           ***** Ending stage initial placement *****
+           
+           ***** Beginning stage placement ... *****
+INFO     : Found 82 synchronizers as follows: 
+INFO     : 	Synchronizer 0: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][6]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 1: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][1]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 2: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][8]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 3: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][2]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 4: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 5: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][3]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 6: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][4]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 7: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][5]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 8: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][6]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 9: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][1]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 10: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][8]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 11: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][7]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 12: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][2]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 13: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 14: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][4]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 15: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][5]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 16: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][6]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 17: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][1]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 18: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][8]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 19: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][7]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 20: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][2]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 21: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_wr_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/wr_rst_int~FF
+INFO     : 	Synchronizer 22: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 23: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][3]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 24: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][7]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 25: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][8]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 26: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_rd_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/rd_rst_int~FF
+INFO     : 	Synchronizer 27: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][4]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 28: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][7]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 29: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][6]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 30: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][5]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 31: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][2]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 32: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][1]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 33: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_wr_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/wr_rst_int~FF
+INFO     : 	Synchronizer 34: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_rd_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/rd_rst_int~FF
+INFO     : 	Synchronizer 35: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][8]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 36: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][8]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 37: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][7]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 38: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][2]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 39: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][5]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 40: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][3]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 41: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][3]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 42: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 43: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_wr_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/wr_rst_int~FF
+INFO     : 	Synchronizer 44: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][4]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 45: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][6]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 46: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_rd_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/rd_rst_int~FF
+INFO     : 	Synchronizer 47: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][7]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 48: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 49: 
+INFO     :  re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/genblk2.efx_resetsync_a_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].fe/rst_busy~FF
+INFO     : 	Synchronizer 50: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][1]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 51: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][6]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 52: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][5]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 53: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_rd_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/rd_rst_int~FF
+INFO     : 	Synchronizer 54: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][4]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 55: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][3]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 56: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/genblk2.genblk1.efx_resetsync_wr_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/wr_rst_int~FF
+INFO     : 	Synchronizer 57: 
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][2]~FF
+INFO     :  rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 58: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][4]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 59: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][3]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 60: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][1]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 61: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 62: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][2]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 63: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][7]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 64: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][6]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 65: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][8]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 66: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][5]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 67: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][4]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 68: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][3]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 69: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][0]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 70: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][2]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[2]~FF
+INFO     : 	Synchronizer 71: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][7]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[7]~FF
+INFO     : 	Synchronizer 72: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][8]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[8]~FF
+INFO     : 	Synchronizer 73: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][1]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 74: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][6]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[6]~FF
+INFO     : 	Synchronizer 75: 
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.wr2rd_addr_sync/async_reg[0][1]~FF
+INFO     :  rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/async_clk.waddr_cntr_gry_sync[1]~FF
+INFO     : 	Synchronizer 76: 
+INFO     :  re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/genblk2.efx_resetsync_a_rst/active_high.efx_resetsync_active_high/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].fe/rst_busy~FF
+INFO     : 	Synchronizer 77: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][5]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[5]~FF
+INFO     : 	Synchronizer 78: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][4]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[4]~FF
+INFO     : 	Synchronizer 79: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][3]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[3]~FF
+INFO     : 	Synchronizer 80: 
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][0]~FF
+INFO     :  re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[0]~FF
+INFO     : 	Synchronizer 81: 
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.xrd2wr_addr_sync/async_reg[0][5]~FF
+INFO     :  re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/async_clk.raddr_cntr_gry_sync[5]~FF
+INFO     : Create /home/neel/Downloads/float_to_fix/outflow/rah_after_qp.qdelay
+INFO     : QPLACER STATIC DB USAGE DISABLED
+INFO     : Starting Global Placer with 12 threads ...
+            ----------     -------  --------------     -------
+             Iteration       WHPWL Worst Slack (ps) Convergence
+            ----------     -------  --------------     -------
+INFO     :           1    16364622            3610        25.9%
+INFO     :           2    15608741            3610        28.7%
+INFO     :           3    14124524            4095        30.7%
+INFO     :           4    10174088            4039        34.7%
+INFO     :           5     3061941            4039        39.5%
+INFO     :           6     1165119            4141        49.9%
+INFO     :           7      524099            4035        61.7%
+INFO     :           8      329702            1641        70.9%
+INFO     :           9      257498            2758        77.5%
+INFO     :          10      238637            2229        83.6%
+INFO     :          11      239561            2727        84.4%
+INFO     :          12      227431            2259        84.6%
+INFO     :          13      220777            1389        86.6%
+INFO     :          14      224428            2356        88.4%
+INFO     :          15      222539            2227        88.4%
+INFO     :          16      208498            1976        88.4%
+INFO     :          17      205034            2115        91.3%
+INFO     :          18      208453            1950        91.7%
+INFO     :          19      209902            2457        91.9%
+INFO     :          20      208485            2605        91.9%
+INFO     :          21      208333            2577        92.8%
+INFO     :          22      208451            2166        92.9%
+INFO     :          23      207884            1597        94.0%
+INFO     :          24      207913            1597        94.8%
+INFO     :          25      210006            1395        95.3%
+INFO     :          26      202130            1327        96.5%
+INFO     :          27      202879            1975        97.7%
+INFO     :          28      205313            1606        98.4%
+INFO     :          29      205956            1282        99.0%
+INFO     :          30      207629            1686        99.3%
+INFO     :          31      208499            1287        99.6%
+INFO     :          32      209901             872        99.7%
+INFO     : Starting Annealer
+            ----------     -------  --------------     -------
+             Iteration       WHPWL  Delay Max (ps)     R Limit
+            ----------     -------  --------------     -------
+INFO     :           0      202130           11500        30.0
+INFO     :           1      172746           10735        30.0
+INFO     :           2      127326           10738        30.0
+INFO     :           3      110472            6856        30.0
+INFO     :           4      111069           10487        30.0
+INFO     :           5       91669           10630        30.0
+INFO     :           6       86551           10624        30.0
+INFO     :           7       81602           10397        30.0
+INFO     :           8       79265           10397        30.0
+INFO     :           9       76275           10385        30.0
+INFO     :          10       75498           10385        30.0
+INFO     :          11       72657           10385        29.9
+INFO     :          12       73455           10142        29.8
+INFO     :          13       70751           10191        29.4
+INFO     :          14       70916           10191        29.2
+INFO     :          15       78647           10132        28.9
+INFO     :          16       70193           10132        28.2
+INFO     :          17       68182           10132        27.2
+INFO     :          18       66771           10132        26.2
+INFO     :          19       66473           10109        25.2
+INFO     :          20       64942           10109        24.3
+INFO     :          21       76520           10109        23.4
+INFO     :          22       65760           10109        22.4
+INFO     :          23       63808           10751        21.2
+INFO     :          24       62559            5661        20.2
+INFO     :          25       68093            5661        19.2
+INFO     :          26       62398            5661        18.1
+INFO     :          27       62033            5670        17.0
+INFO     :          28       60689            5670        16.0
+INFO     :          29       66748            5656        15.1
+INFO     :          30       61062            5656        14.1
+INFO     :          31       59768            5656        12.9
+INFO     :          32       59163           10252        11.7
+INFO     : Generate /home/neel/Downloads/float_to_fix/outflow/rah_after_qp.qdelay
+INFO     : Placement successful: 5745 cells are placed
+INFO     : Peak congestion smeared over 1/4 of the chip is 0.189583 at 18,0
+INFO     : Congestion-weighted HPWL per net: 7.11067
+INFO     : Reading placement constraints from '/home/neel/Downloads/float_to_fix/outflow/rah.qplace'.
+INFO     : Finished Realigning Types (1038 blocks needed type change)
+INFO     : Completed placement consistency check successfully.
+INFO     : Successfully created FPGA place file '/home/neel/Downloads/float_to_fix/outflow/rah.place'
+INFO     : Placement took 15.1953 seconds.
+INFO     : 	Placement took 41.23 seconds (approximately) in total CPU time.
+INFO     : Placement virtual memory usage: begin = 353.596 MB, end = 1346.92 MB, delta = 993.32 MB
+INFO     : Placement resident set memory usage: begin = 181.528 MB, end = 1083.98 MB, delta = 902.456 MB
+INFO     : 	Placement peak resident set memory usage = 1353.53 MB
+           ***** Ending stage placement *****
+           

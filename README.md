@@ -93,7 +93,7 @@ Converts a floating-point value into an integer and fraction.
 
    Input packet :-
    
-   ![Image](https://github.com/user-attachments/assets/72fa2b6f-3991-4b8d-b151-5e3eeb4ef4db)
+   ![Image](https://github.com/user-attachments/assets/6c40116e-fed5-43fb-822b-e1f6564fbf3a)
 
    Ouput packet :-
 

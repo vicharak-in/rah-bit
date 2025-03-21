@@ -1,0 +1,5 @@
+---------- Synchronizer Analysis ----------
+The maximum skew between data paths driving synchronizer inputs on the same bus should be less than
+1X the min_clock_period (9259 ps). This ensures skew between synchronized signals on a bus function properly.
+
+No Synchronizer warnings to report.

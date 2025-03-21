@@ -1,0 +1,73 @@
+
+Efinity Interface Designer Timing Report
+Version: 2024.1.163
+Date: 2025-03-21 12:31
+
+Copyright (C) 2013 - 2024 Efinix Inc. All rights reserved.
+
+Device: T120F324
+Project: rah
+Timing Model: C3 (final)
+
+---------- 1. PLL Timing Report (begin) ----------
+
++--------------+----------+-----------------+--------------------------+----------+-------------------+---------------------------------+---------------------------------+
+| PLL Instance | Resource | Reference Clock | Core Clock Reference Pin | FB Mode  | Core Feedback Pin | PLL Compensation Delay Max (ns) | PLL Compensation Delay Min (ns) |
++--------------+----------+-----------------+--------------------------+----------+-------------------+---------------------------------+---------------------------------+
+|  pll_inst2   | PLL_BL0  |     external    |                          | internal |                   |               N/A               |               N/A               |
+|  pll_inst1   | PLL_BR2  |     external    |                          | internal |                   |               N/A               |               N/A               |
++--------------+----------+-----------------+--------------------------+----------+-------------------+---------------------------------+---------------------------------+
+
++-----------------+-------------+-----------------------+
+|      Clock      | Period (ns) | Phase Shift (degrees) |
++-----------------+-------------+-----------------------+
+|   tx_pixel_clk  |   18.5185   |           0           |
+|    tx_esc_clk   |    9.2593   |           0           |
+|    tx_vga_clk   |    9.2593   |           0           |
+|   rx_pixel_clk  |   18.5185   |           0           |
+| mipi_rx_cal_clk |    9.2593   |           0           |
++-----------------+-------------+-----------------------+
+
+---------- PLL Timing Report (end) ----------
+
+---------- 2. GPIO Timing Report (begin) ----------
+
+Non-registered GPIO Configuration:
+===================================
+
++----------------+----------------+-----------+----------+----------+
+| Instance Name  |    Pin Name    | Parameter | Max (ns) | Min (ns) |
++----------------+----------------+-----------+----------+----------+
+|  mipi_refclk   |  mipi_refclk   |  GPIO_IN  |  1.919   |  0.738   |
+| mipi_rx_refclk | mipi_rx_refclk |  GPIO_IN  |  1.919   |  0.738   |
+| mipi_tx_refclk | mipi_tx_refclk |  GPIO_IN  |  1.815   |  0.698   |
++----------------+----------------+-----------+----------+----------+
+
+---------- GPIO Timing Report (end) ----------
+
+---------- 3. LVDS Rx Timing Report (begin) ----------
+
+Non-registered LVDS GPIO Configuration:
+========================================
+
++---------------+-------------+-----------+----------+----------+
+| Instance Name |   Pin Name  | Parameter | Max (ns) | Min (ns) |
++---------------+-------------+-----------+----------+----------+
+|  uart_rx_pin  | uart_rx_pin |  GPIO_IN  |  2.228   |  0.857   |
+|  uart_tx_pin  | uart_tx_pin |  GPIO_OUT |  4.605   |  1.771   |
++---------------+-------------+-----------+----------+----------+
+
+---------- LVDS Rx Timing Report (end) ----------
+
+---------- 6. Clock Network Delay Report (begin) ----------
+
++-----------------+----------+----------+
+|    Clock Pin    | Max (ns) | Min (ns) |
++-----------------+----------+----------+
+| mipi_rx_cal_clk |  6.903   |  2.655   |
+|   rx_pixel_clk  |  6.903   |  2.655   |
+|    tx_esc_clk   |  6.903   |  2.655   |
+|   tx_pixel_clk  |  6.903   |  2.655   |
++-----------------+----------+----------+
+
+---------- Clock Network Delay Report (end) ----------

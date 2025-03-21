@@ -1,0 +1,115 @@
+           
+           Efinix FPGA Placement and Routing.
+           Version: 2024.1.163 
+           Compiled: Jun 25 2024.
+           
+           Copyright (C) 2013 - 2024 Efinix, Inc. All rights reserved.
+
+           
+           The Tool Is Based on VPR of University of Toronto,
+           a free open source code under MIT license.
+           
+           
+INFO     : Running Placement and Routing for Family "Trion", Device "T120F324" ...
+           
+           ***** Beginning stage routing graph generation ... *****
+INFO     : Read ipin pattern from /home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xml
+INFO     : Finished parsing ipin pattern file '/home/neel/Documents/efinity/2024.1/arch/./ipin_oph.xdb'.
+INFO     : Finished parsing switch_block file '/home/neel/Documents/efinity/2024.1/arch/./sb_connectivity_subset.xdb'.
+INFO     : BuildGraph process took 14.3883 seconds.
+INFO     : 	BuildGraph process took 13.69 seconds (approximately) in total CPU time.
+INFO     : BuildGraph process virtual memory usage: begin = 1346.92 MB, end = 2473.06 MB, delta = 1126.14 MB
+INFO     : BuildGraph process resident set memory usage: begin = 1084.35 MB, end = 2060.66 MB, delta = 976.304 MB
+INFO     : 	BuildGraph process peak resident set memory usage = 2060.66 MB
+INFO     : check rr_graph process took 0.554525 seconds.
+INFO     : 	check rr_graph process took 0.53 seconds (approximately) in total CPU time.
+INFO     : check rr_graph process virtual memory usage: begin = 2681.05 MB, end = 2707.05 MB, delta = 26 MB
+INFO     : check rr_graph process resident set memory usage: begin = 2242.54 MB, end = 2294.77 MB, delta = 52.224 MB
+INFO     : 	check rr_graph process peak resident set memory usage = 2294.77 MB
+INFO     : Generated 6655631 RR nodes and 25233043 RR edges
+INFO     : This design has 0 global control net(s). See /home/neel/Downloads/float_to_fix/outflow/rah.route.rpt for details.
+INFO     : Routing graph took 15.3722 seconds.
+INFO     : 	Routing graph took 14.57 seconds (approximately) in total CPU time.
+INFO     : Routing graph virtual memory usage: begin = 1346.92 MB, end = 2707.05 MB, delta = 1360.14 MB
+INFO     : Routing graph resident set memory usage: begin = 1083.98 MB, end = 2295.06 MB, delta = 1211.08 MB
+INFO     : 	Routing graph peak resident set memory usage = 2295.06 MB
+           ***** Ending stage routing graph generation *****
+           
+           ***** Beginning stage routing ... *****
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.
+INFO     :  ---------      -------     --------------      -------------
+INFO     :  Iteration      Overuse     Crit Path (ns)      Calc Time (s)
+INFO     :  ---------      -------     --------------      -------------
+INFO     :          1        19794              6.463               4.53
+INFO     :          2         2078              6.463               2.93
+INFO     :          3          442              6.601               2.02
+INFO     :          4            5              6.601               1.04
+INFO     :          5            0              6.601              0.389
+           
+INFO     : Successfully routed netlist after 5 routing iterations and 39466383 heapops
+INFO     : Completed net delay value cross check successfully.
+           ***** Beginning stage routing check ... *****
+           ***** Ending stage routing check *****
+           
+INFO     : Serial number (magic cookie) for the routing is: -2412101
+INFO     : Netlist fully routed.
+INFO     : Successfully created FPGA route file '/home/neel/Downloads/float_to_fix/outflow/rah.route'
+INFO     : Routing took 12.6238 seconds.
+INFO     : 	Routing took 14.7 seconds (approximately) in total CPU time.
+INFO     : Routing virtual memory usage: begin = 2707.05 MB, end = 3103.82 MB, delta = 396.768 MB
+INFO     : Routing resident set memory usage: begin = 2295.06 MB, end = 2627.41 MB, delta = 332.348 MB
+INFO     : 	Routing peak resident set memory usage = 2628.37 MB
+           ***** Ending stage routing *****
+           
+           ***** Beginning stage final timing analysis ... *****
+INFO     : SDC file '/home/neel/Downloads/float_to_fix/rtl/constraints.sdc' parsed successfully.
+INFO     : 5 clocks (including virtual clocks), 0 inputs and 0 outputs were constrained.
+Maximum possible analyzed clocks frequency
+ Clock Name  Period (ns)  Frequency (MHz)     Edge
+tx_pixel_clk    13.305        75.160         (R-R)
+tx_vga_clk       6.757       147.995         (R-R)
+rx_pixel_clk    13.389        74.688         (R-R)
+
+Geomean max period: 10.637
+
+Setup (Max) Clock Relationship
+  Launch Clock    Capture Clock   Constraint (ns)     Slack (ns)          Edge
+  tx_pixel_clk     tx_pixel_clk        18.518           5.213            (R-R)
+  tx_pixel_clk     tx_vga_clk           9.259           4.160            (R-R)
+  tx_vga_clk       tx_pixel_clk         9.259           2.189            (R-R)
+  tx_vga_clk       tx_vga_clk           9.259           2.502            (R-R)
+  rx_pixel_clk     rx_pixel_clk        18.518           5.129            (R-R)
+
+Hold (Min) Clock Relationship
+  Launch Clock    Capture Clock   Constraint (ns)     Slack (ns)          Edge
+  tx_pixel_clk     tx_pixel_clk        0.000            0.184            (R-R)
+  tx_pixel_clk     tx_vga_clk          0.000            0.728            (R-R)
+  tx_vga_clk       tx_pixel_clk        0.000            0.771            (R-R)
+  tx_vga_clk       tx_vga_clk          0.000            0.307            (R-R)
+  rx_pixel_clk     rx_pixel_clk        0.000            0.119            (R-R)
+
+INFO     : Write Timing Report to "/home/neel/Downloads/float_to_fix/outflow/rah.timing.rpt" ...
+INFO     : final timing analysis took 0.500769 seconds.
+INFO     : 	final timing analysis took 0.5 seconds (approximately) in total CPU time.
+INFO     : final timing analysis virtual memory usage: begin = 3103.82 MB, end = 3103.82 MB, delta = 0 MB
+INFO     : final timing analysis resident set memory usage: begin = 2627.41 MB, end = 2631.5 MB, delta = 4.096 MB
+INFO     : 	final timing analysis peak resident set memory usage = 2631.5 MB
+           ***** Ending stage final timing analysis *****
+           
+           ***** Beginning stage bitstream generation ... *****
+INFO     : Reading core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Successfully read core interface constraints file "/home/neel/Downloads/float_to_fix/outflow/rah.interface.csv"
+INFO     : Finished writing bitstream file /home/neel/Downloads/float_to_fix/work_pnr/rah.lbf.
+INFO     : Bitstream generation took 3.28091 seconds.
+INFO     : 	Bitstream generation took 3.14 seconds (approximately) in total CPU time.
+INFO     : Bitstream generation virtual memory usage: begin = 3103.82 MB, end = 3103.82 MB, delta = 0 MB
+INFO     : Bitstream generation resident set memory usage: begin = 2631.5 MB, end = 2745.29 MB, delta = 113.784 MB
+INFO     : 	Bitstream generation peak resident set memory usage = 2745.29 MB
+           ***** Ending stage bitstream generation *****
+           
+INFO     : The entire flow of EFX_PNR took 56.2935 seconds.
+INFO     : 	The entire flow of EFX_PNR took 84.14 seconds (approximately) in total CPU time.
+INFO     : The entire flow of EFX_PNR virtual memory usage: begin = 182.832 MB, end = 3103.82 MB, delta = 2920.99 MB
+INFO     : The entire flow of EFX_PNR resident set memory usage: begin = 33.716 MB, end = 2743.3 MB, delta = 2709.59 MB
+INFO     : 	The entire flow of EFX_PNR peak resident set memory usage = 2745.29 MB

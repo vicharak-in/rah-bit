@@ -1,0 +1,496 @@
+Efinity Synthesis report for project rah
+Version: 2024.1.163
+Generated at: Mar 21, 2025 12:30:12
+Copyright (C) 2013 - 2024  All rights reserved.
+
+### ### ### ### ### ### ### ### ### ### ### ### ### ### ###
+Top-level Entity Name : top
+
+### ### File List (begin) ### ### ###
+/home/neel/Downloads/float_to_fix/rtl/rah_encoder.v
+/home/neel/Downloads/float_to_fix/rtl/video_gen.v
+/home/neel/Downloads/float_to_fix/rtl/top.v
+/home/neel/Downloads/float_to_fix/rtl/example.v
+/home/neel/Downloads/float_to_fix/rtl/rah_var_defs.vh
+/home/neel/Downloads/float_to_fix/rtl/rah_decoder.v
+/home/neel/Downloads/float_to_fix/rtl/uart.v
+/home/neel/Downloads/float_to_fix/rtl/rrq.v
+/home/neel/Downloads/float_to_fix/rtl/data_aligner.v
+/home/neel/Downloads/float_to_fix/rtl/rah_version_check.v
+/home/neel/Downloads/float_to_fix/collector.v
+/home/neel/Downloads/float_to_fix/F_TO_F.v
+/home/neel/Downloads/float_to_fix/dout.v
+/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v
+/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v
+/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v
+/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v
+/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v
+/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v
+/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v
+/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v
+### ### File List (end) ### ### ###
+
+"MEM|SYN-0677" : ... Memory 'ram' is not initialized, assuming empty initial contents. (/home/neel/Downloads/float_to_fix/ip/async_fifo/async_fifo.v:673)
+"MEM|SYN-0677" : ... Memory 'ram' is not initialized, assuming empty initial contents. (/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v:669)
+
+### ### EFX_FF CE enables (begin) ### ### ###
+Total number of enable signals: 54
+Total number of FFs with enable signals: 2509
+CE signal <rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/equal_36/n17>, number of controlling flip flops: 1
+CE signal <ceg_net255>, number of controlling flip flops: 40
+CE signal <ceg_net535>, number of controlling flip flops: 40
+CE signal <ceg_net536>, number of controlling flip flops: 2
+CE signal <ceg_net753>, number of controlling flip flops: 1
+CE signal <ceg_net538>, number of controlling flip flops: 2
+CE signal <ceg_net754>, number of controlling flip flops: 1
+CE signal <ceg_net543>, number of controlling flip flops: 40
+CE signal <ceg_net283>, number of controlling flip flops: 40
+CE signal <uff/clk_en_1>, number of controlling flip flops: 187
+CE signal <ceg_net354>, number of controlling flip flops: 4
+CE signal <uff/clk_en_2>, number of controlling flip flops: 359
+CE signal <ceg_net356>, number of controlling flip flops: 4
+CE signal <uff/clk_en_6>, number of controlling flip flops: 442
+CE signal <ceg_net358>, number of controlling flip flops: 4
+CE signal <ceg_net360>, number of controlling flip flops: 4
+CE signal <uff/clk_en_3>, number of controlling flip flops: 175
+CE signal <uff/clk_en_4>, number of controlling flip flops: 337
+CE signal <ceg_net362>, number of controlling flip flops: 4
+CE signal <uff/clk_en_5>, number of controlling flip flops: 429
+CE signal <ceg_net364>, number of controlling flip flops: 4
+CE signal <ceg_net659>, number of controlling flip flops: 49
+CE signal <ceg_net756>, number of controlling flip flops: 1
+CE signal <da/n1017>, number of controlling flip flops: 3
+CE signal <ceg_net561>, number of controlling flip flops: 1
+CE signal <da/n1016>, number of controlling flip flops: 48
+CE signal <rd/valid>, number of controlling flip flops: 35
+CE signal <rd/n823>, number of controlling flip flops: 8
+CE signal <rd/n824>, number of controlling flip flops: 48
+CE signal <rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <re/n100>, number of controlling flip flops: 6
+CE signal <re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/equal_36/n17>, number of controlling flip flops: 1
+CE signal <ceg_net773>, number of controlling flip flops: 4
+CE signal <re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/xefx_fifo_ctl/equal_36/n17>, number of controlling flip flops: 1
+CE signal <ceg_net774>, number of controlling flip flops: 48
+CE signal <ceg_net671>, number of controlling flip flops: 1
+CE signal <ceg_net775>, number of controlling flip flops: 32
+CE signal <ceg_net673>, number of controlling flip flops: 1
+CE signal <ceg_net567>, number of controlling flip flops: 9
+CE signal <ceg_net776>, number of controlling flip flops: 2
+CE signal <ceg_net617>, number of controlling flip flops: 9
+CE signal <re/n4852>, number of controlling flip flops: 2
+CE signal <ceg_net302>, number of controlling flip flops: 1
+CE signal <re/patgen/equal_4/n33>, number of controlling flip flops: 20
+CE signal <ceg_net305>, number of controlling flip flops: 1
+CE signal <ceg_net307>, number of controlling flip flops: 1
+CE signal <re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/wr_en_int>, number of controlling flip flops: 9
+CE signal <ceg_net434>, number of controlling flip flops: 1
+CE signal <ceg_net570>, number of controlling flip flops: 1
+CE signal <ceg_net571>, number of controlling flip flops: 1
+### ### EFX_FF CE enables (end) ### ### ###
+
+### ### EFX_FF SR set/reset (begin) ### ### ###
+Total number of set/reset signals: 16
+Total number of FFs with set/reset signals: 453
+SR signal <rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/xefx_fifo_ctl/equal_36/n17>, number of controlling flip flops: 1
+SR signal <rd/valid>, number of controlling flip flops: 2
+SR signal <rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/wr_rst_int>, number of controlling flip flops: 45
+SR signal <rd/FIFO_BLOCKS[0].ff/u_efx_fifo_top/rd_rst_int>, number of controlling flip flops: 45
+SR signal <rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/wr_rst_int>, number of controlling flip flops: 45
+SR signal <rd/FIFO_BLOCKS[1].ff/u_efx_fifo_top/rd_rst_int>, number of controlling flip flops: 45
+SR signal <my_mipi_tx_RSTN>, number of controlling flip flops: 30
+SR signal <re/n191>, number of controlling flip flops: 1
+SR signal <re/n362>, number of controlling flip flops: 1
+SR signal <re/patgen/n398>, number of controlling flip flops: 22
+SR signal <re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/wr_rst_int>, number of controlling flip flops: 45
+SR signal <re/FIFO_BLOCKS_EN[0].middle_fifo/u_efx_fifo_top/rd_rst_int>, number of controlling flip flops: 45
+SR signal <re/FIFO_BLOCKS_EN[0].fe/rst_busy>, number of controlling flip flops: 18
+SR signal <re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/wr_rst_int>, number of controlling flip flops: 45
+SR signal <re/FIFO_BLOCKS_EN[1].middle_fifo/u_efx_fifo_top/rd_rst_int>, number of controlling flip flops: 45
+SR signal <re/FIFO_BLOCKS_EN[1].fe/rst_busy>, number of controlling flip flops: 18
+### ### EFX_FF SR set/reset (end) ### ### ###
+
+### ### Sequential Elements Trimming Report (begin) ### ### ### 
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v (384)" removed instance : uff/ufl1/dff_184/i1
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_1.v (384)" representative instance : uff/ufl1/dff_185/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v (384)" removed instance : uff/ufl2/dff_191/i1
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_2.v (384)" representative instance : uff/ufl2/dff_192/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v (384)" removed instance : uff/ufl3/dff_193/i1
+@ "/home/neel/Downloads/float_to_fix/FLOAT_TO_FIXED_3.v (384)" representative instance : uff/ufl3/dff_194/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/rtl/rrq.v (58)" removed instance : re/round_robin_q/i33
+@ "/home/neel/Downloads/float_to_fix/rtl/rrq.v (58)" representative instance : re/round_robin_q/i32
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (233)" removed instance : uff/ufi3/dff_124/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (233)" representative instance : uff/ufi3/dff_124/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i3
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (233)" removed instance : uff/ufi3/dff_124/i3
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (233)" representative instance : uff/ufi3/dff_124/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i5
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i9
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i10
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i11
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i12
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i13
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" removed instance : uff/ufi3/dff_88/i14
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_3.v (193)" representative instance : uff/ufi3/dff_88/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (233)" removed instance : uff/ufi2/dff_113/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (233)" representative instance : uff/ufi2/dff_113/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i3
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i4
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i8
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i7
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i9
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i7
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" removed instance : uff/ufi2/dff_85/i10
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_2.v (193)" representative instance : uff/ufi2/dff_85/i7
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" removed instance : uff/ufi1/dff_73/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" representative instance : uff/ufi1/dff_73/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (233)" removed instance : uff/ufi1/dff_101/i2
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (233)" representative instance : uff/ufi1/dff_101/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" removed instance : uff/ufi1/dff_73/i3
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" representative instance : uff/ufi1/dff_73/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" removed instance : uff/ufi1/dff_73/i4
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" representative instance : uff/ufi1/dff_73/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" removed instance : uff/ufi1/dff_73/i6
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" representative instance : uff/ufi1/dff_73/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" removed instance : uff/ufi1/dff_73/i7
+@ "/home/neel/Downloads/float_to_fix/FIXED_TO_FLOAT_1.v (193)" representative instance : uff/ufi1/dff_73/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[0]~FF_frt_17
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[1]~FF_frt_16
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i2
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[2]~FF_frt_15
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i3
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[3]~FF_frt_14
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i4
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[4]~FF_frt_13
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i5
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[5]~FF_frt_12
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i6
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[6]~FF_frt_11
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i7
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/raddr[7]~FF_frt_10
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/raddr_cntr[8]~FF_frt_9
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[1].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i9
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[0]~FF_frt_8
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i1
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[1]~FF_frt_7
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i2
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[2]~FF_frt_6
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i3
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[3]~FF_frt_5
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i4
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[4]~FF_frt_4
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i5
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[5]~FF_frt_3
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i6
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[6]~FF_frt_2
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i7
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/raddr[7]~FF_frt_1
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i8
+FF|OPT : Flip-flop optimization by equivalence checking
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" removed instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/raddr_cntr[8]~FF_frt_0
+@ "/home/neel/Downloads/float_to_fix/ip/synchronous_fifo/synchronous_fifo.v (1276)" representative instance : re/FIFO_BLOCKS_EN[0].fe/u_efx_fifo_top/xefx_fifo_ctl/dff_46/i9
+FF Output: uff/ufl1/mantissa_r3[32](=0)
+FF Output: uff/ufl2/mantissa_r3[64](=0)
+FF Output: uff/ufl3/mantissa_r3[80](=0)
+FF Output: uff/ufi1/float_exp_r2[7](=0)
+FF Output: uff/ufi3/float_exp_r2[3](=0)
+FF Output: re/id[2](=0)
+FF Output: re/id[3](=0)
+FF Output: re/id[4](=0)
+FF Output: re/id[5](=0)
+FF Output: re/id[6](=0)
+FF Output: re/id[7](=0)
+FF Output: re/app_id[2](=0)
+FF Output: re/app_id[3](=0)
+FF Output: re/app_id[4](=0)
+FF Output: re/app_id[5](=0)
+FF Output: re/app_id[6](=0)
+FF Output: re/app_id[7](=0)
+FF Output: re/data_len[9](=0)
+FF Output: re/data_len[10](=0)
+FF Output: re/data_len[11](=0)
+FF Output: re/data_len[12](=0)
+FF Output: re/data_len[13](=0)
+FF Output: re/data_len[14](=0)
+FF Output: re/data_len[15](=0)
+FF Output: re/data_len[16](=0)
+FF Output: re/data_len[17](=0)
+FF Output: re/data_len[18](=0)
+FF Output: re/data_len[19](=0)
+FF Output: re/data_len[20](=0)
+FF Output: re/data_len[21](=0)
+FF Output: re/data_len[22](=0)
+FF Output: re/data_len[23](=0)
+FF Output: re/data_len[24](=0)
+FF Output: re/data_len[25](=0)
+FF Output: re/data_len[26](=0)
+FF Output: re/data_len[27](=0)
+FF Output: re/data_len[28](=0)
+FF Output: re/data_len[29](=0)
+FF Output: re/data_len[30](=0)
+FF Output: re/data_len[31](=0)
+### ### Sequential Elements Trimming Report (end) ### ### ### 
+
+### ### Module Resource Usage Distribution Estimates (begin) ### ###
+
+**Note: some resources maybe grouped under different hierarchy due to optimization and LUT mapping
+
+Module                                                               FFs        ADDs        LUTs      RAMs DSP/MULTs
+------------------------------------------------------------         ---        ----        ----      ---- ---------
+top:top                                                          2988(0)     1001(0)     4262(0)     18(0)      0(0)
+ +uff:F_TO_F                                                     2200(1)      789(0)     3198(0)      0(0)      0(0)
+  +uc:collector                                                 171(171)        0(0)    368(368)      0(0)      0(0)
+  +ufl1:FLOAT_TO_FIXED_1                                        196(196)      64(64)    245(245)      0(0)      0(0)
+  +ufl2:FLOAT_TO_FIXED_2                                        372(372)    133(133)    441(441)      0(0)      0(0)
+  +ufl3:FLOAT_TO_FIXED_3                                        457(457)    165(165)    621(621)      0(0)      0(0)
+  +ufi1:FIXED_TO_FLOAT_1                                        179(179)      83(83)    185(185)      0(0)      0(0)
+  +ufi2:FIXED_TO_FLOAT_2                                        341(341)    153(153)    506(506)      0(0)      0(0)
+  +ufi3:FIXED_TO_FLOAT_3                                        433(433)    191(191)    747(747)      0(0)      0(0)
+  +ud:dout                                                        50(50)        0(0)      85(85)      0(0)      0(0)
+ +da:data_aligner(DATA_WIDTH=48)                                100(100)        0(0)    359(359)      0(0)      0(0)
+ +rd:rah_decoder(DATA_WIDTH=48,TOTAL_APPS=2)                     282(94)      67(33)     178(59)      6(0)      0(0)
+  +FIFO_BLOCKS[0].ff:async_fifo                                    94(0)       17(0)       59(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_6d3dd258b084434fa4aa3936f...       94(0)       17(0)       59(0)      3(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_wr_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_rd_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_6d3dd258b084434fa4aa3936f...        0(0)        0(0)      13(13)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_6d3dd258b084434fa4aa3936f...      90(54)      17(17)      46(14)      0(0)      0(0)
+     +async_clk.xrd2wr_bin2gray:efx_fifo_bin2gray_6d3dd25...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.xrd2wr_addr_sync:efx_asyncreg_6d3dd258b08...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.xrd2wr_gray2bin:efx_fifo_gray2bin_6d3dd25...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+     +async_clk.wr2rd_bin2gray:efx_fifo_bin2gray_6d3dd258...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.wr2rd_addr_sync:efx_asyncreg_6d3dd258b084...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.wr2rd_gray2bin:efx_fifo_gray2bin_6d3dd258...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+  +FIFO_BLOCKS[1].ff:async_fifo                                    94(0)       17(0)       60(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_6d3dd258b084434fa4aa3936f...       94(0)       17(0)       60(0)      3(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_wr_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_rd_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_6d3dd258b084434fa4aa3936f...        0(0)        0(0)      14(14)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_6d3dd258b084434fa4aa3936f...      90(54)      17(17)      46(14)      0(0)      0(0)
+     +async_clk.xrd2wr_bin2gray:efx_fifo_bin2gray_6d3dd25...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.xrd2wr_addr_sync:efx_asyncreg_6d3dd258b08...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.xrd2wr_gray2bin:efx_fifo_gray2bin_6d3dd25...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+     +async_clk.wr2rd_bin2gray:efx_fifo_bin2gray_6d3dd258...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.wr2rd_addr_sync:efx_asyncreg_6d3dd258b084...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.wr2rd_gray2bin:efx_fifo_gray2bin_6d3dd258...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+ +rvc:rah_version_check                                             3(3)        0(0)        5(5)      0(0)      0(0)
+ +re:rah_encoder(DATA_WIDTH=48,TOTAL_APPS=2)                    403(125)      145(5)    522(336)     12(0)      0(0)
+  +patgen:video_gen(syncPulse_h=112,backPorch_h=248,activ...      46(46)      32(32)      43(43)      0(0)      0(0)
+  +FIFO_BLOCKS_EN[0].middle_fifo:async_fifo                        94(0)       27(0)       49(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_6d3dd258b084434fa4aa3936f...       94(0)       27(0)       49(0)      3(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_wr_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_rd_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_6d3dd258b084434fa4aa3936f...        0(0)        0(0)        0(0)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_6d3dd258b084434fa4aa3936f...      90(54)      27(27)      49(17)      0(0)      0(0)
+     +async_clk.xrd2wr_bin2gray:efx_fifo_bin2gray_6d3dd25...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.xrd2wr_addr_sync:efx_asyncreg_6d3dd258b08...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.xrd2wr_gray2bin:efx_fifo_gray2bin_6d3dd25...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+     +async_clk.wr2rd_bin2gray:efx_fifo_bin2gray_6d3dd258...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.wr2rd_addr_sync:efx_asyncreg_6d3dd258b084...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.wr2rd_gray2bin:efx_fifo_gray2bin_6d3dd258...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+  +FIFO_BLOCKS_EN[0].fe:synchronous_fifo                           20(0)       27(0)       15(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_2ab6177972eb442a86d66f7a0...       20(0)       27(0)       15(0)      3(0)      0(0)
+    +genblk2.efx_resetsync_a_rst:efx_resetsync_2ab6177972...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_2ab6177972eb442a86d66f7a0...        0(0)        0(0)        0(0)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_2ab6177972eb442a86d66f7a0...      18(18)      27(27)      15(15)      0(0)      0(0)
+  +FIFO_BLOCKS_EN[1].middle_fifo:async_fifo                        94(0)       27(0)       49(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_6d3dd258b084434fa4aa3936f...       94(0)       27(0)       49(0)      3(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_wr_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +genblk2.genblk1.efx_resetsync_rd_rst:efx_resetsync_6...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_6d3dd258b084434fa4aa3936f...        0(0)        0(0)        0(0)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_6d3dd258b084434fa4aa3936f...      90(54)      27(27)      49(17)      0(0)      0(0)
+     +async_clk.xrd2wr_bin2gray:efx_fifo_bin2gray_6d3dd25...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.xrd2wr_addr_sync:efx_asyncreg_6d3dd258b08...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.xrd2wr_gray2bin:efx_fifo_gray2bin_6d3dd25...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+     +async_clk.wr2rd_bin2gray:efx_fifo_bin2gray_6d3dd258...        0(0)        0(0)        8(8)      0(0)      0(0)
+     +async_clk.wr2rd_addr_sync:efx_asyncreg_6d3dd258b084...      18(18)        0(0)        0(0)      0(0)      0(0)
+     +async_clk.wr2rd_gray2bin:efx_fifo_gray2bin_6d3dd258...        0(0)        0(0)        8(1)      0(0)      0(0)
+      +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3dd...        0(0)        0(0)        7(1)      0(0)      0(0)
+       +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3d...        0(0)        0(0)        6(1)      0(0)      0(0)
+        +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d3...        0(0)        0(0)        5(1)      0(0)      0(0)
+         +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6d...        0(0)        0(0)        4(1)      0(0)      0(0)
+          +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_6...        0(0)        0(0)        3(1)      0(0)      0(0)
+           +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin_...        0(0)        0(0)        2(1)      0(0)      0(0)
+            +genblk1.genblk1.u_gray2bin:efx_fifo_gray2bin...        0(0)        0(0)        1(1)      0(0)      0(0)
+  +FIFO_BLOCKS_EN[1].fe:synchronous_fifo                           20(0)       27(0)       12(0)      3(0)      0(0)
+   +u_efx_fifo_top:efx_fifo_top_2ab6177972eb442a86d66f7a0...       20(0)       27(0)       12(0)      3(0)      0(0)
+    +genblk2.efx_resetsync_a_rst:efx_resetsync_2ab6177972...        2(0)        0(0)        0(0)      0(0)      0(0)
+     +active_high.efx_resetsync_active_high:efx_asyncreg_...        2(2)        0(0)        0(0)      0(0)      0(0)
+    +xefx_fifo_ram:efx_fifo_ram_2ab6177972eb442a86d66f7a0...        0(0)        0(0)        0(0)      3(3)      0(0)
+    +xefx_fifo_ctl:efx_fifo_ctl_2ab6177972eb442a86d66f7a0...      18(18)      27(27)      12(12)      0(0)      0(0)
+  +round_robin_q:rrq(TOTAL_APPS=2)                                  4(4)        0(0)      18(18)      0(0)      0(0)
+
+### ### Module Resource Usage Distribution Estimates (end) ### ###
+
+
+### ### Clock Load Distribution Report (begin) ### ###
+
+        Clock     Flip-Flops   Memory Ports    Multipliers
+        -----     ----------   ------------    -----------
+ rx_pixel_clk           2679             18              0
+ tx_pixel_clk            262             18              0
+   tx_vga_clk             47              0              0
+
+### ### Clock Load Distribution Report (end) ### ###
+
+### ### EFX Flow Options (begin) ### ### ###
+
+family : Trion
+device : T120F324
+project : rah
+project-xml : /home/neel/Downloads/float_to_fix/rah.xml
+root : top
+I,include : /home/neel/Downloads/float_to_fix
+I,include : /home/neel/Downloads/float_to_fix/ip/async_fifo
+I,include : /home/neel/Downloads/float_to_fix/ip/synchronous_fifo
+I,include : ip/synchronous_fifo
+output-dir : /home/neel/Downloads/float_to_fix/outflow
+work-dir : /home/neel/Downloads/float_to_fix/work_syn
+write-efx-verilog : /home/neel/Downloads/float_to_fix/outflow/rah.map.v
+binary-db : /home/neel/Downloads/float_to_fix/outflow/rah.vdb
+insert-ios : 0
+max-carry-cascade : 640
+max_mult : -1
+max_ram : -1
+mode : speed
+veri_options : verilog_mode=verilog_2k,vhdl_mode=vhdl_2008
+
+### ### EFX Flow Options (end) ### ### ###
+
+### ### Resource Summary (begin) ### ### ### 
+INPUT  PORTS    : 	112
+OUTPUT PORTS    : 	116
+
+EFX_ADD         : 	1001
+EFX_LUT4        : 	4262
+   1-2  Inputs  : 	542
+   3    Inputs  : 	2106
+   4    Inputs  : 	1614
+EFX_FF          : 	2988
+EFX_RAM_5K      : 	18
+EFX_GBUFCE      : 	3
+### ### Resource Summary (end) ### ### ###
+
+Plain synthesis (without verilog dump and post-map checks) time : 49s
+Elapsed synthesis time : 51s
