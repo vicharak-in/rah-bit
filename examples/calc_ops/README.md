@@ -110,15 +110,87 @@ endmodule
 
 ### On CPU
 
-This are the pre-requisite for the rah:
+This Python script is designed to perform mathematical operations (addition, shifting, and multiplication) on user-provided input. It allows the user to select a mode for calculation, input two numbers, and sends the result to the appropriate destination. Data is then transferred and displayed based on the selected mode.
 
-- [rah-service](https://github.com/vicharak-in/rah-bit#pre-requisite)
-- [Turning on FPGA communication from the overlays](https://docs.vicharak.in/vaaman-linux/linux-configuration-guide/vicharak-config-tool/#vicharak-config-overlays)
+The script uses multithreading to concurrently handle user input and data reception processes.
 
-After doing that, compile and run it by:
+**Requirements:**
+
+Before using the script, ensure the following libraries are installed:
+
+- `pyrah` (External library for reading and writing data)
+
+Additionally, make sure you are running this script in a Python 3+ environment.
+
+**Install `pyrah`:**
+If the `pyrah` library is not installed, you can install it via pip:
 
 ```bash
-make
-./bin/calc 12 67 89 90 48 72 90 64 23 45 67 89
+pip install git+https://github.com/vicharak-in/pyrah
 ```
-Here, we will pass the data into hex format, the above command will pass 6 bytes at a time to the FPGA. The data will be processed by the FPGA and the result will be displayed on the console.
+**Running the Program**
+
+- Save the Python script to your local machine.
+- Open a terminal or command prompt.
+- Run the script using the command:
+```bash
+sudo python3 calc.py
+```
+This will start the program and display the main menu for selecting the operation mode.
+
+**How to Use**
+**1. Select an Operation Mode**
+
+Upon starting the program, you will see the following options:
+
+```bash
+Select the mode:
+1. Add
+2. Shift
+3. Mult
+4. All
+5. Exit
+```
+- **Option 1: Add**  
+  Perform addition on two input numbers. The program will take two input numbers and calculate their sum.
+
+- **Option 2: Shift**  
+  Perform a bitwise shift on two input numbers. The program will take two input numbers and apply a bitwise shift operation on them.
+
+- **Option 3: Mult**  
+  Perform multiplication on two input numbers. The program will multiply the two input numbers and return the result.
+
+- **Option 4: All**  
+  Execute all operations (Add, Shift, Multiply) at once. The program will perform the addition, bitwise shift, and multiplication operations in sequence and return the results for all.
+
+- **Option 5: Exit**  
+  Exit the program. Select this option to quit the program when you're done.
+
+> [!NOTE]  
+> In this design, 'SHIFT' refers to a left shift operation only.
+
+**2. Input the Data**
+
+After selecting a mode (e.g., Add or Shift), the program will prompt you to enter two integer values:
+```bash
+Enter the first input for calculations:
+Enter the second input for calculations:
+```
+### 3. Results
+
+Once the data is processed, the program will display the result in decimal format. For example:
+
+- Add: The result of the addition will be displayed.
+- Shift: The result of the bit-shifting operation will be displayed.
+- Mult: The result of the multiplication will be shown.
+- All: The results for all operations (Add, Shift, Multiply) will be displayed together.
+
+Example:
+
+If you selected Add and entered the values 5 and 10, the program would display:
+```bash
+Output for add is: 15
+```
+**4. Repeat or Exit**
+
+After the operation is complete, the program will return to the main menu, allowing you to choose another operation or exit the program by selecting Exit (5).
