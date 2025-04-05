@@ -8,7 +8,7 @@ This project demonstrates the use of the RAH interface to communicate with the F
 2. **Shift**
 3. **Multiplication**
 
-The CPU passes the data to the FPGA in the form of a 6-byte packet. The FPGA processes the data and sends the result back to the CPU. The CPU then displays the result on the console.
+The CPU passes the data to the FPGA in the form of a 10-byte packet. The FPGA processes the data and sends the result back to the CPU. The CPU then displays the result on the console.
 
 ## Usage Guide
 
@@ -26,11 +26,9 @@ The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
-`define TOTAL_APPS 3
+`define TOTAL_APPS 1
 
-`define ADD 1
-`define SHIFT 2
-`define MUL 3
+`define CALC 1
 
 `define VERSION "1.2.0"
 
@@ -54,49 +52,19 @@ module top (
 
 /* Accesssing data from APP_WR_FIFO */
 
-assign rd_clk[`ADD] = calc_clk;
-assign wr_clk[`ADD] = calc_clk;
+assign rd_clk[`CALC] = calc_clk;
+assign wr_clk[`CALC] = calc_clk;
 
 adder #(
     .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
 ) adder (
     .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`ADD)),
-    .empty          (data_queue_empty[`ADD]),
-
-    .c              (`SET_DATA_RAH(`ADD)),
-    .rden           (request_data[`ADD]),
-    .wren           (write_apps_data[`ADD])
-);
-
-assign rd_clk[`SHIFT] = calc_clk;
-assign wr_clk[`SHIFT] = calc_clk;
-
-shift #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) shift (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`SHIFT)),
-    .empty          (data_queue_empty[`SHIFT]),
-
-    .c              (`SET_DATA_RAH(`SHIFT)),
-    .rden           (request_data[`SHIFT]),
-    .wren           (write_apps_data[`SHIFT])
-);
-
-assign rd_clk[`MUL] = calc_clk;
-assign wr_clk[`MUL] = calc_clk;
-
-mul #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) mul (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`MUL)),
-    .empty          (data_queue_empty[`MUL]),
-
-    .c              (`SET_DATA_RAH(`MUL)),
-    .rden           (request_data[`MUL]),
-    .wren           (write_apps_data[`MUL])
+    .a              (`GET_DATA_RAH(`CALC)),
+    .empty          (data_queue_empty[`CALC]),
+    .reset          (1'b0),
+    .c              (`SET_DATA_RAH(`CALC)),
+    .rden           (request_data[`CALC]),
+    .wren           (write_apps_data[`CALC])
 );
 
 .....
@@ -107,7 +75,99 @@ endmodule
 > [!NOTE]
 >
 > The FIFOs used here for data transfer are asynchronous. So, it is mandatory to assign the read and write clocks for every application FIFO. It facilitates us Clock Domain Crossing (CDC) among RAH and different applications.
+## Data Frame Structure
 
+![Image](https://github.com/user-attachments/assets/78fd4f9c-a935-4ebe-b945-e4741c69843e)
+
+The data frame consists of a structured format where the first byte is dedicated to selecting the application, specifying the input operand, identifying the packet sequence, and determining the operation type (addition, subtraction, shifting, etc.).
+
+### Byte Structure:
+
+| Bit Position | Field        | Description |
+|-------------|-------------|-------------|
+| 7-5         | Application | 3-bit field selecting the operation type: 001 for Adder, 010 for Multiplication, 011 for Shift. |
+| 4           | a_b         | 1-bit field indicating the input operand: 0 for operand A, 1 for operand B. |
+| 3           | Selection   | 1-bit field defining the operation: 0 for Addition/Left Shift, 1 for Subtraction/Right Shift. |
+| 2-0         | Packet      | 3-bit field indicating the sequence of packets: 000 for the first packet, 001 for the second packet of a given input. |
+
+### Explanation:
+- **Application (3-bit)**: Defines the arithmetic or logical operation.
+  - `001` → Addition/Subtraction
+  - `010` → Multiplication
+  - `011` → Shift operations (Left/Right Shift)
+
+- **a_b (1-bit)**: Determines which operand is being referenced.
+  - `0` → Operand A & Operand C for Output
+  - `1` → Operand B
+
+- **Selection (1-bit)**: Specifies the type of operation within the selected application.
+  - `0` → Addition (Adder), Left Shift (Shifter)
+  - `1` → Subtraction (Adder), Right Shift (Shifter)
+
+- **Packet (3-bit)**: Allows segmentation of input data into multiple packets.
+  - `000` → First packet of input (a,b)
+  - `001` → Second packet of input (a,b)
+
+### Example:
+#### Data Frame: `20 00 00 00 00 00`
+- `20` (Hex) → `001_0_0_000` (Binary)
+  - First 3 bits (`001`) → Application: **Adder**
+  - Next bit (`0`) → Operand: **A**
+  - Next bit (`0`) → Operation: **Addition**
+  - Last 3 bits (`000`) → Packet: **First packet of data A**
+- `00 00 00 00 00` → Half part of data A
+
+Addition 
+```sh 
+INPUT  : 20 00 00 00 00 00   
+INPUT  : 21 00 00 00 00 05
+INPUT  : 30 00 00 00 00 00
+INPUT  : 31 00 00 00 00 04
+OUTPUT : 29 00 00 00 00 00 
+OUTPUT : 22 00 00 00 00 09
+```
+
+Subtraction
+```sh 
+INPUT  : 28 00 00 00 00 00   
+INPUT  : 29 00 00 00 00 05
+INPUT  : 38 00 00 00 00 00
+INPUT  : 39 00 00 00 00 04
+OUTPUT : 28 00 00 00 00 00 
+OUTPUT : 29 00 00 00 00 01
+```
+
+Multiplication
+```sh 
+INPUT  : 40 00 00 00 00 00   
+INPUT  : 41 00 00 00 00 05
+INPUT  : 50 00 00 00 00 00
+INPUT  : 51 00 00 00 00 04
+OUTPUT : 41 00 00 00 00 00   
+OUTPUT : 42 00 00 00 00 00
+OUTPUT : 43 00 00 00 00 00
+OUTPUT : 44 00 00 00 00 14
+```
+
+Shift (left)
+```sh 
+INPUT  : 60 00 00 00 00 00   
+INPUT  : 61 00 00 00 00 09
+INPUT  : 70 00 00 00 00 00
+INPUT  : 71 00 00 00 00 02
+OUTPUT : 61 00 00 00 00 00 
+OUTPUT : 62 00 00 00 00 24
+```
+
+Shift (right)
+```sh 
+INPUT  : 68 00 00 00 00 00   
+INPUT  : 69 00 00 00 00 09
+INPUT  : 78 00 00 00 00 00
+INPUT  : 79 00 00 00 00 02
+OUTPUT : 68 00 00 00 00 00 
+OUTPUT : 69 00 00 00 00 02
+```
 ### On CPU
 
 This Python script is designed to perform mathematical operations (addition, shifting, and multiplication) on user-provided input. It allows the user to select a mode for calculation, input two numbers, and sends the result to the appropriate destination. Data is then transferred and displayed based on the selected mode.
