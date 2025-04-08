@@ -8,7 +8,7 @@ This project demonstrates the use of the RAH interface to communicate with the F
 2. **Shift**
 3. **Multiplication**
 
-The CPU passes the data to the FPGA in the form of a 6-byte packet. The FPGA processes the data and sends the result back to the CPU. The CPU then displays the result on the console.
+The CPU passes the data to the FPGA in the form of a 10-byte packet. The FPGA processes the data and sends the result back to the CPU. The CPU then displays the result on the console.
 
 ## Usage Guide
 
@@ -26,11 +26,9 @@ The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
-`define TOTAL_APPS 3
+`define TOTAL_APPS 1
 
-`define ADD 1
-`define SHIFT 2
-`define MUL 3
+`define CALC 1
 
 `define VERSION "1.2.0"
 
@@ -54,53 +52,20 @@ module top (
 
 /* Accesssing data from APP_WR_FIFO */
 
-assign rd_clk[`ADD] = calc_clk;
-assign wr_clk[`ADD] = calc_clk;
+assign rd_clk[`CALC] = calc_clk;
+assign wr_clk[`CALC] = calc_clk;
 
-adder #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) adder (
+calc0 (
     .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`ADD)),
-    .empty          (data_queue_empty[`ADD]),
-
-    .c              (`SET_DATA_RAH(`ADD)),
-    .rden           (request_data[`ADD]),
-    .wren           (write_apps_data[`ADD])
-);
-
-assign rd_clk[`SHIFT] = calc_clk;
-assign wr_clk[`SHIFT] = calc_clk;
-
-shift #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) shift (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`SHIFT)),
-    .empty          (data_queue_empty[`SHIFT]),
-
-    .c              (`SET_DATA_RAH(`SHIFT)),
-    .rden           (request_data[`SHIFT]),
-    .wren           (write_apps_data[`SHIFT])
-);
-
-assign rd_clk[`MUL] = calc_clk;
-assign wr_clk[`MUL] = calc_clk;
-
-mul #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) mul (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`MUL)),
-    .empty          (data_queue_empty[`MUL]),
-
-    .c              (`SET_DATA_RAH(`MUL)),
-    .rden           (request_data[`MUL]),
-    .wren           (write_apps_data[`MUL])
+    .datain         (`GET_DATA_RAH(`CALC)),
+    .empty          (data_queue_empty[`CALC]),
+    .rstn           (1'b0),
+    .dataout        (`SET_DATA_RAH(`CALC)),
+    .rden           (request_data[`CALC]),
+    .wren           (write_apps_data[`CALC])
 );
 
 .....
-
 endmodule
 ```
 
