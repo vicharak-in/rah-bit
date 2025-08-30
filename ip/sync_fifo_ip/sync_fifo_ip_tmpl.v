@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-synchronous_fifo u_synchronous_fifo
+sync_fifo_ip u_sync_fifo_ip
 (
     .almost_full_o ( almost_full_o ),
     .prog_full_o ( prog_full_o ),

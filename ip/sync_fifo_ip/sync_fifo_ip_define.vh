@@ -43,23 +43,24 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-synchronous_fifo u_synchronous_fifo
-(
-    .almost_full_o ( almost_full_o ),
-    .prog_full_o ( prog_full_o ),
-    .full_o ( full_o ),
-    .wr_ack_o ( wr_ack_o ),
-    .empty_o ( empty_o ),
-    .almost_empty_o ( almost_empty_o ),
-    .rd_valid_o ( rd_valid_o ),
-    .clk_i ( clk_i ),
-    .wr_en_i ( wr_en_i ),
-    .rd_en_i ( rd_en_i ),
-    .wdata ( wdata ),
-    .rst_busy ( rst_busy ),
-    .rdata ( rdata ),
-    .a_rst_i ( a_rst_i ),
-    .datacount_o ( datacount_o ),
-    .underflow_o ( underflow_o ),
-    .overflow_o ( overflow_o )
-);
+localparam SYNC_CLK = 1;
+localparam SYNC_STAGE = 2;
+localparam DATA_WIDTH = 256;
+localparam MODE = "STANDARD";
+localparam OUTPUT_REG = 0;
+localparam PROG_FULL_ASSERT = 500;
+localparam PROGRAMMABLE_FULL = "STATIC_SINGLE";
+localparam PROG_FULL_NEGATE = 500;
+localparam PROGRAMMABLE_EMPTY = "NONE";
+localparam PROG_EMPTY_ASSERT = 0;
+localparam PROG_EMPTY_NEGATE = 0;
+localparam OPTIONAL_FLAGS = 1;
+localparam PIPELINE_REG = 1;
+localparam DEPTH = 512;
+localparam FAMILY = "TRION";
+localparam ASYM_WIDTH_RATIO = 4;
+localparam BYPASS_RESET_SYNC = 0;
+localparam ENDIANESS = 0;
+localparam RAM_STYLE = "block_ram";
+localparam OVERFLOW_PROTECT = 1;
+localparam UNDERFLOW_PROTECT = 1;

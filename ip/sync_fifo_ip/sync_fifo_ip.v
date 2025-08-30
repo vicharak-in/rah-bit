@@ -43,10 +43,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _17e7afd7a6434644815e2e0c1d40076d
+`define IP_UUID _fb7fdd4208454bbb9069e3c2b9eba2f3
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
-module synchronous_fifo
+module sync_fifo_ip
 (
     output almost_full_o,
     output prog_full_o,
@@ -58,11 +58,11 @@ module synchronous_fifo
     input clk_i,
     input wr_en_i,
     input rd_en_i,
-    input [47:0] wdata,
+    input [255:0] wdata,
     output rst_busy,
-    output [47:0] rdata,
+    output [255:0] rdata,
     input a_rst_i,
-    output [8:0] datacount_o,
+    output [9:0] datacount_o,
     output underflow_o,
     output overflow_o
 );
@@ -70,18 +70,18 @@ module synchronous_fifo
 #(
     .SYNC_CLK (1),
     .SYNC_STAGE (2),
-    .DATA_WIDTH (48),
+    .DATA_WIDTH (256),
     .MODE ("STANDARD"),
     .OUTPUT_REG (0),
-    .PROG_FULL_ASSERT (240),
+    .PROG_FULL_ASSERT (500),
     .PROGRAMMABLE_FULL ("STATIC_SINGLE"),
-    .PROG_FULL_NEGATE (240),
+    .PROG_FULL_NEGATE (500),
     .PROGRAMMABLE_EMPTY ("NONE"),
-    .PROG_EMPTY_ASSERT (2),
-    .PROG_EMPTY_NEGATE (3),
+    .PROG_EMPTY_ASSERT (0),
+    .PROG_EMPTY_NEGATE (0),
     .OPTIONAL_FLAGS (1),
     .PIPELINE_REG (1),
-    .DEPTH (256),
+    .DEPTH (512),
     .FAMILY ("TRION"),
     .ASYM_WIDTH_RATIO (4),
     .BYPASS_RESET_SYNC (0),

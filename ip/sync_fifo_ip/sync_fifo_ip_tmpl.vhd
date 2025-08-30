@@ -37,7 +37,7 @@
 --
 --------------------------------------------------------------------------------
 ------------- Begin Cut here for COMPONENT Declaration ------
-component async_fifo is
+component sync_fifo_ip is
 port (
     almost_full_o : out std_logic;
     prog_full_o : out std_logic;
@@ -46,24 +46,22 @@ port (
     empty_o : out std_logic;
     almost_empty_o : out std_logic;
     rd_valid_o : out std_logic;
-    wr_clk_i : in std_logic;
-    rd_clk_i : in std_logic;
+    clk_i : in std_logic;
     wr_en_i : in std_logic;
     rd_en_i : in std_logic;
-    wdata : in std_logic_vector(47 downto 0);
+    wdata : in std_logic_vector(255 downto 0);
     rst_busy : out std_logic;
-    rdata : out std_logic_vector(47 downto 0);
+    rdata : out std_logic_vector(255 downto 0);
     a_rst_i : in std_logic;
-    wr_datacount_o : out std_logic_vector(8 downto 0);
-    rd_datacount_o : out std_logic_vector(8 downto 0);
+    datacount_o : out std_logic_vector(9 downto 0);
     underflow_o : out std_logic;
     overflow_o : out std_logic
 );
-end component async_fifo;
+end component sync_fifo_ip;
 
 ---------------------- End COMPONENT Declaration ------------
 ------------- Begin Cut here for INSTANTIATION Template -----
-u_async_fifo : async_fifo
+u_sync_fifo_ip : sync_fifo_ip
 port map (
     almost_full_o => almost_full_o,
     prog_full_o => prog_full_o,
@@ -72,16 +70,14 @@ port map (
     empty_o => empty_o,
     almost_empty_o => almost_empty_o,
     rd_valid_o => rd_valid_o,
-    wr_clk_i => wr_clk_i,
-    rd_clk_i => rd_clk_i,
+    clk_i => clk_i,
     wr_en_i => wr_en_i,
     rd_en_i => rd_en_i,
     wdata => wdata,
     rst_busy => rst_busy,
     rdata => rdata,
     a_rst_i => a_rst_i,
-    wr_datacount_o => wr_datacount_o,
-    rd_datacount_o => rd_datacount_o,
+    datacount_o => datacount_o,
     underflow_o => underflow_o,
     overflow_o => overflow_o
 );

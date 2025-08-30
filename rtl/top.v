@@ -4,6 +4,7 @@ module top (
 /* Clocks of MIPI TX and RX parallel interfaces */
     input                       rx_pixel_clk,
     input                       tx_pixel_clk,
+    input                       clk,
 
 /* Signals used by the MIPI RX Interface Designer instance */
     input                       my_mipi_rx_VALID,
@@ -119,19 +120,18 @@ rah_version_check #(
     .out_data       (`SET_DATA_RAH(0))
 );
 
-/* Periplex instantiation for multiplexing peripherals */
-assign rd_clk[`EXAMPLE] = rx_pixel_clk; 
+assign rd_clk[`DCT] = clk; 
+assign wr_clk[`DCT] = clk;
 
-/* change this module as your app */
-example_recv #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) er (
-    .clk(rx_pixel_clk),
-    .data_queue_empty(data_queue_empty[`EXAMPLE]),
-    .data_queue_almost_empty(data_queue_almost_empty[`EXAMPLE]),
-    .request_data(request_data[`EXAMPLE]),
-    .data_frame(`GET_DATA_RAH(`EXAMPLE)),
-    .uart_tx_pin(uart_tx_pin)
+tran_cont dct(
+    .clk            (clk), 
+    .data           (`GET_DATA_RAH(`DCT)),
+    .almost_empty   (data_queue_almost_empty[`DCT]),
+    .empty          (data_queue_empty[`DCT]),
+    .RD_en          (request_data[`DCT]),
+    .wr_en          (write_apps_data[`DCT]),
+    .wr_data        (`SET_DATA_RAH(`DCT)),
+    .wr_full        (wr_prog_fifo_full[`DCT])
 );
 
 /* Send data to processor */
@@ -171,17 +171,17 @@ rah_encoder #(
     .vsync_patgen           (vsync)
 );
 
-assign wr_clk[`EXAMPLE] = tx_pixel_clk;
+//assign wr_clk[`EXAMPLE] = tx_pixel_clk;
 
 /* Include your module */
-example_trans #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) et (
-    .clk            (tx_pixel_clk),
-    .uart_rx_pin    (uart_rx_pin),
-    .data           (`SET_DATA_RAH(`EXAMPLE)),
-    .send_data      (write_apps_data[`EXAMPLE])
-);
+//example_trans #(
+  //  .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
+//) et (
+//    .clk            (tx_pixel_clk),
+//    .uart_rx_pin    (uart_rx_pin),
+//    .data           (`SET_DATA_RAH(`EXAMPLE)),
+//    .send_data      (write_apps_data[`EXAMPLE])
+//);
 
 assign my_mipi_tx_DPHY_RSTN = ~mipi_out_rst;
 assign my_mipi_tx_RSTN = ~mipi_out_rst;

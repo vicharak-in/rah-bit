@@ -3,13 +3,13 @@
         "-o",
         "async_fifo",
         "--base_path",
-        "/home/dj/soft/rah/ip",
+        "/home/dev/Vicharak/DCT/disc_fl/ip",
         "--vlnv",
         {
             "vendor": "efinixinc.com",
             "library": "memory",
             "name": "efx_fifo_top",
-            "version": "5.1"
+            "version": "7.1"
         }
     ],
     "conf": {
@@ -27,19 +27,21 @@
         "PROGRAMMABLE_EMPTY": "\"NONE\"",
         "OPTIONAL_FLAGS": "1",
         "PIPELINE_REG": "1",
-        "FAMILY": "\"TRION\"",
         "ASYM_WIDTH_RATIO": "4",
         "BYPASS_RESET_SYNC": "0",
-        "ENDIANESS": "0"
+        "ENDIANESS": "0",
+        "RAM_STYLE": "\"block_ram\"",
+        "OVERFLOW_PROTECT": "1",
+        "UNDERFLOW_PROTECT": "1"
     },
     "output": {
         "external_source_source": [
-            "/home/dj/soft/rah/ip/async_fifo/async_fifo.v",
-            "/home/dj/soft/rah/ip/async_fifo/async_fifo_tmpl.v",
-            "/home/dj/soft/rah/ip/async_fifo/async_fifo_define.vh",
-            "/home/dj/soft/rah/ip/async_fifo/async_fifo_tmpl.vhd"
+            "async_fifo/async_fifo_define.vh",
+            "async_fifo/async_fifo.v",
+            "async_fifo/async_fifo_tmpl.v",
+            "async_fifo/async_fifo_tmpl.vhd"
         ]
     },
-    "sw_version": "2023.2.307",
-    "generated_date": "2024-04-02T06:30:03.744897"
+    "sw_version": "2024.2.294",
+    "generated_date": "2025-07-07T04:10:19.136296+00:00"
 }
