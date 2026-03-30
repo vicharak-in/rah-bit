@@ -7,6 +7,7 @@ This project demonstrates the use of the RAH interface to communicate with the F
 1. **Addition**
 2. **Shift**
 3. **Multiplication**
+4. **Subtraction**
 
 The CPU passes the data to the FPGA in the form of a 6-byte packet. The FPGA processes the data and sends the result back to the CPU. The CPU then displays the result on the console.
 
@@ -26,13 +27,14 @@ The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
-`define TOTAL_APPS 3
+`define TOTAL_APPS 4
 
 `define ADD 1
 `define SHIFT 2
 `define MUL 3
+`define SUBB 4
 
-`define VERSION "1.2.0"
+`define VERSION "1.3.0"
 
 `define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 `define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
@@ -99,6 +101,21 @@ mul #(
     .wren           (write_apps_data[`MUL])
 );
 
+assign rd_clk[`SUBB] = calc_clk;
+assign wr_clk[`SUBB] = calc_clk;
+
+subtractor #(
+    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
+) subb (
+    .clk            (calc_clk),
+    .a              (`GET_DATA_RAH(`SUBB)),
+    .empty          (data_queue_empty[`SUBB]),
+
+    .c              (`SET_DATA_RAH(`SUBB)),
+    .rden           (request_data[`SUBB]),
+    .wren           (write_apps_data[`SUBB])
+);
+
 .....
 
 endmodule
@@ -110,7 +127,7 @@ endmodule
 
 ### On CPU
 
-This Python script is designed to perform mathematical operations (addition, shifting, and multiplication) on user-provided input. It allows the user to select a mode for calculation, input two numbers, and sends the result to the appropriate destination. Data is then transferred and displayed based on the selected mode.
+This Python script is designed to perform mathematical operations (addition, shifting, multiplication and subtraction) on user-provided input. It allows the user to select a mode for calculation, input two numbers, and sends the result to the appropriate destination. Data is then transferred and displayed based on the selected mode.
 
 The script uses multithreading to concurrently handle user input and data reception processes.
 
@@ -148,8 +165,9 @@ Select the mode:
 1. Add
 2. Shift
 3. Mult
-4. All
-5. Exit
+4. Subb
+5. All
+6. Exit
 ```
 - **Option 1: Add**  
   Perform addition on two input numbers. The program will take two input numbers and calculate their sum.
@@ -160,10 +178,13 @@ Select the mode:
 - **Option 3: Mult**  
   Perform multiplication on two input numbers. The program will multiply the two input numbers and return the result.
 
-- **Option 4: All**  
+- **Option 4: Subb**  
+  Perform subtraction on two input numbers. The program will subtract the second input from the first and return the signed result. Both positive (a > b) and negative (b > a) results are supported using two's complement representation.
+
+- **Option 5: All**  
   Execute all operations (Add, Shift, Multiply) at once. The program will perform the addition, bitwise shift, and multiplication operations in sequence and return the results for all.
 
-- **Option 5: Exit**  
+- **Option 6: Exit**  
   Exit the program. Select this option to quit the program when you're done.
 
 > [!NOTE]  
@@ -183,7 +204,8 @@ Once the data is processed, the program will display the result in decimal forma
 - Add: The result of the addition will be displayed.
 - Shift: The result of the bit-shifting operation will be displayed.
 - Mult: The result of the multiplication will be shown.
-- All: The results for all operations (Add, Shift, Multiply) will be displayed together.
+- Subb: The result of the subtraction will be shown.
+- All: The results for all operations (Add, Shift, Multiply, Subtract) will be displayed together.
 
 Example:
 

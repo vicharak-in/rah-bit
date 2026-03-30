@@ -12,16 +12,17 @@ def input_data_and_mode():
     print("1. Add")
     print("2. Shift")
     print("3. Mult")
-    print("4. All")
-    print("5. Exit")
+    print("4. Subb")
+    print("5. All")
+    print("6. Exit")
 
     # Get user's choice
-    choice = int(input("Enter the number corresponding to the function (1-4): "))
+    choice = int(input("Enter the number corresponding to the function (1-6): "))
 
     # Ensure the user enters a valid choice
-    if choice not in [1, 2, 3, 4, 5]:
-        print("Invalid choice. Please select a number between 1 and 5")
-    elif choice == 5:
+    if choice not in [1, 2, 3, 4, 5, 6]:
+        print("Invalid choice. Please select a number between 1 and 6")
+    elif choice == 6:
         exit()
     else:
         # Ask for the angle in degrees for choices 1 and 2
@@ -58,29 +59,32 @@ def int_to_hex(input_value):
 
 def transfer_data(data_in,appid):
 
-    if appid not in [1, 2, 3]:
+    if appid not in [1, 2, 3, 4]:
         pyrah.rah_write(1,data_in)
         pyrah.rah_write(2,data_in)
         pyrah.rah_write(3,data_in)
+        pyrah.rah_write(4,data_in)
     else :
         pyrah.rah_write(appid,data_in)
 
 def receive_data():
     while True:
         choice = input_data_and_mode()
-        if choice == 4:
+        if choice == 5:
             adder_data = pyrah.rah_read(1, 6)
             shift_data = pyrah.rah_read(2, 6)
             mult_data = pyrah.rah_read(3, 12)
-
+            subb_data = pyrah.rah_read(4, 6)
 
             adder_value = int.from_bytes(adder_data, byteorder='big')
             shift_value = int.from_bytes(shift_data, byteorder='big')
             mult_value = int.from_bytes(mult_data, byteorder='big')
+            subb_value = int.from_bytes(subb_data, byteorder='big', signed=True)
 
             print("Output for the adder is :", adder_value)
             print("Output for the shift is :", shift_value)
             print("Output for the multiplier is:", mult_value)
+            print("Output for the subtractor is :", subb_value)
 
         elif choice == 3:
             mult_data = pyrah.rah_read(choice,12)
@@ -88,12 +92,13 @@ def receive_data():
             print("output for multiplier is:",mult_value)
         else:
             received_data = pyrah.rah_read(choice,6)
-            decimal_value = int.from_bytes(received_data, byteorder='big')
+            decimal_value = int.from_bytes(received_data, byteorder='big', signed=True)
             if choice == 2:
                 print("output for shift is:",decimal_value)
             elif choice == 1:
                 print("output for add is:", decimal_value)
-
+            elif choice == 4:
+                print("output for subb is:", decimal_value)
 
 if __name__ == "__main__":
     receive_data()
