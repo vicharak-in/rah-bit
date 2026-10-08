@@ -34,7 +34,7 @@ The definition should be same as defined on the CPU side.
 `define MUL 3
 `define SUBB 4
 
-`define VERSION "1.3.0"
+`define VERSION "1.4.0"
 
 `define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 `define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
@@ -42,7 +42,7 @@ The definition should be same as defined on the CPU side.
 
 2. **Include and Use Calculator operation IDs in top module**:
 
-To implement the project, open existing `top.v` from the `rah-bit` repository and add the following modules to it:
+To implement the project, open existing `top.v` from the `rah-bit` repository, remove the `example_recv` / `example_trans` instances and add the following modules to it (see the [integration guide](../../docs/rah-example-integration.md) and the [1.4.0 migration notes](../../docs/migration-1.2-to-1.4.md) for the details of the interface):
 
 ```verilog
 // top.v
@@ -54,7 +54,14 @@ module top (
 
 .........
 
-/* Accesssing data from APP_WR_FIFO */
+/* Clock of the calculator apps, any of the available clocks can be used */
+wire calc_clk;
+assign calc_clk = rx_pixel_clk;
+
+/*
+ * Every app is connected to the wr_app_fifo_* (CPU to FPGA) and
+ * rd_app_fifo_* (FPGA to CPU) signals of the data path interface.
+ */
 
 assign rd_clk[`ADD] = calc_clk;
 assign wr_clk[`ADD] = calc_clk;
@@ -64,11 +71,11 @@ adder #(
 ) adder (
     .clk            (calc_clk),
     .a              (`GET_DATA_RAH(`ADD)),
-    .empty          (data_queue_empty[`ADD]),
+    .empty          (wr_app_fifo_empty[`ADD]),
 
     .c              (`SET_DATA_RAH(`ADD)),
-    .rden           (request_data[`ADD]),
-    .wren           (write_apps_data[`ADD])
+    .rden           (wr_app_fifo_rd_en[`ADD]),
+    .wren           (rd_app_fifo_wr_en[`ADD])
 );
 
 assign rd_clk[`SHIFT] = calc_clk;
@@ -79,11 +86,11 @@ shift #(
 ) shift (
     .clk            (calc_clk),
     .a              (`GET_DATA_RAH(`SHIFT)),
-    .empty          (data_queue_empty[`SHIFT]),
+    .empty          (wr_app_fifo_empty[`SHIFT]),
 
     .c              (`SET_DATA_RAH(`SHIFT)),
-    .rden           (request_data[`SHIFT]),
-    .wren           (write_apps_data[`SHIFT])
+    .rden           (wr_app_fifo_rd_en[`SHIFT]),
+    .wren           (rd_app_fifo_wr_en[`SHIFT])
 );
 
 assign rd_clk[`MUL] = calc_clk;
@@ -94,11 +101,11 @@ mul #(
 ) mul (
     .clk            (calc_clk),
     .a              (`GET_DATA_RAH(`MUL)),
-    .empty          (data_queue_empty[`MUL]),
+    .empty          (wr_app_fifo_empty[`MUL]),
 
     .c              (`SET_DATA_RAH(`MUL)),
-    .rden           (request_data[`MUL]),
-    .wren           (write_apps_data[`MUL])
+    .rden           (wr_app_fifo_rd_en[`MUL]),
+    .wren           (rd_app_fifo_wr_en[`MUL])
 );
 
 assign rd_clk[`SUBB] = calc_clk;
@@ -109,11 +116,11 @@ subtractor #(
 ) subb (
     .clk            (calc_clk),
     .a              (`GET_DATA_RAH(`SUBB)),
-    .empty          (data_queue_empty[`SUBB]),
+    .empty          (wr_app_fifo_empty[`SUBB]),
 
     .c              (`SET_DATA_RAH(`SUBB)),
-    .rden           (request_data[`SUBB]),
-    .wren           (write_apps_data[`SUBB])
+    .rden           (wr_app_fifo_rd_en[`SUBB]),
+    .wren           (rd_app_fifo_wr_en[`SUBB])
 );
 
 .....

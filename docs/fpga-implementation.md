@@ -60,13 +60,17 @@ gcc filename.c -lrah
 ./a.out
 ```
 
-For more information on the RAH API functions, refer to the RAH protocol's API [documentation](docs/cpu-usage-guide.md).
+For more information on the RAH API functions, refer to the RAH protocol's API [documentation](cpu-usage-guide.md).
 
 ---
 
 ## FPGA Side
 
 ### 1. Define Applications in a Header File (rah_var_defs.vh)
+
+`TOTAL_APPS` is the number of **user** applications. App ID `0` is reserved for
+the meta app (`rah_meta_app`), so `top.v` internally uses `TOTAL_APPS + 1`.
+User app IDs start at `1` and must match the IDs used on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
@@ -77,11 +81,35 @@ For more information on the RAH API functions, refer to the RAH protocol's API [
 `define APP_ID_3 3
 // Add more application IDs as needed
 
+`define VERSION "1.4.0"
+
 `define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 `define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 ```
 
-### 2. Include and Use Application IDs in FPGA Code
+> [!NOTE]
+> `GET_DATA_RAH` / `SET_DATA_RAH` refer to the nets `rd_data` / `wr_data`
+> declared in `top.v`. These nets are the app-side data buses of
+> `data_path_interface`, not of the decoder / encoder.
+
+### 2. Connect Your App to the Data Path Interface
+
+User apps do **not** connect to `rah_decoder` / `rah_encoder` directly. Every app
+talks to `data_path_interface`, which routes the data either through the RAH
+FIFOs or through DRAM, depending on the DRAM mode set by the CPU
+(see [DRAM and meta app](dram-and-meta-app.md)).
+
+Each app has two independent FIFOs. Both are asynchronous, so **you must assign
+a clock to each of them**; the data path performs the clock domain crossing.
+
+| Direction | Clock | Signals (index = your app ID) |
+|---|---|---|
+| CPU to FPGA (`APP_WR_FIFO`) | `rd_clk[APP]` | `wr_app_fifo_empty`, `wr_app_fifo_a_empty`, `wr_app_fifo_rd_en`, data: `` `GET_DATA_RAH(APP) `` |
+| FPGA to CPU (`APP_RD_FIFO`) | `wr_clk[APP]` | `rd_app_fifo_wr_en`, `rd_app_fifo_prog_full`, data: `` `SET_DATA_RAH(APP) `` |
+
+Naming is from the CPU's point of view: the CPU *writes* into `APP_WR_FIFO`
+(you read it on the FPGA), and the CPU *reads* from `APP_RD_FIFO` (you write it
+on the FPGA).
 
 ```verilog
 // top.v
@@ -91,84 +119,102 @@ module top (
     ..........
 );
 
-/* Accessing data from APP_WR_FIFO */
-assign rd_clk[`APP_ID_1] = rd_clk_app1;
+/* Receive from CPU (APP_WR_FIFO) */
+assign rd_clk[`APP_ID_1] = rx_pixel_clk;     // any clock your app runs on
 
 app1_recv #(
     .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) er (
-    .clk                    (rd_clk_app1),
-    .data_queue_empty       (data_queue_empty[`APP_ID_1]),
-    .data_queue_almost_empty(data_queue_almost_empty[`APP_ID_1]),
-    .request_data           (rd_request_data[`APP_ID_1])
+) a1r (
+    .clk                     (rx_pixel_clk),
+    .data_queue_empty        (wr_app_fifo_empty[`APP_ID_1]),
+    .data_queue_almost_empty (wr_app_fifo_a_empty[`APP_ID_1]),
+    .request_data            (wr_app_fifo_rd_en[`APP_ID_1]),
+    .data_frame              (`GET_DATA_RAH(`APP_ID_1))
+);
+
+/* Send to CPU (APP_RD_FIFO) */
+assign wr_clk[`APP_ID_1] = tx_pixel_clk;     // any clock your app runs on
+
+app1_trans #(
+    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
+) a1t (
+    .clk       (tx_pixel_clk),
+    .data      (`SET_DATA_RAH(`APP_ID_1)),
+    .send_data (rd_app_fifo_wr_en[`APP_ID_1])
 );
 
 endmodule
 ```
 
+The port names of your own module are up to you (the examples keep the
+`data_queue_*` / `request_data` / `send_data` names); only the signals on the
+`top.v` side are fixed.
+
 ---
 
 # FIFO Operations on FPGA and CPU Sides
 
-## Requesting Data from FIFO on FPGA Side
+## Reading Data from APP_WR_FIFO on FPGA Side
 
-When requesting data from the FIFO (`APP_WR_FIFO`), the process follows these steps:
+1. **Check that the FIFO is not empty** (`wr_app_fifo_empty` is low).
+2. **Pulse the read enable** (`wr_app_fifo_rd_en`) for one clock.
+3. **Wait one clock period.**
+4. **Sample the data** (`` `GET_DATA_RAH(APP) ``).
 
-1. **Check if the FIFO is empty.**
-2. **Assert the FIFO Enable signal.**
-3. **Wait for one clock period.**
-4. **Sample the data.**
-5. **Read data from FIFO using the read pointer.**
+`wr_app_fifo_a_empty` (almost empty) can be used if you want to drain the FIFO
+in bursts; it is optional.
 
 ```verilog
-// FPGA - Read from APP_WR_FIFO
+// FPGA - Read from APP_WR_FIFO (see rtl/example.v: example_recv)
 reg [1:0] state = 0;
-localparam IDLE = 2'b00;
-localparam WAIT = 2'b01;
-localparam READ = 2'b10;
+localparam IDLE = 2'd0;
+localparam WAIT = 2'd1;
+localparam READ = 2'd2;
 
 always @(posedge clk) begin
   case (state)
-
   IDLE: begin
-      if (!APP_WR_FIFO_empty_1) begin
-          APP_WR_FIFO_EN_1 <= 1'b1;
+      if (~data_queue_empty) begin
+          request_data <= 1'b1;
           state <= WAIT;
       end
   end
-  
+
   WAIT: begin
-      APP_WR_FIFO_EN_1 <= 0;
+      request_data <= 1'b0;
       state <= READ;
   end
 
   READ: begin
-      READ_DATA <= APP_WR_FIFO_READ_DATA_1;
+      read_data <= data_frame;
       state <= IDLE;
   end
 
-  default : state <= IDLE;
-
+  default: state <= IDLE;
   endcase
 end
 ```
 
-## Writing Data to FIFO on FPGA Side
+## Writing Data to APP_RD_FIFO on FPGA Side
 
-When writing data to the FIFO (`APP_RD_FIFO`), ensure the following steps are taken:
-
-1. **Assert the FIFO Enable signal.**
-2. **Write the data to the FIFO at the same clock edge.**
+1. Put the data on the data bus (`` `SET_DATA_RAH(APP) ``).
+2. Assert `rd_app_fifo_wr_en` for one clock **together with** the data.
+3. If your app can produce bursts, check `rd_app_fifo_prog_full` first and stop
+   writing while it is high; data written to a full FIFO is lost.
 
 ```verilog
 // FPGA - Write to APP_RD_FIFO
 always @(posedge clk) begin
-    case(state)
-    // Additional states for handling FIFO writing
+    case (state)
     WRITE: begin
-        APP_RD_FIFO_EN <= 1;
-        APP_RD_FIFO_DATA <= DATA;
+        if (~prog_full) begin       // rd_app_fifo_prog_full[APP]
+            send_data <= 1;         // one-clock strobe, with data
+            data <= DATA;
+            state <= IDLE;
+        end
     end
+
+    IDLE: send_data <= 0;
     // Other cases
     endcase
 end

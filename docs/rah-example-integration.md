@@ -1,237 +1,115 @@
 # RAH Design Integration Guide
 
-Welcome to the RAH Design Integration Guide! This document will walk you through the steps to successfully integrate the RAH design into your project. Let's get started!
+This guide walks you through integrating the RAH design (version 1.4.0) into your Efinity project and adding your own modules to it.
+
+> [!NOTE]
+> The reference for everything below is `rtl/top.v`. If a snippet here and `top.v` disagree, `top.v` is right.
+> Coming from an older RAH (1.2.x)? Read [migration-1.2-to-1.4.md](migration-1.2-to-1.4.md) first.
 
 ## Required Files
 
-Before you begin, make sure that all the necessary files are included in your project directory. The required files for the integration are:
+Make sure all of these are in your project:
 
-- `constraints.sdc`
-- `data_aligner.v`
-- `example.v`
-- `rah_decoder.v`
-- `rah_encoder.v`
-- `rah_var_defs.vh`
-- `rah_version_check.v`
-- `rrq.v`
-- `top.v`
-- `video_gen.v`
+| Path | Purpose |
+|---|---|
+| `rtl/top.v` | Top module, wires everything together |
+| `rtl/rah_var_defs.vh` | App IDs, `TOTAL_APPS`, `VERSION`, data access macros |
+| `rtl/constraints.sdc` | Clock definitions (`rx_pixel_clk`, `tx_pixel_clk`, `tx_vga_clk`, `axi_clk`) |
+| `rtl/data_aligner.v` | Aligns incoming MIPI data to RAH packets |
+| `rtl/rah_decoder.v`, `rtl/rah_encoder.v` | Depacketizer / packetizer |
+| `rtl/rrq.v`, `rtl/video_gen.v` | Used by the encoder |
+| `rtl/rah_meta_app.v` | Meta app (app 0): version check and DRAM configuration |
+| `rtl/data_path_interface.v` | Routes each app's data either via RAH FIFOs or DRAM |
+| `rtl/mem_ctrl/` | DRAM interface (AXI, request queues, arbiters) |
+| `rtl/example.v`, `rtl/uart.v` | Reference app (UART loopback) |
+| `ip/` (`async_fifo`, `async_fifo_32bit`, `sync_fifo`, `sync_128_fifo`, `synchronous_fifo`) | FIFO IP used by the decoder, encoder and data path |
+| `rah.xml`, `rah.peri.xml` | Efinity project and Interface Designer (peripheral) configuration |
 
-Ensure all these files are available before proceeding.
+> [!NOTE]
+> `rah.peri.xml` must contain the MIPI RX/TX blocks, the DDR controller, and the PLLs that generate `axi_clk`.
+> The port names of `top` (including `DdrCtrl_*_1`, `axi_clk` and `PllLocked`) must match the pin names in this file.
+> The easiest way is to start from the `rah.xml` / `rah.peri.xml` in this repository.
 
-## Steps to Add Files to Your Project
+## Steps
 
-Follow these steps to integrate the RAH design into your project:
+1. **Check the files.** Verify that every file in the table above is present, with the same names and paths.
+2. **Add the sources.** Add `rtl/` (including `rtl/mem_ctrl/`) and the `ip/` cores to your Efinity project (`rah.xml` already does this).
+3. **Set up your apps.** Edit `rah_var_defs.vh` and add your module to `top.v` (see below).
+4. **Build.** Run the Efinity flow and program the bitstream.
 
-1. **Verify File Presence**  
-   Check if all the required files are already in your project directory.
+## Clocks
 
-3. **Copy Files to Your Project**  
-   Once downloaded, copy the files into your project directory, ensuring they are placed according to the structure listed above.
+| Clock | Frequency | Used for |
+|---|---|---|
+| `rx_pixel_clk` | 25 MHz (40 ns) | MIPI RX, `data_aligner`, decoder input side |
+| `tx_pixel_clk` | 25 MHz (40 ns) | MIPI TX, encoder output side |
+| `tx_vga_clk` | 50 MHz (20 ns) | Video generation (`vid_gen_clk`) |
+| `axi_clk` | 50 MHz (20 ns) | `data_path_interface`, DRAM, `rah_meta_app`, decoder read side, encoder write side |
 
-4. **Verify File Names and Paths**  
-   Double-check that all files are named correctly and in the appropriate paths.
+`rx_pixel_clk` / `axi_clk` and `tx_pixel_clk` / `tx_vga_clk` are declared as exclusive clock groups in `constraints.sdc`.
+Your app can run on any of these clocks, or on your own, since the per-app FIFOs are asynchronous.
 
-Once you’ve confirmed that everything is in place, your RAH design integration will be up and running!
+## What `top.v` Contains
 
----
+Top-level ports, in addition to the MIPI RX/TX interfaces:
 
-## Example: `top.v` from RAH
+- `axi_clk` (input), `PllLocked[1:0]` (input): the system clock and PLL lock flags.
+- `DdrCtrl_*_1`: the AXI and reset-sequencer pass-through to the DDR controller.
+- `uart_rx_pin`, `uart_tx_pin`: used by the reference example.
 
-Here is an example of how the `top.v` file should look in your project. This file includes the integration of the RAH design modules and necessary connections.
+Parameters:
 
 ```verilog
-`include "rah_var_defs.vh"
-
-module top (
-/* Clocks of MIPI TX and RX parallel interfaces */
-    input                       rx_pixel_clk,
-    input                       tx_pixel_clk,
-    input                       tx_vga_clk,
-
-/* Signals used by the MIPI RX Interface Designer instance */
-    input                       my_mipi_rx_VALID,
-    input [3:0]                 my_mipi_rx_HSYNC,
-    input [3:0]                 my_mipi_rx_VSYNC,
-    input [63:0]                my_mipi_rx_DATA,
-    input [5:0]                 my_mipi_rx_TYPE,
-    input [1:0]                 my_mipi_rx_VC,
-    input [3:0]                 my_mipi_rx_CNT,
-    input [17:0]                my_mipi_rx_ERROR,
-    input                       my_mipi_rx_ULPS_CLK,
-    input [3:0]                 my_mipi_rx_ULPS,
-
-    output                      my_mipi_rx_DPHY_RSTN,
-    output                      my_mipi_rx_RSTN,
-    output                      my_mipi_rx_CLEAR,
-    output [1:0]                my_mipi_rx_LANES,
-    output [3:0]                my_mipi_rx_VC_ENA,
-
-/* Signals used by the MIPI TX Interface Designer instance */
-    output                      my_mipi_tx_DPHY_RSTN,
-    output                      my_mipi_tx_RSTN,
-    output                      my_mipi_tx_VALID,
-    output                      my_mipi_tx_HSYNC,
-    output                      my_mipi_tx_VSYNC,
-    output [63:0]               my_mipi_tx_DATA,
-    output [5:0]                my_mipi_tx_TYPE,
-    output [1:0]                my_mipi_tx_LANES,
-    output                      my_mipi_tx_FRAME_MODE,
-    output [15:0]               my_mipi_tx_HRES,
-    output [1:0]                my_mipi_tx_VC,
-    output [3:0]                my_mipi_tx_ULPS_ENTER,
-    output [3:0]                my_mipi_tx_ULPS_EXIT,
-    output                      my_mipi_tx_ULPS_CLK_ENTER,
-    output                      my_mipi_tx_ULPS_CLK_EXIT,
-    
-/* Connections to the GPIOs */
-    input                       uart_rx_pin,
-    output                      uart_tx_pin
-);
-
-parameter RAH_PACKET_WIDTH = 48;
-parameter ACTIVE_VID_WIDTH = 1280;
-parameter ACTIVE_VID_HEIGHT = 1024;
-parameter TOTAL_APPS = `TOTAL_APPS + 1;
-
-/* Rah Decoder definition for multiple Apps */
-assign my_mipi_rx_DPHY_RSTN = 1'b1;
-assign my_mipi_rx_RSTN = 1'b1;
-assign my_mipi_rx_CLEAR = 1'b0;
-assign my_mipi_rx_LANES = 2'b11;
-assign my_mipi_rx_VC_ENA = 4'b0001;
-
-wire [TOTAL_APPS-1:0] rd_clk;
-wire [TOTAL_APPS-1:0] request_data;
-
-wire [TOTAL_APPS-1:0] data_queue_empty;
-wire [TOTAL_APPS-1:0] data_queue_almost_empty;
-wire [TOTAL_APPS-1:0] rd_error;
-
-wire [(TOTAL_APPS*RAH_PACKET_WIDTH)-1:0] rd_data;
-
-wire [RAH_PACKET_WIDTH-1:0] aligned_data;
-wire end_of_packet;
-
-/* Align the data for the decoding process */
-data_aligner #(
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) da (
-    .clk            (rx_pixel_clk),
-
-    .mipi_data      (my_mipi_rx_DATA),
-    .end_of_packet  (end_of_packet),
-    .rx_valid       (my_mipi_rx_VALID),
-
-    .aligned_data   (aligned_data)
-);
-
-/* Depacketizing the recevied data */
-rah_decoder #(
-    .TOTAL_APPS(TOTAL_APPS),
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) rd (
-    /* rah raw input variables */
-    .clk                        (rx_pixel_clk),
-
-    .mipi_data                  (aligned_data),
-    .mipi_rx_valid              (my_mipi_rx_VALID),
-
-    .rd_clk                     (rd_clk),
-    .request_data               (request_data),
-
-    .end_of_packet              (end_of_packet),
-    .data_queue_empty           (data_queue_empty),
-    .data_queue_almost_empty    (data_queue_almost_empty),
-    .rd_data                    (rd_data),
-    .error                      (rd_error)
-);
-
-assign rd_clk[0] = rx_pixel_clk;
-assign wr_clk[0] = rx_pixel_clk;
-
-/* Rah Version verifier */
-rah_version_check #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) rvc (
-    .clk            (rx_pixel_clk),
-    .in_data        (`GET_DATA_RAH(0)),
-    .q_empty        (data_queue_empty[0]),
-
-    .request_data   (request_data[0]),
-    .w_en           (write_apps_data[0]),
-    .out_data       (`SET_DATA_RAH(0))
-);
-
-/* Periplex instantiation for multiplexing peripherals */
-assign rd_clk[`EXAMPLE] = rx_pixel_clk; 
-
-
-/* Send data to processor */
-wire [TOTAL_APPS-1:0] wr_clk;
-wire [(TOTAL_APPS*RAH_PACKET_WIDTH)-1:0] wr_data;
-wire [TOTAL_APPS-1:0] write_apps_data;
-wire [TOTAL_APPS-1:0] wr_fifo_full;
-wire [TOTAL_APPS-1:0] wr_almost_fifo_full;
-wire [TOTAL_APPS-1:0] wr_prog_fifo_full;
-
-wire vid_gen_clk;
-assign vid_gen_clk = tx_vga_clk;
-
-wire mipi_out_rst;
-wire mipi_valid;
-wire [RAH_PACKET_WIDTH-1:0] mipi_out_data;
-wire hsync;
-wire vsync;
-
-rah_encoder #(
-    .TOTAL_APPS(TOTAL_APPS),
-    .WIDTH(ACTIVE_VID_WIDTH),
-    .HEIGHT(ACTIVE_VID_HEIGHT),
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) re (
-    .clk                    (tx_pixel_clk),
-    .vid_gen_clk            (vid_gen_clk),
-
-    .send_data              (write_apps_data),
-    .wr_clk                 (wr_clk),
-    .wr_data                (wr_data),
-
-    .wr_fifo_full           (wr_fifo_full),
-    .wr_almost_fifo_full    (wr_almost_fifo_full),
-    .wr_prog_fifo_full      (wr_prog_fifo_full),
-
-    .mipi_rst               (mipi_out_rst),
-    .mipi_valid             (mipi_valid),
-    .mipi_data              (mipi_out_data),
-    .hsync_patgen           (hsync),
-    .vsync_patgen           (vsync)
-);
-
-assign wr_clk[`EXAMPLE] = tx_pixel_clk;
-
-
-assign my_mipi_tx_DPHY_RSTN = ~mipi_out_rst;
-assign my_mipi_tx_RSTN = ~mipi_out_rst;
-assign my_mipi_tx_VALID = mipi_valid;
-assign my_mipi_tx_HSYNC = hsync;
-assign my_mipi_tx_VSYNC = vsync;
-assign my_mipi_tx_DATA = mipi_out_data;
-assign my_mipi_tx_TYPE = 6'h24;
-assign my_mipi_tx_LANES = 2'b11;
-assign my_mipi_tx_FRAME_MODE = 1'b0;
-assign my_mipi_tx_HRES = ACTIVE_VID_WIDTH;
-assign my_mipi_tx_VC = 2'b00;
-assign my_mipi_tx_ULPS_ENTER = 4'b0000;
-assign my_mipi_tx_ULPS_EXIT = 4'b0000;
-assign my_mipi_tx_ULPS_CLK_ENTER = 1'b0;
-assign my_mipi_tx_ULPS_CLK_EXIT = 1'b0;
-
-endmodule
+parameter RAH_PACKET_WIDTH   = 48;
+parameter ACTIVE_VID_WIDTH   = 320;
+parameter ACTIVE_VID_HEIGHT  = 240;
+parameter DRAM_ADDRESS_WIDTH = 32;
+parameter APP_MODE_WIDTH     = 2;
+parameter TOTAL_APPS         = `TOTAL_APPS + 1;   // +1 for the meta app (app 0)
+parameter RAH_ADDR_WIDTH     = 9;
 ```
-## Example of Adder Module
 
-Here is an example of the adder module you might want to add to your design:
+Data flow:
+
+```
+ MIPI RX -> data_aligner -> rah_decoder -> data_path_interface -> your app   (CPU to FPGA)
+                                 ^                  |  ^
+                      rah_meta_app (app 0)          v  |
+                                              dram_interface <-> DDR
+
+ your app -> data_path_interface -> rah_encoder -> MIPI TX                   (FPGA to CPU)
+```
+
+- `rah_meta_app` (instance `rma`) is app 0. It reads CPU requests straight from the decoder and answers through the encoder (`rah_dec_async_rd_data`, `rah_enc_async_wr_data`). It reports the `VERSION` and drives `dram_start_addr`, `dram_stop_addr` and `dram_app_mode` from the CPU's DRAM configuration. See [dram-and-meta-app.md](dram-and-meta-app.md).
+- `data_path_interface` (instance `DATA_PATH_INTERFACE`) holds the per-app FIFOs. `dram_app_mode` is wired to its `path_select`.
+- `rah_decoder` / `rah_encoder` no longer take per-app clocks; `rd_clk` / `wr_clk` are the single `axi_clk`.
+- The MIPI TX reset outputs (`my_mipi_tx_DPHY_RSTN`, `my_mipi_tx_RSTN`) are tied to `1`.
+
+## Adding Your Own App
+
+### 1. Choose an ID in `rah_var_defs.vh`
+
+Following the example of an adder app:
+
+```verilog
+// rah_var_defs.vh
+`define TOTAL_APPS 1
+
+`define ADD 1
+
+`define VERSION "1.4.0"
+
+`define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
+`define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
+```
+
+- `TOTAL_APPS` is the number of user apps, without the meta app.
+- App IDs start at `1`; they must be the same on the CPU side.
+- Bump `VERSION` whenever you change something the CPU side must know about.
+
+### 2. Write the module
+
+Your module only sees plain FIFO-style ports. Nothing in it depends on `data_path_interface`:
 
 ```verilog
 module adder (
@@ -243,237 +121,61 @@ module adder (
   output reg                          wren = 0
 );
 ```
-If you want to add the adder module to your project, you'll need to instantiate it correctly in the design. Here’s an example of how to instantiate the adder module:
-```verilog
-adder #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) adder (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`ADD)),
-    .empty          (data_queue_empty[`ADD]),
-    .c              (`SET_DATA_RAH(`ADD)),
-    .rden           (request_data[`ADD]),
-    .wren           (write_apps_data[`ADD])
-);
-```
-In this example, ADD refers to the app_id of the device that the adder is connected to. The app_id specifies the application instance in the design, which is set as 1 for this example.
 
-Make sure to update the header file (rah_var_defs.vh) to define the app_id and other macros:
+### 3. Instantiate it in `top.v`
 
-Header file of the rah will look like this.
+Replace the `example_recv` / `example_trans` instances in `top.v` with yours. The CPU-to-FPGA side uses `rd_clk`, `wr_app_fifo_*` and `GET_DATA_RAH`; the FPGA-to-CPU side uses `wr_clk`, `rd_app_fifo_*` and `SET_DATA_RAH`:
 
 ```verilog
-`define TOTAL_APPS 1
-
-`define ADD 1
-
-`define VERSION "1.2.0"
-
-`define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
-`define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
-```
-
-Once you’ve updated your header file, your top.v module will look like this:
-
-```verilog
-
-`include "rah_var_defs.vh"
-module top (
-/* Clocks of MIPI TX and RX parallel interfaces */
-    input                       rx_pixel_clk,
-    input                       tx_pixel_clk,
-    input                       tx_vga_clk,
-/* Signals used by the MIPI RX Interface Designer instance */
-    input                       my_mipi_rx_VALID,
-    input [3:0]                 my_mipi_rx_HSYNC,
-    input [3:0]                 my_mipi_rx_VSYNC,
-    input [63:0]                my_mipi_rx_DATA,
-    input [5:0]                 my_mipi_rx_TYPE,
-    input [1:0]                 my_mipi_rx_VC,
-    input [3:0]                 my_mipi_rx_CNT,
-    input [17:0]                my_mipi_rx_ERROR,
-    input                       my_mipi_rx_ULPS_CLK,
-    input [3:0]                 my_mipi_rx_ULPS,
-    output                      my_mipi_rx_DPHY_RSTN,
-    output                      my_mipi_rx_RSTN,
-    output                      my_mipi_rx_CLEAR,
-    output [1:0]                my_mipi_rx_LANES,
-    output [3:0]                my_mipi_rx_VC_ENA,
-/* Signals used by the MIPI TX Interface Designer instance */
-    output                      my_mipi_tx_DPHY_RSTN,
-    output                      my_mipi_tx_RSTN,
-    output                      my_mipi_tx_VALID,
-    output                      my_mipi_tx_HSYNC,
-    output                      my_mipi_tx_VSYNC,
-    output [63:0]               my_mipi_tx_DATA,
-    output [5:0]                my_mipi_tx_TYPE,
-    output [1:0]                my_mipi_tx_LANES,
-    output                      my_mipi_tx_FRAME_MODE,
-    output [15:0]               my_mipi_tx_HRES,
-    output [1:0]                my_mipi_tx_VC,
-    output [3:0]                my_mipi_tx_ULPS_ENTER,
-    output [3:0]                my_mipi_tx_ULPS_EXIT,
-    output                      my_mipi_tx_ULPS_CLK_ENTER,
-    output                      my_mipi_tx_ULPS_CLK_EXIT,
-/* Connections to the GPIOs */
-    input                       uart_rx_pin,
-    output                      uart_tx_pin
-);
-parameter RAH_PACKET_WIDTH = 48;
-parameter ACTIVE_VID_WIDTH = 1280;
-parameter ACTIVE_VID_HEIGHT = 1024;
-parameter TOTAL_APPS = `TOTAL_APPS + 1;
-/* Rah Decoder definition for multiple Apps */
-assign my_mipi_rx_DPHY_RSTN = 1'b1;
-assign my_mipi_rx_RSTN = 1'b1;
-assign my_mipi_rx_CLEAR = 1'b0;
-assign my_mipi_rx_LANES = 2'b11;
-assign my_mipi_rx_VC_ENA = 4'b0001;
-wire [TOTAL_APPS-1:0] rd_clk;
-wire [TOTAL_APPS-1:0] request_data;
-wire [TOTAL_APPS-1:0] data_queue_empty;
-wire [TOTAL_APPS-1:0] data_queue_almost_empty;
-wire [TOTAL_APPS-1:0] rd_error;
-wire [(TOTAL_APPS*RAH_PACKET_WIDTH)-1:0] rd_data;
-wire [RAH_PACKET_WIDTH-1:0] aligned_data;
-wire end_of_packet;
-/* Align the data for the decoding process */
-data_aligner #(
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) da (
-    .clk            (rx_pixel_clk),
-    .mipi_data      (my_mipi_rx_DATA),
-    .end_of_packet  (end_of_packet),
-    .rx_valid       (my_mipi_rx_VALID),
-    .aligned_data   (aligned_data)
-);
-/* Depacketizing the recevied data */
-rah_decoder #(
-    .TOTAL_APPS(TOTAL_APPS),
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) rd (
-    /* rah raw input variables */
-    .clk                        (rx_pixel_clk),
-    .mipi_data                  (aligned_data),
-    .mipi_rx_valid              (my_mipi_rx_VALID),
-    .rd_clk                     (rd_clk),
-    .request_data               (request_data),
-    .end_of_packet              (end_of_packet),
-    .data_queue_empty           (data_queue_empty),
-    .data_queue_almost_empty    (data_queue_almost_empty),
-    .rd_data                    (rd_data),
-    .error                      (rd_error)
-);
-assign rd_clk[0] = rx_pixel_clk;
-assign wr_clk[0] = rx_pixel_clk;
-/* Rah Version verifier */
-rah_version_check #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) rvc (
-    .clk            (rx_pixel_clk),
-    .in_data        (`GET_DATA_RAH(0)),
-    .q_empty        (data_queue_empty[0]),
-    .request_data   (request_data[0]),
-    .w_en           (write_apps_data[0]),
-    .out_data       (`SET_DATA_RAH(0))
-);
-wire [TOTAL_APPS-1:0] wr_clk;
-wire [(TOTAL_APPS*RAH_PACKET_WIDTH)-1:0] wr_data;
-wire [TOTAL_APPS-1:0] write_apps_data;
-wire [TOTAL_APPS-1:0] wr_fifo_full;
-wire [TOTAL_APPS-1:0] wr_almost_fifo_full;
-wire [TOTAL_APPS-1:0] wr_prog_fifo_full;
-wire vid_gen_clk;
-assign vid_gen_clk = tx_vga_clk;
-wire mipi_out_rst;
-wire mipi_valid;
-wire [RAH_PACKET_WIDTH-1:0] mipi_out_data;
-wire hsync;
-wire vsync;
-rah_encoder #(
-    .TOTAL_APPS(TOTAL_APPS),
-    .WIDTH(ACTIVE_VID_WIDTH),
-    .HEIGHT(ACTIVE_VID_HEIGHT),
-    .DATA_WIDTH(RAH_PACKET_WIDTH)
-) re (
-    .clk                    (tx_pixel_clk),
-    .vid_gen_clk            (vid_gen_clk),
-    .send_data              (write_apps_data),
-    .wr_clk                 (wr_clk),
-    .wr_data                (wr_data),
-    .wr_fifo_full           (wr_fifo_full),
-    .wr_almost_fifo_full    (wr_almost_fifo_full),
-    .wr_prog_fifo_full      (wr_prog_fifo_full),
-    .mipi_rst               (mipi_out_rst),
-    .mipi_valid             (mipi_valid),
-    .mipi_data              (mipi_out_data),
-    .hsync_patgen           (hsync),
-    .vsync_patgen           (vsync)
-);
 wire calc_clk;
 assign calc_clk = rx_pixel_clk;
-assign rd_clk[`ADD] = calc_clk;
-assign wr_clk[`ADD] = calc_clk;
+
+assign rd_clk[`ADD] = calc_clk;   // clock of APP_WR_FIFO (CPU to FPGA)
+assign wr_clk[`ADD] = calc_clk;   // clock of APP_RD_FIFO (FPGA to CPU)
+
 adder #(
     .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
 ) adder (
     .clk            (calc_clk),
     .a              (`GET_DATA_RAH(`ADD)),
-    .empty          (data_queue_empty[`ADD]),
+    .empty          (wr_app_fifo_empty[`ADD]),
+    .rden           (wr_app_fifo_rd_en[`ADD]),
+
     .c              (`SET_DATA_RAH(`ADD)),
-    .rden           (request_data[`ADD]),
-    .wren           (write_apps_data[`ADD])
+    .wren           (rd_app_fifo_wr_en[`ADD])
 );
-assign rd_clk[`SHIFT] = calc_clk;
-assign wr_clk[`SHIFT] = calc_clk;
-shift #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) shift (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`SHIFT)),
-    .empty          (data_queue_empty[`SHIFT]),
-    .c              (`SET_DATA_RAH(`SHIFT)),
-    .rden           (request_data[`SHIFT]),
-    .wren           (write_apps_data[`SHIFT])
-);
-assign rd_clk[`MUL] = calc_clk;
-assign wr_clk[`MUL] = calc_clk;
-mul #(
-    .RAH_PACKET_WIDTH(RAH_PACKET_WIDTH)
-) mul (
-    .clk            (calc_clk),
-    .a              (`GET_DATA_RAH(`MUL)),
-    .empty          (data_queue_empty[`MUL]),
-    .c              (`SET_DATA_RAH(`MUL)),
-    .rden           (request_data[`MUL]),
-    .wren           (write_apps_data[`MUL])
-);
-assign my_mipi_tx_DPHY_RSTN = ~mipi_out_rst;
-assign my_mipi_tx_RSTN = ~mipi_out_rst;
-assign my_mipi_tx_VALID = mipi_valid;
-assign my_mipi_tx_HSYNC = hsync;
-assign my_mipi_tx_VSYNC = vsync;
-assign my_mipi_tx_DATA = mipi_out_data;
-assign my_mipi_tx_TYPE = 6'h24;
-assign my_mipi_tx_LANES = 2'b11;
-assign my_mipi_tx_FRAME_MODE = 1'b0;
-assign my_mipi_tx_HRES = ACTIVE_VID_WIDTH;
-assign my_mipi_tx_VC = 2'b00;
-assign my_mipi_tx_ULPS_ENTER = 4'b0000;
-assign my_mipi_tx_ULPS_EXIT = 4'b0000;
-assign my_mipi_tx_ULPS_CLK_ENTER = 1'b0;
-assign my_mipi_tx_ULPS_CLK_EXIT = 1'b0;
-endmodule
 ```
 
+`ADD` is the app ID; it is `1` here.
 
-By following these steps, you should be able to successfully integrate the RAH design into your project and add any custom modules, like the adder, into the design flow.
+| Your module's port | Connect to in `top.v` |
+|---|---|
+| input: FIFO empty | `wr_app_fifo_empty[APP]` |
+| input: FIFO almost empty (optional) | `wr_app_fifo_a_empty[APP]` |
+| output: read enable | `wr_app_fifo_rd_en[APP]` |
+| input: data from CPU | `` `GET_DATA_RAH(APP) `` |
+| output: data to CPU | `` `SET_DATA_RAH(APP) `` |
+| output: write enable | `rd_app_fifo_wr_en[APP]` |
+| input: FIFO nearly full (optional) | `rd_app_fifo_prog_full[APP]` |
+
+The read handshake is: when not empty, pulse read enable for one clock, wait one clock, then sample the data. See [fpga-implementation.md](fpga-implementation.md).
 
 > [!NOTE]
-> 1. The `adder.v` file is an example provided in the "example" folder for your understanding. You can also check out other examples there for additional guidance on implementing similar modules.  
-> 2. The `.bit` and `.hex` files for the same project are also available in the [releases](https://github.com/vicharak-in/rah-bit/releases/tag/calc_ops_bitstream). Please feel free to use them as needed.
+> The per-app FIFOs are asynchronous. It is mandatory to assign `rd_clk[APP]` and `wr_clk[APP]` for every app.
+> If an app only receives or only sends, still assign both clocks.
 
-If you encounter any issues, feel free to refer to this guide for help or reach out for further clarification!
+### Multiple apps
 
-Good luck with your integration, and happy coding!
+Repeat steps 1-3 for every app, with a unique ID each, and set `TOTAL_APPS` accordingly. [`examples/calc_ops`](../examples/calc_ops/README.md) does this for three apps (`ADD`, `SHIFT`, `MUL`).
 
+## Verifying
+
+1. Program the bitstream.
+2. On the CPU, make sure `rah-service` is running and the FPGA overlay is enabled (see the [README](../README.md)).
+3. Run a CPU example against your app IDs, for example `rah_write` / `rah_read` as described in the [CPU usage guide](cpu-usage-guide.md).
+4. `rah_check_version_compatible()` returns `1` when the `VERSION` reported by the bitstream is new enough for the installed CPU library, `0` when it is not (and `-1` if not run as root).
+
+> [!NOTE]
+> The `.bit` and `.hex` files for the calc_ops project are available in the [releases](https://github.com/vicharak-in/rah-bit/releases/tag/calc_ops_bitstream). Check that the release version matches the library version on your board.
+
+If you run into trouble, compare your `top.v` against the one in this repository first.

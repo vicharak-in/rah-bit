@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="rah" description="" last_change="1738413708" sw_version="2023.2.307" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="rah" description="" last_change="1777976989" sw_version="2023.2.307" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="change" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Trion"/>
         <efx:device name="T120F324"/>
@@ -16,7 +16,30 @@
         <efx:design_file name="rtl/uart.v" version="default" library="default"/>
         <efx:design_file name="rtl/rrq.v" version="default" library="default"/>
         <efx:design_file name="rtl/data_aligner.v" version="default" library="default"/>
-        <efx:design_file name="rtl/rah_version_check.v" version="default" library="default"/>
+        <efx:design_file name="rtl/rah_meta_app.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/mem_wr_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/axi_rd_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/dram_controller.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/dram_interface.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/req_manager.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/ddr_reset_sequencer.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/rd_rqst_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/req_queue_gen.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/axi4_fulldeplex.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/port_controller.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/wr_req_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/vector_mux_param.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/axi_wr_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/axi_top.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/mem_rd_ctrl.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/rd_id_manager.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/wr_id_manager.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/port_ctrl_gen.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/rr_arb.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/rah2app_interface.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/async_to_sync.v" version="default" library="default"/>
+        <efx:design_file name="rtl/mem_ctrl/fifo_to_fifo.v" version="default" library="default"/>
+        <efx:design_file name="rtl/data_path_interface.v" version="default" library="default"/>
         <efx:top_vhdl_arch name=""/>
     </efx:design_info>
     <efx:constraint_info>
@@ -31,6 +54,12 @@
         </efx:ip>
         <efx:ip instance_name="synchronous_fifo" path="ip/synchronous_fifo/settings.json">
             <efx:ip_src_file name="synchronous_fifo.v"/>
+        </efx:ip>
+        <efx:ip instance_name="sync_fifo" path="ip/sync_fifo/settings.json">
+            <efx:ip_src_file name="sync_fifo.v"/>
+        </efx:ip>
+        <efx:ip instance_name="sync_128_fifo" path="ip/sync_128_fifo/settings.json">
+            <efx:ip_src_file name="sync_128_fifo.v"/>
         </efx:ip>
     </efx:ip_info>
     <efx:synthesis tool_name="efx_map">
@@ -64,6 +93,8 @@
         <efx:param name="mult_output_regs_packing" value="1" value_type="e_option"/>
         <efx:param name="include" value="ip/async_fifo" value_type="e_string"/>
         <efx:param name="include" value="ip/synchronous_fifo" value_type="e_string"/>
+        <efx:param name="include" value="ip/sync_fifo" value_type="e_string"/>
+        <efx:param name="include" value="ip/sync_128_fifo" value_type="e_string"/>
     </efx:synthesis>
     <efx:place_and_route tool_name="efx_pnr">
         <efx:param name="work_dir" value="work_pnr" value_type="e_string"/>

@@ -1,0 +1,45 @@
+{
+    "args": [
+        "-o",
+        "sync_128_fifo",
+        "--base_path",
+        "/home/reddy/optimise_rah2_ddr/rah-ddr/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "memory",
+            "name": "efx_fifo_top",
+            "version": "5.1"
+        }
+    ],
+    "conf": {
+        "SYNC_CLK": "1",
+        "SYNC_STAGE": "2",
+        "DEPTH_2": "8",
+        "DATA_WIDTH": "128",
+        "MODE": "\"STANDARD\"",
+        "OUTPUT_REG": "0",
+        "PROG_FULL_ASSERT": "200",
+        "PROGRAMMABLE_FULL": "\"STATIC_SINGLE\"",
+        "PFN_INTERNAL": "199",
+        "PEA_INTERNAL": "2",
+        "PEN_INTERNAL": "3",
+        "PROGRAMMABLE_EMPTY": "\"NONE\"",
+        "OPTIONAL_FLAGS": "1",
+        "PIPELINE_REG": "1",
+        "FAMILY": "\"TRION\"",
+        "ASYM_WIDTH_RATIO": "4",
+        "BYPASS_RESET_SYNC": "0",
+        "ENDIANESS": "0"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/reddy/optimise_rah2_ddr/rah-ddr/ip/sync_128_fifo/sync_128_fifo_define.vh",
+            "/home/reddy/optimise_rah2_ddr/rah-ddr/ip/sync_128_fifo/sync_128_fifo_tmpl.v",
+            "/home/reddy/optimise_rah2_ddr/rah-ddr/ip/sync_128_fifo/sync_128_fifo.v",
+            "/home/reddy/optimise_rah2_ddr/rah-ddr/ip/sync_128_fifo/sync_128_fifo_tmpl.vhd"
+        ]
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2026-04-22T07:14:18.868711"
+}

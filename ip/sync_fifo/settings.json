@@ -1,0 +1,45 @@
+{
+    "args": [
+        "-o",
+        "sync_fifo",
+        "--base_path",
+        "/home/reddy/Documents/Vicharak/Project_2/Rah_To_DDR_Final/ip",
+        "--vlnv",
+        {
+            "vendor": "efinixinc.com",
+            "library": "memory",
+            "name": "efx_fifo_top",
+            "version": "5.1"
+        }
+    ],
+    "conf": {
+        "SYNC_CLK": "1",
+        "SYNC_STAGE": "2",
+        "DEPTH_2": "9",
+        "DATA_WIDTH": "41",
+        "MODE": "\"STANDARD\"",
+        "OUTPUT_REG": "0",
+        "PROG_FULL_ASSERT": "128",
+        "PROGRAMMABLE_FULL": "\"STATIC_SINGLE\"",
+        "PFN_INTERNAL": "127",
+        "PEA_INTERNAL": "2",
+        "PEN_INTERNAL": "3",
+        "PROGRAMMABLE_EMPTY": "\"NONE\"",
+        "OPTIONAL_FLAGS": "1",
+        "PIPELINE_REG": "1",
+        "FAMILY": "\"TRION\"",
+        "ASYM_WIDTH_RATIO": "4",
+        "BYPASS_RESET_SYNC": "0",
+        "ENDIANESS": "0"
+    },
+    "output": {
+        "external_source_source": [
+            "/home/reddy/Documents/Vicharak/Project_2/Rah_To_DDR_Final/ip/sync_fifo/sync_fifo_tmpl.vhd",
+            "/home/reddy/Documents/Vicharak/Project_2/Rah_To_DDR_Final/ip/sync_fifo/sync_fifo_define.vh",
+            "/home/reddy/Documents/Vicharak/Project_2/Rah_To_DDR_Final/ip/sync_fifo/sync_fifo_tmpl.v",
+            "/home/reddy/Documents/Vicharak/Project_2/Rah_To_DDR_Final/ip/sync_fifo/sync_fifo.v"
+        ]
+    },
+    "sw_version": "2023.2.307",
+    "generated_date": "2024-11-21T03:50:56.797208"
+}

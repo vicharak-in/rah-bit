@@ -20,12 +20,11 @@ The definition should be same as defined on the CPU side.
 
 ```verilog
 // rah_var_defs.vh
-`define TOTAL_APPS 2
+`define TOTAL_APPS 1
 
 `define RAH2UART 1
-`define XYZ 2
 
-`define VERSION "1.2.0"
+`define VERSION "1.4.0"
 
 `define GET_DATA_RAH(a) rd_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
 `define SET_DATA_RAH(a) wr_data[a * RAH_PACKET_WIDTH +: RAH_PACKET_WIDTH]
@@ -45,7 +44,10 @@ module top (
 
 ........
 
-/* Accesssing data from APP_WR_FIFO */
+/* Clock of the app, any of the available clocks can be used */
+wire rah2uart_clk;
+assign rah2uart_clk = rx_pixel_clk;
+
 
 assign rd_clk[`RAH2UART] = rah2uart_clk;
 assign wr_clk[`RAH2UART] = rah2uart_clk;
@@ -54,14 +56,14 @@ rah2uart #(
     .RAH_PACKET_WIDTH       (RAH_PACKET_WIDTH)
 ) er (
     .clk                    (rah2uart_clk),
-    .data_queue_empty       (data_queue_empty[`RAH2UART]),
-    .data_queue_almost_empty(data_queue_almost_empty[`RAH2UART]),
+    .data_queue_empty       (wr_app_fifo_empty[`RAH2UART]),
+    .data_queue_almost_empty(wr_app_fifo_a_empty[`RAH2UART]),
     .data_frame             (`GET_DATA_RAH(`RAH2UART)),
     .uart_rx_pin            (uart_rx_pin),
 
     .tx_data                (`SET_DATA_RAH(`RAH2UART)),
-    .send_data              (write_apps_data[`RAH2UART]),
-    .request_data           (request_data[`RAH2UART]),
+    .send_data              (rd_app_fifo_wr_en[`RAH2UART]),
+    .request_data           (wr_app_fifo_rd_en[`RAH2UART]),
     .uart_tx_pin            (uart_tx_pin)
 );
 
@@ -87,8 +89,8 @@ After doing that, compile and run it by:
 
 ```bash
 make
-./bin/uart
+./bin/rah2uart
 ```
 
-This will start the uart process, and now whatever you type on will be sent on
+This will start the rah2uart process, and now whatever you type on will be sent on
 FPGA's UART and whatever FPGA side it receives will be seen here.
